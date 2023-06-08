@@ -1,10 +1,10 @@
-using CameraAPI.Models;
+using WebApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace CameraAPI.Controllers
+namespace WebApp.Controllers
 {
     [Route("api/admin")]
     [ApiController]

@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using WebApp.Models;
 
-namespace CameraAPI.Controllers
+namespace WebApp.Controllers
 {
     [Route("api/user")]
     [ApiController]

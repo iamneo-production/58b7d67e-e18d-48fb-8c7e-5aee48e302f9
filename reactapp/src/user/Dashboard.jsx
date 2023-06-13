@@ -120,6 +120,7 @@ function Dashboard() {
       getServiceCenterData();
   }, [])
   useEffect(() => {
+  const fetchData = async () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
@@ -131,12 +132,17 @@ function Dashboard() {
             const city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
             setLocation(city);
             setPosition({ latitude, longitude });
+          })
+          .catch(error => {
+            // Handle any errors that occur during the fetch or data processing
+            console.error(error);
           });
       });
-    } else {
-      setLocation('Geolocation is not supported by this browser.');
     }
-  }, []);
+  };
+
+  fetchData();
+}, []);
   useEffect(() => {
     getServiceCenterData();
   }, []);

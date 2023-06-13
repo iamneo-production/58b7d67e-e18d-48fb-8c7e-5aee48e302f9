@@ -140,7 +140,6 @@ function Dashboard() {
       });
     }
   };
-
   fetchData();
 }, []);
   useEffect(() => {

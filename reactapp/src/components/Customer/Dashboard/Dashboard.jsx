@@ -132,6 +132,7 @@ function Dashboard() {
       getServiceCenterData();
   }, [navigate,userPage])
   useEffect(() => {
+<<<<<<< HEAD:reactapp/src/components/Customer/Dashboard/Dashboard.jsx
     const fetchData = async () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -153,6 +154,30 @@ function Dashboard() {
     fetchData();
   }, []);
 
+=======
+  const fetchData = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
+            setLocation(city);
+            setPosition({ latitude, longitude });
+          })
+          .catch(error => {
+            // Handle any errors that occur during the fetch or data processing
+            console.error(error);
+          });
+      });
+    }
+  };
+  fetchData();
+}, []);
+>>>>>>> a0805561b6f45dad3048b168b9c5e83b1e016079:reactapp/src/user/Dashboard.jsx
   useEffect(() => {
     getServiceCenterData();
   }, []);

@@ -17,53 +17,75 @@ namespace WebApp.Controllers
     public class ServiceCenterController : ControllerBase
     {
         BusinessLayer businesslayer = new BusinessLayer();
+        
         [HttpPost]
         [Route("availableSlots")]
-        public string availableSlots(AppointmentModel m)
+        public IActionResult availableSlots(AppointmentModel m)
         {
-            return businesslayer.availableSlots(m);
+            string result = businesslayer.availableSlots(m);
+            return Ok(result);
         }
+
+
         [HttpGet]
         [Route("admin/getservicecenter")]
-        public List<ServiceCenterModel> viewServiceCenter()
+        public IActionResult viewServiceCenter()
         {
-            return businesslayer.viewServiceCenter();
+            List<ServiceCenterModel> result = businesslayer.viewServiceCenter();
+        return Ok(result);
         }
+
+
         [HttpGet]
         [Route("viewServiceCenterByID/{serivceCenterId}")]
-        public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
+        public IActionResult viewServiceCenterByID(string serivceCenterId)
         {
-            return businesslayer.viewServiceCenterByID(serivceCenterId);
+            ServiceCenterModel result = businesslayer.viewServiceCenterByID(serivceCenterId);
+            return Ok(result);
         }
+
         [HttpPut]
         [Route("updateGetSlots/{serviceCenterId}")]
-        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
+        public IActionResult updateGetSlots(string serviceCenterId, AppointmentModel model)
         {
-            return businesslayer.updateGetSlots(serviceCenterId, model);
+            string result = businesslayer.updateGetSlots(serviceCenterId, model);
+            return Ok(result);
         }
+
+
         [HttpDelete]
         [Route("admin/deleteServiceCenter/{serivceCenterId}")]
-        public string deleteServiceCenter(string serivceCenterId)
+
+        public IActionResult deleteServiceCenter(string serivceCenterId)
         {
-            return businesslayer.deleteServiceCenter(serivceCenterId);
+            string result = businesslayer.deleteServiceCenter(serivceCenterId);
+            return Ok(result);
         }
+
+
         [HttpDelete]
         [Route("deleteAvailableSlots/{serviceCenterId}")]
-        public string deleteAvailableSlots(string serviceCenterId)
+        public IActionResult deleteAvailableSlots(string serviceCenterId)
         {
-            return businesslayer.deleteAvailableSlots(serviceCenterId);
+            string result = businesslayer.deleteAvailableSlots(serviceCenterId);
+            return Ok(result);
         }
+
+
         [HttpPost]
         [Route("admin/addServiceCenter")]
-        public string addServiceCenter([FromBody] JsonElement jsonData)
+        public IActionResult addServiceCenter([FromBody] JsonElement jsonData)
         {
-            return businesslayer.addServiceCenter(jsonData);
+            string result = businesslayer.addServiceCenter(jsonData);
+            return Ok(result);
         }
+
         [HttpPut]
         [Route("admin/editServiceCenter/{serviceCenterId}")]
-        public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+        public IActionResult editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
         {
-            return businesslayer.editServiceCenter(serviceCenterId, jsonData);
+            string result = businesslayer.editServiceCenter(serviceCenterId, jsonData);
+            return Ok(result);
         }
         public class TimeSpanConverter : JsonConverter<TimeSpan>
         {

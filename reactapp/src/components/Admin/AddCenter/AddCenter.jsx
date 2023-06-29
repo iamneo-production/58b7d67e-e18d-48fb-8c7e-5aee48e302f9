@@ -2,14 +2,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AddCenter from '../components/addCenter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
-
+import {Box} from '@mui/material';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-function AddServiceCenter() {
+import Adminsidebar from '../../Navbar/Adminsidebar';
+import Admintopbar from '../../Navbar/Admintopbar';
+import '../../Styling/LoadingScreen.css';
+import {  FadeLoader } from 'react-spinners';
+import { API_URLS } from '../../Apis/config.js';
+
+
+function AddCenter() {
+  const[adminPage] = useState('Add Service Center');
   const [addCenterId, setCenterId] = useState();
   const [addName, setName] = useState();
   const [addNumber, setNumber] = useState();
@@ -20,6 +27,8 @@ function AddServiceCenter() {
   const [addStartTime, setStartTime] = useState();
   const [addEndTime, setEndTime] = useState();
   const [addCentreDescription, setDescription] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
  let navigate =useNavigate();
 
  const  handleCenterIdChange = (value) => {
@@ -56,14 +65,11 @@ function AddServiceCenter() {
     setDescription(value);
   };
 
-
-
   useEffect(()=>{
     const email =localStorage.getItem('email')
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/getAdminByEmailId/?email=${email}`)
+    localStorage.setItem('adminPage', adminPage)
+    axios.get(`${API_URLS.getUserByEmailId}?email=${email}`)
     .then((result)=>{
-      // setUserName(result.data.username)
-      // setUserRole(result.data.userRole)
       if(result.data.userRole==="user"){
         localStorage.removeItem("email");
         navigate("/")
@@ -72,7 +78,7 @@ function AddServiceCenter() {
     }).catch((error)=>{
 
     })
-  },[])
+  },[navigate, adminPage])
 
   function calculateTotalTime(startTime, endTime) {
     const start = moment(startTime, 'hh:mm A');
@@ -99,14 +105,14 @@ function AddServiceCenter() {
       return `${interval.format('HH:mm')} - ${intervalEnd.format('HH:mm')}`;
     });
     e.preventDefault();
+    setIsLoading(true);
     const data1 = {
       serviceCenterId: addCenterId,
       availableSlots : intervalStrings
        };
       
-    const url1 = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/availableSlots';
     axios
-      .post(url1, data1)
+      .post(API_URLS.availableSlots, data1)
       .then((result) => {
         e.preventDefault();
         const data = {
@@ -121,22 +127,26 @@ function AddServiceCenter() {
           serviceCenterEndTime: addEndTime,
           serviceCenterDescription: addCentreDescription,
         };
-        const url = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/admin/addServiceCenter';
-        axios.post(url, data).then((result) => {
+        
+        axios.post(API_URLS.addServiceCenter, data).then((result) => {
           if(result.data === 'Service Center added'){
+          setIsLoading(false);
          toast.success('Service Center added');
          setTimeout(() => {
           window.location.reload();
       }, 1200);
     
           }else {
+            setIsLoading(false);
           toast.warning(result.data);
          }
         }).catch((error) => {
+          setIsLoading(false);
           toast.warning(error);
         })    
       })
       .catch((error) => {
+        setIsLoading(false);
       });   
   }
 
@@ -144,34 +154,78 @@ function AddServiceCenter() {
     width: '500px',
     margin: '0 auto',
     border: '2px solid black',
-    padding: '20px'
+    padding: '20px',
+    backgroundColor: '#fff'
   }
 
   return (
     <div>
-      <AddCenter />
+<Box sx={{ display: "flex" ,flexDirection:"column",background: "linear-gradient(to bottom, rgba(7, 150, 238, 0.947), rgb(246, 246, 246))"  }}>
+    <Box sx={{
+       display: "flex",
+       minHeight: "80px" ,
+       width:"100%",
+       position:"fixed"
+     }}> <Admintopbar/> </Box>
+   <Box sx={{ 
+     display: "flex",
+     width:"100%",
+     marginTop:"80px",
+     flexDirection:"row",
+     height:"100%",
+     
+     }}>
+     <Box component="nav"
+     sx={{
+       width: "80px",
+       flexShrink: 0,
+       height:"100%"
+     }}><Adminsidebar/>
+     </Box>
+
+     <Box sx={{
+       display:"flex",
+       width:"100%",
+       justifyContent:"center",
+       minHeight: "100%",
+         }}>
+
+{isLoading && (
+    <div className="loading-screen">
+      <div className="loading-popup">
+        <div className="loading-content">
+          <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+            Adding Service Center...
+          </div>&nbsp;&nbsp;
+          <FadeLoader color="orange" loading={true} size={15} /> 
+        </div>
+      </div>
+    </div>
+  )}
+  
+  <div className={isLoading ? "blur-background" : ""}></div>
       <ToastContainer/>
       <div className='form-container'>
       <Form style={formStyle} className="my-form" onSubmit={handleAdd}>
           <center>
-            <Form.Label className='form-label'>Add Center</Form.Label>
+          <Form.Label className='form-label' style={{ fontSize: '1.2rem', fontFamily: 'Times New Roman' }}>ADD SERVICE CENTERS</Form.Label>
             <Form.Group className="mb-3">
               <Form.Control className='form-control' type="text" id="addCenterId" onChange={(e) => handleCenterIdChange(e.target.value)} placeholder="Enter Service CenterId" 
                required />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-control' type="text" id="addName" onChange={(e) => handleNameChange(e.target.value)} placeholder="Enter the Name" 
+              <Form.Control className='form-control' type="text" id="addName" data-testid='enterCenterName' onChange={(e) => handleNameChange(e.target.value)} placeholder="Enter the Name" 
               required />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-control' type="tel" id="addNumber" onChange={(e) => handleNumberChange(e.target.value)} placeholder="Enter the Phone number" 
+              <Form.Control className='form-control' type="tel" id="addNumber" data-testid='mobile' onChange={(e) => handleNumberChange(e.target.value)} placeholder="Enter the Phone number" 
               pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$" title="Enter valid mobile number" required />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-control' type="text" id="addAddress" onChange={(e) => handleAddressChange(e.target.value)} placeholder="Enter the address" required />
+              <Form.Control className='form-control' type="text" id="addAddress" data-testid='place' onChange={(e) => handleAddressChange(e.target.value)} placeholder="Enter the address" required />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-control' type="url" id="addImageUrl" onChange={(e) => handleImageUrlChange(e.target.value)} placeholder="Enter the Image Url" required/>
+              <Form.Control className='form-control' type="url" id="addImageUrl" data-testid='enterImageUrl' onChange={(e) => handleImageUrlChange(e.target.value)} placeholder="Enter the Image Url" required/>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Control className='form-control' type="email" id="addEmail" onChange={(e) => handleEmailChange(e.target.value)} placeholder="Enter Email" 
@@ -209,10 +263,10 @@ function AddServiceCenter() {
             <Button  type='submit' id="addButton">Add</Button>
           </center>
         </Form>
-      </div>
-    </div>
-    
+        </div>
+      </Box></Box></Box>
+      </div>  
   );
 }
 
-export default AddServiceCenter
+export default AddCenter;

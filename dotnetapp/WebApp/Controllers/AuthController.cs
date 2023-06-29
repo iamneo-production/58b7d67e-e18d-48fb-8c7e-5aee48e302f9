@@ -14,41 +14,49 @@ namespace WebApp.Controllers
     public class AuthController : ControllerBase
     {
         BusinessLayer businesslayer = new BusinessLayer();
+
         [HttpPost]
         [Route("admin/signup")]
-        public string saveAdmin([FromBody] UserModel user)
+        public IActionResult saveAdmin([FromBody] UserModel user)
         {
-            return (businesslayer.saveAdmin(user));
+            string result = businesslayer.saveAdmin(user);
+            return Ok(result);
         }
         [HttpPost]
         [Route("admin/login")]
-        public Boolean isAdminPresent(LoginModel data)
+        public IActionResult isAdminPresent(LoginModel data)
         {
-            return (businesslayer.isAdminPresent(data));
+            Boolean result = businesslayer.isAdminPresent(data);
+            return Ok(result);
         }
         [HttpGet]
         [Route("getAdminByEmailId")]
-        public UserModel getAdminByEmailId(string email)
+        public IActionResult getAdminByEmailId(string email)
         {
-            return (businesslayer.getAdminByEmailId(email));
+            UserModel result = businesslayer.getAdminByEmailId(email);
+            return Ok(result);
         }
+
         [HttpPost]
         [Route("user/signup")]
-        public string saveUser(UserModel user)
+        public IActionResult saveUser(UserModel user)
         {
-            return businesslayer.saveUser(user);
+            string result = businesslayer.saveUser(user);
+            return Ok(result);
         }
         [HttpPost]
         [Route("user/login")]
-        public Boolean isUserPresent(LoginModel data)
+        public IActionResult isUserPresent(LoginModel data)
         {
-            return businesslayer.isUserPresent(data);
+            Boolean result = businesslayer.isUserPresent(data);
+            return Ok(result);
         }
         [HttpGet]
         [Route("getUserByEmailId")]
-        public UserModel getUserByEmailId(string email)
+        public IActionResult getUserByEmailId(string email)
         {
-            return businesslayer.getUserByEmailId(email);
+            UserModel result = businesslayer.getUserByEmailId(email);
+            return Ok(result);
         }
     }
        

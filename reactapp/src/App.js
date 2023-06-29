@@ -1,38 +1,38 @@
 import './App.css';
-import Signup from './user/Signup';
-import Login from './user/Login';
-import AddServiceCenter from './admin/addServiceCenter';
-import Centerprofile from './admin/Centerprofile';
-import HomePage from './user/Homepage';
-import Dashboard from './user/Dashboard';
-import MyBookings from './user/Appointment';
-import Customers from './admin/Customers';
-import Reports from './admin/Reports';
-import CompletedBookings from './user/CompletedBookings';
-import Auth from './user/Auth';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+ import Signup from './components/Auth/Signup/Signup';
+ import Login from './components/Auth/Login/Login';
+import AddCenter from './components/Admin/AddCenter/AddCenter';
+import Centerprofile from './components/Admin/Centerprofile/Centerprofile';
+import Customers from './components/Admin/Customer/Customers';
+import Review from './components/Admin/Review/Review';
+import Service from './components/Admin/Service/Service';
+import HomePage from './components/Customer/HomePage/HomePage';
+import Dashboard from './components/Customer/Dashboard/Dashboard';
+import Booking from './components/Customer/Cart/Cart';
+import PrivateRoutes from './components/Auth/PrivateRoutes';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-     
- <Router>
-<Routes>
-<Route element={<Auth />}>
-                <Route element={<AddServiceCenter/>} path="/admin/addServiceCenter" exact/>
+
+        <Router>
+        <Routes>
+         <Route element={<PrivateRoutes />}>
+                <Route element={<AddCenter/>} path="/admin/AddCenter" exact/>
                 <Route element={<Centerprofile/>} path="/admin/Centerprofile" exact/>
+                <Route element={<Service/>} path="/admin/Service" exact/>
                 <Route element={<Customers/>} path="/admin/Customers" exact/>
-                <Route element={<Reports/>} path="/admin/Reports" exact/>
+                <Route element={<Review/>} path="/admin/Review" exact/>
                 <Route element={<HomePage/>} path="/user/Homepage" exact/>
                 <Route element={<Dashboard/>} path="/user/Dashboard" exact/>
-                <Route element={<MyBookings/>} path="/user/Appointment" exact/>
-                <Route element={<CompletedBookings/>} path="/user/CompletedBookings" exact/>
-</Route>
-  <Route exact path="/" element={<Login />} />
-  <Route exact path="/signup" element={<Signup />} />
-</Routes>
-</Router> 
+                <Route element={<Booking/>} path="/user/Cart" exact/>
+          </Route> 
+          <Route exact path="/" element={<Login />} />
+           <Route exact path="/signup" element={<Signup />} /> 
+        </Routes>
+      </Router>  
     </div>
   );
 }

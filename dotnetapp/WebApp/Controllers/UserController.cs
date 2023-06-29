@@ -17,34 +17,44 @@ namespace WebApp.Controllers
         BusinessLayer businesslayer = new BusinessLayer();
         [HttpPost]
         [Route("addUser")]
-        public string addUser(UserModel user)
+       public IActionResult addUser(UserModel user)
         {
-            return (businesslayer.addUser(user));
+            string result = businesslayer.addUser(user);
+            return Ok(result);
         }
+
         [HttpGet]
         [Route("getAllUsers")]
-        public List<UserModel> getAllUsers()
+        public IActionResult  getAllUsers()
         {
-            return businesslayer.getAllUsers();
+            List <UserModel> result = businesslayer.getAllUsers();
+            return Ok(result);
         }
+
+
         [HttpGet]
         [Route("getUser/{UserId}")]
 
-        public UserModel getUser(int UserId)
+        public IActionResult getUser(int UserId)
         {
-            return businesslayer.getUser(UserId);
+            UserModel result = businesslayer.getUser(UserId);
+            return Ok(result);
         }
+
         [HttpPut]
         [Route("editUsersById/{UserId}")]
-        public string editUsersById(UserModel user, int UserId)
+        public IActionResult editUsersById(UserModel user, int UserId)
         {
-            return businesslayer.editUsersById(user, UserId);
+            string result = businesslayer.editUsersById(user, UserId);
+            return Ok(result);
         }
+
         [HttpDelete]
         [Route("deleteUsers")]
-        public string deleteUsers(List<int> userIds)
+        public IActionResult deleteUsers(List<int> userIds)
         {
-            return businesslayer.deleteUsers(userIds);
+            string result = businesslayer.deleteUsers(userIds);
+            return Ok(result);
         }
     }
        

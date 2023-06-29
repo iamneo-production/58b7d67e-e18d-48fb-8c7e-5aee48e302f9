@@ -12,63 +12,80 @@ namespace WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class AppointmentController : ControllerBase
     {
         BusinessLayer businesslayer = new BusinessLayer();
         [HttpGet]
         [Route("getSlotDetailsByDate/{serviceCenterId},{Date}")]
-        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        public IActionResult getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
-            return (businesslayer.getSlotDetailsByDate(serviceCenterId, Date));
+            List<AppointmentModel> result = businesslayer.getSlotDetailsByDate(serviceCenterId, Date);
+            return Ok(result);
         }
+
         [HttpPost]
         [Route("user/appointment")]
-        public string saveAppointment(ProductModel data)
+        public IActionResult saveAppointment(ProductModel data)
         {
-            return businesslayer.saveAppointment(data);
+            string result = businesslayer.saveAppointment(data);
+            return Ok(result);
         }
+
         [HttpPost]
         [Route("postAvailableSlots")]
-        public string postAvailableSlots(AppointmentModel model)
+        public IActionResult postAvailableSlots(AppointmentModel model)
         {
-            return businesslayer.postAvailableSlots(model);
+            string result = businesslayer.postAvailableSlots(model);
+            return Ok(result);
         }
+
         [HttpGet]
         [Route("getAppointment")]
-        public List<ProductModel> getAppointment(string email)
+        public IActionResult getAppointment(string email)
         {
-            return businesslayer.getAppointment(email);
+            List<ProductModel> result = businesslayer.getAppointment(email);
+            return Ok(result);
         }
+
         [HttpGet]
         [Route("getAppointmentSlotsById/{id}")]
-        public ProductModel getAppointmentSlotsById(int id)
+        public IActionResult getAppointmentSlotsById(int id)
         {
-            return businesslayer.getAppointmentSlotsById(id);
+            ProductModel result = businesslayer.getAppointmentSlotsById(id);
+            return Ok(result);
         }
+
         [HttpPut]
         [Route("user/EditAppointment/{ID}")]
-        public string EditAppointment(int ID, [FromBody] ProductModel model)
+        public IActionResult EditAppointment(int ID, [FromBody] ProductModel model)
         {
-            return businesslayer.EditAppointment(ID, model);
+            string result = businesslayer.EditAppointment(ID, model);
+            return Ok(result);
         }
+
         [HttpPost]
         [Route("updateOnDeleteAppointment")]
-        public string updateOnDeleteAppointment(AppointmentModel model)
+        public IActionResult updateOnDeleteAppointment(AppointmentModel model)
         {
-            return businesslayer.updateOnDeleteAppointment(model);
+            string result = businesslayer.updateOnDeleteAppointment(model);
+            return Ok(result);
         }
 
         [HttpDelete]
         [Route("user/cancelappointment/{ID}")]
-        public string deleteAppointment(int ID)
+        public IActionResult deleteAppointment(int ID)
         {
-            return businesslayer.deleteAppointment(ID);
+            string result = businesslayer.deleteAppointment(ID);
+            return Ok(result);
         }
+
         [HttpGet]
         [Route("getAllAppointments")]
-        public List<ProductModel> getAllAppointments()
+        public IActionResult getAllAppointments()
         {
-            return businesslayer.getAllAppointments();
+            List<ProductModel> result = businesslayer.getAllAppointments();
+            return Ok(result);
         }
     }
 }

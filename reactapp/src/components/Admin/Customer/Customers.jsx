@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import AddCenter from '../components/addCenter';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { PencilSquare } from 'react-bootstrap-icons';
@@ -9,81 +8,75 @@ import Modal from 'react-bootstrap/Modal';
 import { Eye, EyeSlash } from 'react-bootstrap-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {Box} from '@mui/material';
+import Adminsidebar from '../../Navbar/Adminsidebar';
+import Admintopbar from '../../Navbar/Admintopbar';
+import Swal from 'sweetalert2';
+import {  BeatLoader } from 'react-spinners';
+import '../../Styling/LoadingScreen.css';
+import { API_URLS } from '../../Apis/config.js';
 
 function Customers() {
+  const[adminPage] = useState('Customers');
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
-
   const [showPassword, setShowPassword] = useState(false);
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
-
   const[editUserrole, seteditUserrole] = useState('');
   const[editUsername, seteditUsername] = useState('');
   const[editEmailId, seteditEmailId] = useState('');
   const[editContactNumber, seteditContactNumber] = useState('');
   const[editPassword, seteditPassword] = useState('');
-
-
-
-  
   const [editedId, setEditedId] = useState('');
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const [show1, setShow1] = useState(false);
-
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
-
   const [selectAllChecked, setSelectAllChecked] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   let navigate = useNavigate();
-
-  
-
-
-
   const getData = () =>{
     axios
-    .get('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/getAllUsers')
+    .get(API_URLS.getAllUsers)
     .then((result) => {
       setData(result.data);
     })
     .catch((error) => {
-      console.error(error);
+      toast.warning(error)
     });
   }
+
   useEffect(() => {
    
-
     const email = localStorage.getItem('email');
+    localStorage.setItem('adminPage', adminPage)
     axios
-    .get('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/getAllUsers')
+    .get(API_URLS.getAllUsers)
     .then((result) => {
       setData(result.data);
     })
     .catch((error) => {
-      console.error(error);
+      toast.warning(error)
     });
     axios
-      .get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/getUserByEmailId/?email=${email}`)
+      .get(`${API_URLS.getUserByEmailId}?email=${email}`)
       .then((result) => {
-        if (result.data.userRole === 'user') {
-          localStorage.removeItem('email');
+        if (result.data.userRole === "user") {
+          localStorage.removeItem("email");
           navigate('/');
         }
       })
-      .catch((error) => {});
-  }, []);
+      .catch((error) => {
+        toast.warning(error)
+      });
+  
+  }, [navigate, adminPage]);
 
   useEffect(() => {
     const filteredData = data.filter((item) =>
@@ -94,30 +87,36 @@ function Customers() {
 
 
   const handleEdit = (ID) => {
+    setIsLoading(true);
     setEditedId(ID)
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/getUser/${ID}`)
+    axios.get(`${API_URLS.getUserByUserId}/${ID}`)
     .then((result)=>{
+
       seteditUserrole(result.data.userRole)
       seteditUsername(result.data.username)
       seteditEmailId(result.data.email)
       seteditContactNumber(result.data.mobileNumber)
       seteditPassword(result.data.password)
+      setIsLoading(false);
+      handleShow();
     })
-    handleShow();
   };
 
   const handleUpdate = () =>{
+    setIsLoading(true);
     const data = {
       email : editEmailId,
       password : editPassword,
       username : editUsername,
       mobileNumber : editContactNumber,
       userRole : editUserrole
+      
     }
-    axios.put(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/editUsersById/${editedId}`, data)
+    axios.put(`${API_URLS.editUserById}/${editedId}`, data)
     .then((result)=>{
       setShow(false)
       getData();
+      setIsLoading(false);
       toast.success("User details updated successfully!")
     })
   }
@@ -144,26 +143,38 @@ function Customers() {
     }
   };
 
-const handleDelete = () => {
-  const checkedIds = suggestions
-  .filter((item) => item.isChecked && item.userId != null)
-  .map((item) => item.userId
-  
-  
-  );
 
-axios
-  .delete('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/deleteUsers', { data: checkedIds })
-  .then((response) => {
-    toast.info("Users Deleted!")
-    getData();
-  })
-  .catch((error) => {
-    console.error('Error deleting records:', error);
-  }); 
-}
+  const handleDelete = () => {
 
-
+    const checkedIds = suggestions
+      .filter((item) => item.isChecked && item.userId != null)
+      .map((item) => item.userId);
+     
+    Swal.fire({
+      title: 'Confirm Deletion',
+      text: 'Are you sure you want to delete the selected users?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+      
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setIsLoading(true);
+        axios
+          .delete(API_URLS.deleteUsers, { data: checkedIds })
+          .then((response) => {
+            setIsLoading(false);
+            toast.info('Users Deleted!');
+            getData();
+          })
+          .catch((error) => {
+            toast.warning('Error deleting records:', error);
+          });
+      }
+    });
+  };
 
 const handleUserChange = (value) => {
   seteditUserrole(value.toLowerCase());
@@ -192,7 +203,7 @@ const Add = () =>{
 
 
 const AddUser = () =>{
-
+  setIsLoading(true);
   const data1 = {
     email : editEmailId,
     password : editPassword,
@@ -200,8 +211,9 @@ const AddUser = () =>{
     mobileNumber: editContactNumber,
     userRole : editUserrole
   }
-  axios.post('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/User/addUser', data1)
+  axios.post(API_URLS.addUser, data1)
   .then((result)=>{
+    setIsLoading(false);
     toast.success("User Added")
     handleClose1();
     getData();
@@ -218,42 +230,84 @@ const handlePreviousPage = () => {
 };
 
 const [currentPage, setCurrentPage] = useState(1);
-const pageSize = 10; // Number of records to display per page
-const isDeleteButtonDisabled = suggestions.length === 0 || suggestions.every((item) => !item.isChecked);
-
-// Calculate the start and end indices for the current page
+const pageSize = 10; 
+const isDeleteButtonVisible = suggestions.some((item) => item.isChecked);
 const startIndex = (currentPage - 1) * pageSize;
 const endIndex = startIndex + pageSize;
   return (
-    <div>
-      <AddCenter />
-      <ToastContainer/>
 
+    <div>
+    <Box sx={{ display: "flex" ,flexDirection:"column",background: "linear-gradient(to bottom, rgba(7, 150, 238, 0.947), rgb(246, 246, 246))"  }}>
+    <Box sx={{
+       display: "flex",
+       minHeight: "80px" ,
+       width:"100%",
+       position:"fixed"
+     }}> <Admintopbar/> </Box>
+   <Box sx={{ 
+     display: "flex",
+     width:"100%",
+     marginTop:"80px",
+     flexDirection:"row",
+     height:"100%",
+     
+     }}>
+     <Box component="nav"
+     sx={{
+       width: "80px",
+       flexShrink: 0,
+       height:"100%"
+     }}><Adminsidebar/>
+     </Box>
+     <Box sx={{
+       display:"flex",
+       width:"100%",
+       minHeight: "100%",
+       flexDirection:"column"
+         }}>
+
+{isLoading && (
+    <div className="loading-screen">
+      <div className="loading-popup">
+        <div className="loading-content">
+          <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+            Hold on...
+          </div>&nbsp;&nbsp;
+          <BeatLoader color="Blue" loading={true} size={20} /> 
+        </div>
+      </div>
+    </div>
+  )}
+  
+  <div className={isLoading ? "blur-background" : ""}></div>
+      <ToastContainer/>
       <br />
       <div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>&nbsp;&nbsp;
-      <button
-      type="button"
-      className="btn btn-danger"
-      onClick={handleDelete}
-      disabled={isDeleteButtonDisabled}
-    >Delete Users
-    </button>
-  &nbsp;
-  <button type="button" className="btn btn-success" onClick={Add}>
-    Add User
-  </button>
-  &nbsp; &nbsp; &nbsp;
-  <MDBCol md="6">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <MDBCol md="6">
     <Form.Control
       type="text"
       placeholder="Type username to Search"
       value={searchInput}
       onChange={(e) => setSearchInput(e.target.value)}
     />
-  </MDBCol>
- 
-</div><br/> <br/>
+  </MDBCol>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  {isDeleteButtonVisible && (
+  <button
+    type="button"
+    className="btn btn-danger"
+    onClick={handleDelete}
+  >
+    Delete Users
+  </button>
+)}
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" className="btn btn-success" onClick={Add}>
+    Add User
+  </button>
+</div>
+<br/> <br/>
       </div>
       
       {suggestions.length > 0 ? (
@@ -296,7 +350,7 @@ const endIndex = startIndex + pageSize;
           </tbody>
         </table>
       ) : (
-        <p>No Users....</p>
+        <h6>No Users....</h6>
       )}
        <div>
         <button variant="info"  onClick={handlePreviousPage} disabled={currentPage === 1}>
@@ -328,14 +382,14 @@ const endIndex = startIndex + pageSize;
         disabled/>
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control className='form-control' placeholder='Update email' type="email" id="email"  value={editEmailId} 
+            <Form.Control className='form-control' placeholder='Update email' type="email"   value={editEmailId} 
               onChange={(e) => seteditEmailId(e.target.value)}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required/>
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control type="text" id="username" placeholder="Update Username" value={editUsername} onChange={(e) => seteditUsername(e.target.value)} required/>
+            <Form.Control type="text"  placeholder="Update Username" value={editUsername} onChange={(e) => seteditUsername(e.target.value)} required/>
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control className='form-control' type="tel" id="mobileNumber" placeholder="Update Mobilenumber" onChange={(e) => seteditContactNumber(e.target.value)}
+            <Form.Control className='form-control' type="tel"  placeholder="Update Mobilenumber" onChange={(e) => seteditContactNumber(e.target.value)}
               pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$" title="invalid mobile" value={editContactNumber} required/>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -343,7 +397,6 @@ const endIndex = startIndex + pageSize;
         <Form.Control
           className="form-control"
           type={showPassword ? 'text' : 'password'}
-          id="password"
           onChange={(e) => seteditPassword(e.target.value)}
           value={editPassword}
           placeholder=" Update Password"
@@ -379,24 +432,25 @@ const endIndex = startIndex + pageSize;
           <Modal.Title>Add user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Form onSubmit={AddUser} >
         <Form.Group className="mb-3">
             <Form.Control
         className="form-control"
         type="text"
-        data-testid="admin/user"
         placeholder='type - "user"'
         onChange={(e) => handleUserChange(e.target.value)}
+        required
         />
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control className='form-control' placeholder='email' type="email" id="email" 
+            <Form.Control className='form-control' placeholder='email' type="email"
               onChange={(e) => handleEmailChange(e.target.value)}  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required/>
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control type="text" id="username" placeholder="Username" onChange={(e) => handleUsernameChange(e.target.value)} required/>
+            <Form.Control type="text"  placeholder="Username" onChange={(e) => handleUsernameChange(e.target.value)} required/>
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Control className='form-control' type="tel" id="mobileNumber" placeholder="Mobilenumber" onChange={(e) => handleMobileChange(e.target.value)}
+            <Form.Control className='form-control' type="tel"  placeholder="Mobilenumber" onChange={(e) => handleMobileChange(e.target.value)}
               pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$" title="invalid mobile" required/>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -404,9 +458,7 @@ const endIndex = startIndex + pageSize;
         <Form.Control
           className="form-control"
           type={showPassword ? 'text' : 'password'}
-          id="password"
           onChange={(e) => handlePasswordChange(e.target.value)}
-          
           placeholder="Password"
           required
         />
@@ -420,20 +472,23 @@ const endIndex = startIndex + pageSize;
         </div>
       </div>
     </Form.Group>
+    <Button type = 'submit' variant="info">Add User</Button>
+    </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose1}>
+          <Button  variant="secondary" onClick={handleClose1}>
             Close
           </Button>
-          <Button variant="info" onClick={()=> AddUser()}>Add User</Button>
+       
         </Modal.Footer>
       </Modal>
     </>
 
 
 
-
+    </Box></Box></Box>
     </div>
+    
   );
 }
 

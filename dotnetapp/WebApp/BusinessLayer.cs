@@ -136,5 +136,9 @@ namespace WebApp
         {
             return dataAccessLayer.getReviews(id);
         }
+        public List<ReviewModel> getAllReviews()
+        {
+            return dataAccessLayer.getAllReviews();
+        }
     }
  }

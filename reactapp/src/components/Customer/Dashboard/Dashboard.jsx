@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Home from '../components/Home';
 import { Card, Form, Button, Row, Col, Container, Image } from 'react-bootstrap';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,10 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-bootstrap/Modal';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import {Box} from '@mui/material';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import '../../Styling/LoadingScreen.css';
+import { ClockLoader } from 'react-spinners';
+import Usersidebar from '../../Navbar/Usersidebar';
+import Usertopbar from '../../Navbar/Usertopbar';
+import { API_URLS } from '../../Apis/config.js';
 
 function Dashboard() {
+  const[userPage] = useState('Dashboard')
   const [location, setLocation] = useState('');
   const [originalData, setOriginalData] = useState([]);
   const [data, setData] = useState([]);
@@ -26,7 +33,7 @@ function Dashboard() {
   const [enterContactNumber, setContactNumber] = useState();
   const [enterProblem, setProblem] = useState();
   const [selectedTime, setSelectedTime] = useState();
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState();
   const [email, setEmail] = useState("");
   const[username, setUsername] = useState("")
   const [availableSlots, setAvailableSlots] = useState([])
@@ -34,10 +41,14 @@ function Dashboard() {
   const [selectedCardCenterName, setselectedCardCenterName] = useState('');
   const [selectedCardServiceCost, setselectedCardServiceCost] = useState('');
   const [selectedCardServiceMailId, setselectedCardServiceMailId] = useState('');
+
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
   const [selectedRating, setSelectedRating] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  
   let navigate = useNavigate();
 
   const today = new Date();
@@ -50,7 +61,6 @@ function Dashboard() {
   const handleModelNoChange = (value) => {
     setModelNo(value);
   };
-
   const handleDateOfPurchaseChange = (date) => {
     const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
     setDateOfPurchase(utcDate);
@@ -79,9 +89,9 @@ function Dashboard() {
       serviceCenterId: selectedCard.serviceCenterId,
       appointmentDate: formattedDate,
     };
-
-
-    const url = `https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getSlotDetailsByDate/${selectedCard.serviceCenterId},${formattedDate}`;    axios.get(url, data3).then((result) => {
+ 
+    axios.get(`${API_URLS.getSlotDetailsByDate}/${selectedCard.serviceCenterId},${formattedDate}`, data3)
+    .then((result) => {
       setReceivedValues(result.data);
     });
   }
@@ -108,42 +118,48 @@ function Dashboard() {
     setEmail(email);
     const username = localStorage.getItem('username')
     setUsername(username)
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/getAdminByEmailId/?email=${email}`)
+    localStorage.setItem('userPage', userPage)
+  
+
+    axios.get(`${API_URLS.getAdminByEmailId}/?email=${email}`)
       .then((result) => {
         if (result.data.userRole === "admin") {
           localStorage.removeItem("email");
           navigate('/')
         }
-        console.log(result)
       }).catch((error) => {
       });
       getServiceCenterData();
-  }, [])
+  }, [navigate,userPage])
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
-        fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            const city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
-            setLocation(city);
-            setPosition({ latitude, longitude });
-          });
-      });
-    } else {
-      setLocation('Geolocation is not supported by this browser.');
-    }
-  }, []);
+    const fetchData = async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          fetch(`${API_URLS.reverseGeocoding}&lat=${latitude}&lon=${longitude}`)
+            .then(response => response.json())
+            .then(data => {
+              const city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
+              setLocation(city);
+              setPosition({ latitude, longitude });
+            })
+            .catch(error => {
+              toast.error(error)
+            });
+        });
+      }
+    };  
+    fetchData();
+  }, []);
+
   useEffect(() => {
     getServiceCenterData();
   }, []);
 
   const getServiceCenterData = () => {
     axios
-    .get('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/admin/getservicecenter', {
+    .get(API_URLS.getServiceCenterData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -154,7 +170,7 @@ function Dashboard() {
         setAvailableSlots(result.data.map(item => item.availableSlots).flat());
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error)
       });
   };
 
@@ -177,7 +193,6 @@ function Dashboard() {
     const userLatitude = position.latitude;
     const userLongitude = position.longitude;
     const distance = getDistanceFromLatLonInKm(latitude, longitude, userLatitude, userLongitude);
-    console.log('Distance', distance);
     return distance;
   };
   const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
@@ -190,33 +205,30 @@ function Dashboard() {
       Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const d = R * c; // Distance in km
-    console.log(d);
     return d;
   };
   const deg2rad = (deg) => {
     return deg * (Math.PI / 180);
   };
 
+  const fetchRatings = (serviceCenterId) => {
+    axios.get(`${API_URLS.getReviews}/${serviceCenterId}`)
+    .then(response => {
+      const fetchedRating = response.data.rating;
+      setSelectedRating(fetchedRating);
+    })
+    .catch(error => {
+      toast.error(error)
+    });
+  };
+
 
   const handleCardClick = (card) => {
+    fetchRatings(card.serviceCenterId);
     setSelectedCard(card);
-
-   
-    axios
-    .get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Review/getReviews/${selectedCard.serviceCenterId}`)
-    .then((result) => {
-      handleShow();
-        const rating = result.data.rating; 
-        const displayedRating = rating < 2 ? 3 : rating;
-        setSelectedRating(displayedRating);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    
-    
+    handleShow();
     setDateOfPurchase('');
-    setSelectedDate('');
+    setSelectedDate('');        
   }
 
   const handleKeyDown = (event) => {
@@ -226,10 +238,13 @@ function Dashboard() {
     }
   }
 
- 
+
   function handleButtonClick(event) {
     event.preventDefault();
+    //alert(username)
+    setIsLoading(true);
     const bookData = {
+      customerName : username,
       productName: enterProductName,
       productModelNo: enterModelNo,
       dateOfPurchase: enterDateOfPurchase,
@@ -242,56 +257,62 @@ function Dashboard() {
       serviceCenterName: selectedCard.serviceCenterName,
       serviceCost: selectedCard.serviceCost
     };
-    const url1 = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/user/appointment'; 
-    axios.post(url1, bookData)
+    
+    axios.post(API_URLS.saveAppointment, bookData)
       .then((result) => {
+        setIsLoading(false);
         if (result.data === "Appointment Booked Successfully") {
-
+          Swal.fire({
+            icon: 'success',
+            title: 'Appointment Booked Successfully',
+            text: 'Your appointment has been successfully booked. A confirmation mail has been sent to your registered mail Id. Please check your email.',
+          });
           const updatedSlots = availableSlots.filter((slot) => slot !== selectedTime);
           setAvailableSlots(updatedSlots);
           //  toast.success(result.data);
           setselectedCardCenterName(selectedCard.serviceCenterName);
           setselectedCardServiceCost(selectedCard.serviceCost);
           setselectedCardServiceMailId(selectedCard.serviceCenterMailId)
+          
           setModalShow(true);
           handleClose();
-
           const SlotData = {
             serviceCenterId: selectedCard.serviceCenterId,
             Appointmentdate: selectedDate,
             availableSlots: updatedSlots
           }
-          const url1 = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/postAvailableSlots' 
-          axios.post(url1, SlotData)
+       
+          axios.post(API_URLS.postAvailableSlots, SlotData)
             .then((result) => {
-
             }).catch((error) => {
 
             })
         } else {
           toast.warning(result.data);
         }
+        
       })
       .catch((error) => {
         toast.error(error);
       });
   }
 
+ 
   function BillGeneration() {
-    handleShow1(true);
+    handleShow1();
     setModalShow();
   }
   const cardStyle = {
     width: '18rem',
-    position: 'relative',
+    position: 'static',
     border: '1px solid black',
     borderRadius: '10px',
     padding: '10px',
-    height: '400px'
+    height: '400px',
   };
   const imageStyle = {
     width: '250px',
-    position: 'relative',
+    position: 'static',
     padding: '10px',
     borderRadius: '50%',
     height: '250px',
@@ -308,18 +329,52 @@ function Dashboard() {
   }
   const cardStyle1 = {
     width: '340px',
-    position: 'relative',
+    position: 'static',
     border: '1px solid black',
     borderRadius: '10px',
     padding: '10px',
     height: '350px',
     overflowX: 'auto'
   };
+  
   return (
-    <>
-      <Home />
+    <div>
+     <Box sx={{ display: "flex" ,flexDirection:"column" }}>
+    <Box sx={{
+       display: "flex",
+       minHeight: "80px" ,
+       width:"100%",
+       position:"fixed"
+     }}> <Usertopbar/> </Box>
+   <Box sx={{ 
+     display: "flex",
+     width:"100%",
+     marginTop:"80px",
+     flexDirection:"row",
+     height:"100vh",
+     
+     }}>
+     <Box component="nav"
+     sx={{
+       width: "80px",
+       flexShrink: 0,
+       height:"100%"
+     }}><Usersidebar/>
+     </Box>
+
+     <Box sx={{
+       display:"flex",
+       width:"100%",
+       minHeight: "100%",
+       
+         }}
+style={{
+  background: "linear-gradient(to bottom, rgba(7, 150, 238, 0.947), rgb(246, 246, 246))",
+  // other styles...
+}}>
       <ToastContainer />
       <Container>
+ 
         <Row className="mt-4 mb-4 ">
           <Col>
             <Form>
@@ -377,6 +432,7 @@ function Dashboard() {
       </Container>
       <>
         <ToastContainer />
+
         {selectedCard && (
           <Modal show={show} onHide={handleClose} dialogClassName='modal-xl' contentClassName='h-100'>
             <Modal.Header className='d-flex justify-content-center' closeButton>
@@ -432,14 +488,13 @@ function Dashboard() {
                             <em>Rating: </em>
                           </strong>
                           <StarRatings
-      rating={selectedRating}
-      starRatedColor="#FFD700"
-      starEmptyColor="#CCCCCC"
-      starDimension="25px"
-      starSpacing="4px"
-    />
+                            rating={selectedRating}
+                            starRatedColor="#FFD700"
+                            starEmptyColor="#CCCCCC"
+                            starDimension="25px"
+                            starSpacing="4px"
+                          />
                         </Card.Text>
-
                       </Card.Body>
                     </Card>
                     <ToastContainer />
@@ -540,53 +595,72 @@ function Dashboard() {
           </Modal>
         )}
         <>
-          <Modal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Appointment Booked Successfully!
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form className="my-form text-start">
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Camera Name : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }}>{enterProductName}</Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Model Number : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }}>{enterModelNo}</Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Contact Number : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }}>{enterContactNumber}</Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Appointment Date : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }}>
-                    {new Date(selectedDate).toLocaleDateString('en-GB')}
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Booked Slot : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }} >{selectedTime}</Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Text style={{ fontSize: '15px' }}> Problem : </Form.Text>
-                  <Form.Text style={{ fontSize: '15px' }}>{enterProblem}</Form.Text>
-                </Form.Group>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={BillGeneration}>Show Bill</Button>
-            </Modal.Footer>
-          </Modal>
-          <>
+        {isLoading && (
+        <div className="loading-screen">
+          <div className="loading-popup">
+            <div className="loading-content">
+              <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+                Please wait while we're booking your Appointment...
+              </div>&nbsp;&nbsp;
+              <ClockLoader color="green" loading={true} size={45} /> 
+            </div>
+          </div>
+        </div>
+      )}
+      <div className={isLoading ? "blur-background" : ""} >
+      <Modal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <div style ={{background: "linear-gradient(to bottom, rgba(0, 0,0, 0.4), rgb(246, 246, 246))"}}>
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Appointment Details!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <Form className="my-form text-start">
+            <Form.Group className="mb-4">
+            <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Camera Name : </Form.Label>
+            <Form.Label style={{ fontSize: '15px' }}>{enterProductName}</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Model Number : </Form.Label>
+            <Form.Label style={{ fontSize: '15px' }}>{enterModelNo}</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Contact Number : </Form.Label>
+            <Form.Label style={{ fontSize: '15px' }}>{enterContactNumber}</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Appointment Date : </Form.Label>
+              <Form.Label style={{ fontSize: '15px' }}>
+                {new Date(selectedDate).toLocaleDateString('en-GB')}
+                </Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Booked Slot : </Form.Label>
+            <Form.Label style={{ fontSize: '15px' }}>{selectedTime}</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label style={{fontWeight:'bold',fontSize: '15px' }}> Problem : </Form.Label>
+              <Form.Label style={{ fontSize: '15px' }}>{enterProblem}</Form.Label>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={BillGeneration}>Show Bill</Button>
+        </Modal.Footer>
+        </div>
+      </Modal>
+      </div>
+
+       
+    
+            <>
             <Modal show={show1} onHide={handleClose1} animation={false}>
               <Modal.Header closeButton>
                 <Modal.Title>Service Bill</Modal.Title>
@@ -654,7 +728,10 @@ function Dashboard() {
           </>
         </>
       </>
-    </>
+      </Box>
+      </Box>
+      </Box>
+    </div>
   );
 }
 export default Dashboard;

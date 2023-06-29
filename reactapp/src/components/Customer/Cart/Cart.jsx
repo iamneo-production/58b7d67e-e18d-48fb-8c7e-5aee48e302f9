@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import Home from '../components/Home';
 import { PencilSquare, Trash, FileText,Download } from 'react-bootstrap-icons';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Table } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
@@ -10,17 +9,23 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { jsPDF } from 'jspdf';
 import { useNavigate } from 'react-router-dom';
+import {Box} from '@mui/material';
+import Swal from 'sweetalert2';
+import '../../Styling/LoadingScreen.css';
+import { GridLoader } from 'react-spinners';
+import Usersidebar from '../../Navbar/Usersidebar';
+import Usertopbar from '../../Navbar/Usertopbar';
+import Review from '../Review/Review';
+import { API_URLS } from '../../Apis/config.js';
 
-
-function MyBookings() {
-
+function Booking() {
+  const[userPage] = useState('Appointments')
 
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
 
   const [smShow, setSmShow] = useState(false);
-
 
   const [CameraName, setCameraName] = useState('')
   const [ModelNumber, setModelNumber] = useState('')
@@ -32,6 +37,8 @@ function MyBookings() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [itemsPerPage] = useState(10);
 
   const [editProductName, seteditProductName] = useState('')
   const [editProductModelNo, seteditProductModelNo] = useState('')
@@ -41,8 +48,6 @@ function MyBookings() {
   const [editdateOfAppointment, seteditdateOfAppointment] = useState('')
   const [editbookedSlots, seteditbookedSlots] = useState('')
   const [editserviceCenterID, setEditserviceCenterID] = useState('')
-
-
 
   const[username, setUsername] = useState("")
   const[email, setEmail] = useState("")
@@ -57,50 +62,60 @@ function MyBookings() {
   const fiveDaysLater = new Date();
   fiveDaysLater.setDate(today.getDate() + 4);
 
-
   const [serviceCenterId, setServiceCenterId] = useState('')
-
   const [deletedID, setDeletedID] = useState(null);
-
-
-
-
-
+  const [isLoading, setIsLoading] = useState(false);
 
   let navigate = useNavigate();
   useEffect(() => {
     const email = localStorage.getItem("email")
     const username = localStorage.getItem("username")
+    localStorage.setItem('userPage', userPage)
     setUsername(username)
     setEmail(email)
     getData(email);
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/getAdminByEmailId/?email=${email}`)
+    axios.get(`${API_URLS.getAdminByEmailId}/?email=${email}`)
     .then((result)=>{
-      // setUserName(result.data.username)
-      // setUserRole(result.data.userRole)
       if(result.data.userRole==="admin"){
         localStorage.removeItem("email");
         navigate("/")
       }
     }).catch((error)=>{
-
+      toast.error(error)
     })
+  }, [navigate, userPage])
 
-
-  }, [])
-
-
-
-
+  const getData = (email) => {
+    axios.get(`${API_URLS.getAppointmentByMailId}?email=${email}`)
+      .then((result) => {
+        const currentDate = new Date().toLocaleDateString('en-GB');
+        const currentTime = new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+        const filteredBookings = result.data.filter(booking => {
+          const [startTime, endTime] = booking.bookedSlots.split(' - ');
+          startTime.split(':');
+          const [hours, minutes] = endTime.split(':');
+          const appointmentEndTime = new Date();
+          appointmentEndTime.setHours(hours);
+          appointmentEndTime.setMinutes(minutes);
+          const formattedEndTime = new Date(appointmentEndTime).toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+          const formattedDateOfAppointment = new Date(booking.dateOfAppointment).toLocaleDateString('en-GB');
+          return (
+            formattedDateOfAppointment > currentDate || (formattedDateOfAppointment === currentDate && formattedEndTime > currentTime)
+          );
+        });
+        setData(filteredBookings)      
+      })
+      .catch((error) => {
+        toast.error(error)
+      })
+  };
 
   const [editedId, setEditedId] = useState('')
   
   const handleEdit = (ID) => {
-    setEditedId(ID);
-  
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getAppointmentSlotsById/${ID}`)
-      .then((result) => {
-        
+    setEditedId(ID);  
+    axios.get(`${API_URLS.getAppointmentSlotsById}/${ID}`)
+      .then((result) => {        
         seteditProductName(result.data.productName);
         seteditProductModelNo(result.data.productModelNo);
         seteditdateofPurchase(result.data.dateofPurchase);
@@ -112,69 +127,32 @@ function MyBookings() {
         setEditserviceCenterID(result.data.serviceCenterId);
         handleShow();
       }).catch((error) => {
-        alert(error)
+        toast.error(error)
       })
-
   }
-const getData = (email) => {
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getAppointment/?email=${email}`)
-      .then((result) => {
-        const currentDate = new Date().toLocaleDateString('en-GB');
-        const currentTime = new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
-        //console.log(currentTime);
-      
-        const filteredBookings = result.data.filter(booking => {
-          const [startTime, endTime] = booking.bookedSlots.split(' - ');
-          //console.log(endTime);
-          const [hours, minutes] = endTime.split(':');
-          const appointmentEndTime = new Date();
-          appointmentEndTime.setHours(hours);
-          appointmentEndTime.setMinutes(minutes);
-          const formattedEndTime = new Date(appointmentEndTime).toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
-          const formattedDateOfAppointment = new Date(booking.dateOfAppointment).toLocaleDateString('en-GB');
-          return (
-            formattedDateOfAppointment > currentDate || (formattedDateOfAppointment === currentDate && formattedEndTime > currentTime)
-          );
-        });
-        console.log(filteredBookings);
-        setData(filteredBookings)
-        //console.log(result.data)
-      })
-      .catch((error) => {
-        alert(error)
-      })
-  };
-
   const [editAvailableSlots, seteditAvailableSlots] =useState([]);
 
   function handleDateChange(date) {
-   // const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-    //seteditdateOfAppointment(utcDate);
-    //const formattedDate = utcDate.toISOString().split('T')[0];
     const formattedDate= moment(date).format('YYYY-MM-DD');
-
     seteditdateOfAppointment(formattedDate );
     const data3 = {
       serviceCenterId: editserviceCenterID,
       appointmentDate: formattedDate,
     };
-
-    const url = `https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getSlotDetailsByDate/${editserviceCenterID},${formattedDate}`;
-    
-    axios.get(url, data3).then((result) => {
+    axios.get(`${API_URLS.getSlotDetailsByDate}/${editserviceCenterID},${formattedDate}`, data3).then((result) => {
       const availableSlots = result.data[0].availableSlots;
       if(availableSlots) {
+      //const filteredSlots = availableSlots.filter(slot => slot.date !== formattedDate);
       seteditAvailableSlots(availableSlots);
       } else {
-        
       }
     })
     .catch((error) => {
-      alert(error);
+      toast.error(error)
     })
   }
-  const handleUpdate = (e) => {
-    e.preventDefault();
+  const handleUpdate = () => {
+    setIsLoading(true);
 const data1 = {
   productName: editProductName,
   productModelNo: editProductModelNo,
@@ -184,59 +162,29 @@ const data1 = {
   dateOfAppointment: editdateOfAppointment,
   bookedSlots: editbookedSlots,
 };
+//
 
-axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getAppointmentSlotsById/${editedId}`)
+axios.get(`${API_URLS.getAppointmentSlotsById}/${editedId}`)
 .then((result) => {
-  if(result.data.dateOfAppointment==editdateOfAppointment){
-    if(result.data.bookedSlots==editbookedSlots){
+  if(result.data.dateOfAppointment===editdateOfAppointment){
+    if(result.data.bookedSlots===editbookedSlots){
       axios
-      .put(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/user/EditAppointment/${editedId}`, data1)
+      .put(`${API_URLS.editAppointment}/${editedId}`, data1)
       .then((result) => {
+        setIsLoading(false);
         setShow(false)
         toast.dark("Changes made successfully!")
         getData(email);
       })
     }
-  }else if(result.data.dateOfAppointment==editdateOfAppointment){
-    if(result.data.bookedSlots!=editbookedSlots){
-      e.preventDefault();
-    const data2 = {
-      serviceCenterId: result.data.serviceCenterId,
-      Appointmentdate: result.data.dateOfAppointment,
-      availableSlots: [result.data.bookedSlots],
-    };
-    axios.post('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/updateOnDeleteAppointment', data2)
-    .then((result) => {
-           
-    const filteredSlots = editAvailableSlots.filter((slot) => slot !== editbookedSlots);
-    e.preventDefault();
-    const SlotData = {
-      serviceCenterId: editserviceCenterID,
-      Appointmentdate: editdateOfAppointment,
-      availableSlots: filteredSlots,
-    };
-    const url = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/postAvailableSlots'
-          axios.post(url, SlotData)
-            .then((result) => {
-              axios
-              .put(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/user/EditAppointment/${editedId}`, data1)
-              .then((result) => {
-                toast.success("Appointment Updated successfully!")
-                getData(email);
-                setShow(false)
-              })
-            }).catch((error) => {
-            })
-          })
-        }      
+     
   }else{
-    e.preventDefault();
     const data2 = {
       serviceCenterId: result.data.serviceCenterId,
       Appointmentdate: result.data.dateOfAppointment,
       availableSlots: [result.data.bookedSlots],
     };
-    axios.post('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/updateOnDeleteAppointment', data2)
+    axios.post(API_URLS.updateOnDeleteAppointment, data2)
     .then((result) => {    
     const filteredSlots = editAvailableSlots.filter((slot) => slot !== editbookedSlots);
     const SlotData = {
@@ -244,13 +192,17 @@ axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly
       Appointmentdate: editdateOfAppointment,
       availableSlots: filteredSlots,
     };
-    const url = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/postAvailableSlots'
-          axios.post(url, SlotData)
+          axios.post(API_URLS.postAvailableSlots, SlotData)
             .then((result) => {
               axios
-              .put(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/user/EditAppointment/${editedId}`, data1)
+              .put(`${API_URLS.editAppointment}/${editedId}`, data1)
               .then((result) => {
-                toast.success("Appointment Updated successfully!")
+                setIsLoading(false);
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Appointment Updated Successfully',
+                  text: 'Your appointment has been successfully Updated. A confirmation mail has been sent to your registered mail ID, with all the updated details. Please check your email.',
+                });
                 getData(email);
                 setShow(false)
               })
@@ -263,7 +215,7 @@ axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly
   };
   const handleDelete = (ID) => { 
     setDeletedID(ID);
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getAppointmentSlotsById/${ID}`)
+    axios.get(`${API_URLS.getAppointmentSlotsById}/${ID}`)
       .then((result) => {
         setCameraName(result.data.productName);
         setModelNumber(result.data.productModelNo);
@@ -272,14 +224,13 @@ axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly
         SetBookedSlot(result.data.bookedSlots);
         setServiceCenterId(result.data.serviceCenterId);
       }).catch((error) => {
-        alert(error)
+       
       })
     handleShow1();
   };
 
   const handleDownload = (ID) => {
-    
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getAppointmentSlotsById/${ID}`)
+    axios.get(`${API_URLS.getAppointmentSlotsById}/${ID}`)
     .then((result)=>{
       setcontactNumber(result.data.contactNumber)
       setservice(result.data.serviceCenterName)
@@ -331,7 +282,17 @@ const DownloadPDF = () =>{
   // Display date on the left side in dd-mm-yyyy format
   doc.text(`Date: ${formattedDate}`, 10, 50);
   
-
+  const currentTime = new Date().toLocaleTimeString();
+  
+  doc.setFont('Helvetica', 'normal');
+  doc.setFontSize(14);
+  
+  const timeTextWidth = doc.getStringUnitWidth(`Time: ${currentTime}`) * doc.internal.getFontSize();
+  const timeX = pageWidth - timeTextWidth - 10;
+  const timeY = 50;
+  doc.text(`Time: ${currentTime}`, timeX, timeY, { align: 'right' });
+  
+  doc.setFontSize(14);
 
 const basicservicecostValue = parseInt(basicservicecost); 
 const gstValue = 156; 
@@ -395,16 +356,14 @@ const noteText = 'Note: Additional charges may apply based on your product.'; //
 
 doc.text(totalLabelText, totalLabelX, labelY + labels.length * labelSpacing);
 doc.text(totalValueText, totalValueX, labelY + labels.length * labelSpacing);
-
-// Calculate the position of the note based on the existing elements
 const noteX = totalValueX;
-const noteY = labelY + (labels.length + 1) * labelSpacing; // Increment the label count to make room for the note
+const noteY = labelY + (labels.length + 1) * labelSpacing; 
 
-doc.setFontSize(12); // Set a smaller font size for the note
-doc.text(noteText, noteX, noteY); // Add the note text
+doc.setFontSize(12); 
+doc.text(noteText, noteX, noteY); 
 
 doc.setLineWidth(0.5);
-doc.line(noteX, noteY + 1, noteX + doc.getTextWidth(noteText), noteY + 1); // Underline the note
+doc.line(noteX, noteY + 1, noteX + doc.getTextWidth(noteText), noteY + 1); 
 
 
 const footerText = 'Dear Customer: ';
@@ -413,11 +372,11 @@ const footerX = 10;
 const footerY = pageHeight - 30;
 const footerWidth = pageWidth - 20;
 
-doc.setFontSize(14); // Increased the text size to 14
-doc.setTextColor(0, 0, 0); // Set text color to black
+doc.setFontSize(14); 
+doc.setTextColor(0, 0, 0); 
 doc.setFont('italic');
 doc.text(footerText, footerX, footerY);
-doc.setFontSize(12); // Reset the text size to 12
+doc.setFontSize(12);
 doc.setFont('normal');
 doc.text(footerContent, footerX, footerY + 10, { maxWidth: footerWidth });
 doc.save('service_bill.pdf');
@@ -425,96 +384,198 @@ doc.save('service_bill.pdf');
 }
   
   
-  const handleCancelAppointment = () => {
-    if (deletedID) {
-      if (window.confirm("Are you sure you want to Cancel Appointment") === true) {
-
+const handleCancelAppointment = () => {
+  if (deletedID) {
+    Swal.fire({
+      title: 'Confirm Cancellation',
+      text: 'Are you sure you want to cancel the appointment?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Cancel Appointment',
+      cancelButtonText: 'No, Keep Appointment',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
         const data = {
           serviceCenterId: serviceCenterId,
           Appointmentdate: DateofAppointment,
           availableSlots: [BookedSlot],
         };
 
-        axios.post('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/updateOnDeleteAppointment', data)
+        axios.post(API_URLS.updateOnDeleteAppointment, data)
           .then((result) => {
-
-            axios.delete(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/user/cancelappointment/${deletedID}`)
+            axios.delete(`${API_URLS.cancelAppointment}/${deletedID}`)
               .then((result) => {
-                
                 handleClose1();
-                toast.warning("Appointment Cancelled!");
-                const email = localStorage.getItem("email")
-
+                toast.warning('Appointment Cancelled!');
+                const email = localStorage.getItem('email');
                 getData(email);
-                // setTimeout(() => {
-                //   window.location.reload();
-                // }, 1500);
               })
               .catch((error) => {
-                alert(error);
+            
               });
           })
           .catch((error) => {
-            alert(error);
+        
           });
-
       }
-    }
-  };
-  // https://localhost:44303/api/user/updateOnDeleteAppointment {serviceCenterId, dateofAppointment, bookedSlots} {serviceCenterId, availableSlots, Appointmentdate } post request
+    });
+  }
+};
+  const [statusFilter, setStatusFilter] = useState('inProgress');
+  const [text, setText] = useState("Inprogress Bookings");
 
-  // https://localhost:44303/api/user/deleteAppointment{ID} delete request
+  const handleStatusFilterChange = (e) => {
+    const selectedOption = e.target.value;
+    setStatusFilter(selectedOption);
+
+    if(selectedOption === 'inProgress') {
+      setText('In Progress Bookings');
+    } else {
+      setText('Completed Services');
+    }
+  }
+
+  const handleNextPage = () => {
+    setPageNumber(pageNumber + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setPageNumber(pageNumber - 1);
+  };
+  const indexOfLastItem = pageNumber * itemsPerPage;
+
   return (
     
     <div>
-      <Home />
-      <Fragment>
+  <Box sx={{ display: "flex" ,flexDirection:"column" }}>
+    <Box sx={{
+       display: "flex",
+       minHeight: "80px" ,
+       width:"100%",
+       position:"fixed"
+     }}> <Usertopbar/> </Box>
+  
+   <Box sx={{ 
+     display: "flex",
+     width:"100%",
+     marginTop:"80px",
+     flexDirection:"row",
+     height:"100vh",
+     
+     }}>
+     <Box component="nav"
+     sx={{
+       width: "80px",
+       flexShrink: 0,
+       height:"100%"
+     }}><Usersidebar/>
+     </Box>
 
-        {data && data.length > 0 ? (
-          <table id='centerName1' className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">S.No</th>
-                <th scope="col">Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Timing</th>
-                <th scope="col"></th>
+     <Box sx={{
+       display:"flex",
+       width:"100%",
+       minHeight: "100%",
+       flexDirection:"column"
+       
+         }} style={{
+  background: "rgba(7, 150, 238, 0.947)",
+  // other styles...
+}}>
+      <Fragment>
+        <div style={{marginTop: '10px', marginBottom: '10px'}}>
+        <Row>
+        <Col xs={6} md={6} lg={6} className='text-start' >
+          <Form.Label style={{fontSize: '17px', fontColor: 'black', fontWeight: 'bold', marginLeft: '10px'}}>{text}</Form.Label>
+        </Col>
+        <Col xs={6} md={6} lg={6} className='text-end'>
+        <Form.Select
+          aria-label="Select service status"
+          value={statusFilter}
+          onChange={handleStatusFilterChange}
+          style={{width: '180px'}}
+        >
+          <option value="inProgress">In Progress</option>
+          <option value="completed">Completed</option>
+        </Form.Select>
+        </Col>
+        </Row>
+        </div>
+        {statusFilter === 'inProgress' && (
+  <>
+   {isLoading && (
+        <div className="loading-screen">
+          <div className="loading-popup">
+            <div className="loading-content">
+              <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+                Please wait while we're updating your Appointment Slot...
+              </div>&nbsp;&nbsp;
+              <GridLoader color="orange" loading={true} size={10} />
+            </div>
+          </div>
+        </div>
+      )}
+
+
+      <div className={isLoading ? "blur-background" : ""}></div>
+      <Table id='centerName1' bordered hover>
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Timing</th>
+            <th scope="col" data-testid='cancelBooking'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => {
+            const serialNumber = index + 1 + (pageNumber - 1) * itemsPerPage;
+            return (
+              <tr key={index}>
+                <td>{serialNumber}</td>
+                <td id='centerName1'>{item.serviceCenterName}</td>
+                <td>{new Date(item.dateOfAppointment).toLocaleDateString('en-GB')}</td>
+                <td>{item.bookedSlots}</td>
+                <td colSpan={2}>
+                  <div className="text-right">
+                    <Button variant="link" onClick={() => handleEdit(item.id)}>
+                      <PencilSquare size={24} />
+                    </Button>
+                    <Button variant="link" onClick={() => handleDelete(item.id)}>
+                      <Trash size={24} />
+                    </Button>
+                    <Button variant="link" onClick={() => handleDownload(item.id)}>
+                      <FileText size={24} /> <Download size={12} />
+                    </Button>
+                  </div>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {data.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td id='centerName1'>{item.serviceCenterName}</td>
-                    <td>{new Date(item.dateOfAppointment).toLocaleDateString('en-GB')}</td>
-                    <td>{item.bookedSlots}</td>
-                    <td colSpan={2}>
-                      <div className="text-right">
-                        <Button variant="link" onClick={() => handleEdit(item.id)}>
-                          <PencilSquare size={24} />
-                        </Button>
-                        <Button variant="link" onClick={() => handleDelete(item.id)}>
-                          <Trash size={24} />
-                        </Button>
-                        <Button variant="link" onClick={() => handleDownload(item.id)}><FileText size={24} /> <Download size={12} /> </Button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        ) : (
-          <p>No bookings found....</p>
+            );
+          })}
+        </tbody>
+      </Table>
+
+    {data.length > itemsPerPage && (
+      <div>
+        <Button onClick={handlePreviousPage} disabled={pageNumber === 1}>Previous</Button>
+        <Button onClick={handleNextPage} disabled={indexOfLastItem >= data.length}>Next</Button>
+      </div>
+    )}
+  </>
+)}
+
+        {statusFilter==='completed' && (
+          < Review />
         )}
+        
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header className='d-flex justify-content-center' closeButton>
             <Modal.Title className='text-center w-100'>Update Appointment</Modal.Title>
           </Modal.Header>
           <Modal.Body >
-          <Form className="my-form text-start" onSubmit={handleUpdate}>
+            <Form className="my-form text-start">
               <Form.Group className="mb-4">
                 <Form.Text style={{ fontSize: '16px' }}> Update Product Name </Form.Text>
                 <Form.Control className='form-control' type="text" id="enterProductName" placeholder="Enter the name of the product" value={editProductName} onChange={(e) => seteditProductName(e.target.value)} required />
@@ -544,8 +605,7 @@ doc.save('service_bill.pdf');
               </Form.Group>
               <Form.Group className="mb-4">
                 <Form.Text style={{ fontSize: '16px' }}> Update Contact Number </Form.Text>
-                <Form.Control className='form-control' type="text" id="enterContactNumber" placeholder="Enter the contact number" value={editcontactNumber} onChange={(e) => seteditcontactNumber(e.target.value)}
-                pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$" title="Enter valid mobile number" required />
+                <Form.Control className='form-control' type="text" id="enterContactNumber" placeholder="Enter the contact number" value={editcontactNumber} onChange={(e) => seteditcontactNumber(e.target.value)} required />
               </Form.Group>
               <Form.Group className="mb-4">
                 <Form.Text style={{ fontSize: '16px' }}> Update Problem Description </Form.Text>
@@ -595,12 +655,10 @@ doc.save('service_bill.pdf');
 
                 </Row>
                 <Col sm="4">
-                  <Button type='submit' id="bookButton" >Update</Button>
+                  <Button id="bookButton" onClick={handleUpdate}>Update</Button>
                 </Col>
               </Form.Group>
             </Form>
-
-
 
           </Modal.Body></Modal>
         <>
@@ -676,98 +734,10 @@ doc.save('service_bill.pdf');
  
       </Modal>
       </>
-
       </Fragment>
+     </Box></Box></Box>
     </div>
 
   )
 }
-export default MyBookings
-   // Add camera icon
-      // Convert SVG icons to PNG images
-    // Convert SVG icons to PNG images using html2canvas
-  // const cameraIconRef = React.createRef();
-  // const servicesIconRef = React.createRef();
-
-  // html2canvas(cameraIconRef.current).then((canvas) => {
-  //   const cameraIconData = canvas.toDataURL('image/png');
-  //   // Add camera icon
-  //   doc.addImage(cameraIconData, 'PNG', 10, 10, 10, 10);
-
-  //   html2canvas(servicesIconRef.current).then((canvas) => {
-  //     const servicesIconData = canvas.toDataURL('image/png');
-  //     // Add services icon
-  //     doc.addImage(servicesIconData, 'PNG', doc.internal.pageSize.getWidth() - 20, 10, 10, 10);
-  //   });
-  // });
-
-  //  // Set text color to blue
-  //  doc.setTextColor(0, 0, 255);
-    
-  //     // Add "Kraftcam" text in bold
-  //     doc.setFont('Helvetica', 'bold');
-  //     doc.setFontSize(28);
-  //     doc.text('KRAFTCAM SERVICES', doc.internal.pageSize.getWidth() / 2, 30, { align: 'center' });
-    
-  //     // Rest of your code...
-    
-   
-
-
-  //     // Set text color to blue
-  //     doc.setTextColor(0, 0, 255);
-  
-  //     // Add "Kraftcam" text in bold
-  //     doc.setFont('Helvetica', 'bold');
-  //     doc.setFontSize(28);
-  //     doc.text('KRAFTCAM SERVICES', doc.internal.pageSize.getWidth() / 2, 30, { align: 'center' });
-  
-  //     // Set text color to black
-  //     doc.setTextColor(0);
-  
-  //     // Add date and time
-  //     const currentDate = new Date().toLocaleDateString();
-  //     const currentTime = new Date().toLocaleTimeString();
-  //     doc.setFont('Helvetica', 'normal');
-  //     doc.setFontSize(14);
-  //     doc.text(`Date: ${currentDate}`, 10, 50);
-  //     doc.text(`Time: ${currentTime}`, 10, 60);
-  
-  //     // Add header content
-  //     doc.setFont('Helvetica', 'bold');
-  //     doc.setFontSize(20);
-  //     doc.text('Bill - Camera Services', doc.internal.pageSize.getWidth() / 2, 90, { align: 'center' });
-  
-  //     // Camera service details
-  //     const serviceDetails = [
-  //       { service: 'Camera repair', price: '100' },
-  //       { service: 'Lens cleaning', price: '200' },
-  //       { service: 'Battery', price: '250' },
-  //     ];
-  
-  //     // Calculate total
-  //     let total = 0;
-  
-      // // Add service details to the bill
-      // doc.setFont('Helvetica', 'normal');
-      // doc.setFontSize(14);
-      // serviceDetails.forEach((detail, index) => {
-      //   const { service, price } = detail;
-      //   const yPosition = 110 + index * 15;
-      //   doc.text(service, 20, yPosition);
-      //   doc.text(price, doc.internal.pageSize.getWidth() - 20, yPosition, { align: 'right' });
-      //   total += parseInt(price);
-      // });
-  
-      // // Add total
-      // doc.setFont('Helvetica', 'bold');
-      // doc.setFontSize(16);
-      // const totalYPosition = doc.internal.pageSize.getHeight() - 20;
-      // doc.text('Total:', 20, totalYPosition);
-      // doc.text(`${total}`, doc.internal.pageSize.getWidth() - 20, totalYPosition, { align: 'right' });
-  
-      // // Add "Thank You" message
-      // doc.setFont('Helvetica', 'normal');
-      // doc.setFontSize(18);
-      // doc.setTextColor(0, 128, 0); // Green color
-      // doc.text('Thank You!', doc.internal.pageSize.getWidth() / 2, totalYPosition + 10, { align: 'center' });
+export default Booking;

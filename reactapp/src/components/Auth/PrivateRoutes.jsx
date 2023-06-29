@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from 'react-router-dom'
 
-const Auth = () => {
+const PrivateRoutes = () => {
     // let auth = {'token':true}
     const email = localStorage.getItem("email");
     return(
@@ -8,4 +8,4 @@ const Auth = () => {
     )
 }
 
-export default Auth
+export default PrivateRoutes

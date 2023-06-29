@@ -15,17 +15,28 @@ namespace WebApp.Controllers
     public class ReviewController : ControllerBase
     {
         BusinessLayer businesslayer = new BusinessLayer();
-        [HttpPost]
+         [HttpPost]
         [Route("AddReview")]
-        public string AddReview(ReviewModel model)
+        public IActionResult AddReview(ReviewModel model)
         {
-            return businesslayer.AddReview(model);
+            string result = businesslayer.AddReview(model);
+            return Ok(result);
         }
+
         [HttpGet]
         [Route("getReviews/{id}")]
-        public ReviewModel getReviews(string id)
+        public IActionResult getReviews(string id)
         {
-            return businesslayer.getReviews(id);
+            ReviewModel result = businesslayer.getReviews(id);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("getAllReviews")]
+        public IActionResult getAllReviews()
+        {
+            List<ReviewModel> result = businesslayer.getAllReviews();
+            return Ok(result);
         }
 
    

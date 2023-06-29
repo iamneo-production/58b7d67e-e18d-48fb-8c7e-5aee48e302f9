@@ -4,15 +4,21 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../Styling/LoadingScreen.css';
+import '../../Styling/login.css';
 import 'react-toastify/dist/ReactToastify.css'
-
+import { RiseLoader } from 'react-spinners';
+import { API_URLS } from '../../Apis/config.js';
 
 export const UserContext = React.createContext();
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { userLogin, adminLogin } = API_URLS;
+
   const navigate = useNavigate();
   const handleEmailChange = (value) => {
     setEmail(value);
@@ -22,64 +28,75 @@ function Login() {
   };
   const handleSave = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const data = {
       email: email,
       password: password
     };
-    const url1 = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/user/login';
-    const url2 = 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/admin/login';
-    // const url3 = `https://localhost:44303/api/Auth/getUserDetails/?email=${email}`
-    axios.post(url1, data).then((result) => {
+ 
+    axios.post(userLogin, data).then((result) => {
       if (result.data === true) {
         localStorage.setItem("email", email)
+        setIsLoading(false);
         toast.success("User Logged in Successfully");
-        
         setTimeout(() => {
           navigate('/user/Homepage', { state: { email } });
         }, 1000);
-
       } else {
-        axios.post(url2, data).then((result) => {
+        axios.post(adminLogin, data).then((result) => {
           if (result.data === true) {
             localStorage.setItem("email", email)
+            setIsLoading(false);
             toast.success("Admin Logged in Successfully");
             setTimeout(() => {
-              navigate('/admin/addServiceCenter');
+              navigate('/admin/AddCenter');
             }, 1000);
             // navigate to the admin page
           } else {
+            setIsLoading(false);
             toast.warning("User not found!")
           }
         });
       }
     });
   };
-
-  const formStyle = {
-    width: '400px',
-    margin: '0 auto',
-    border: '2px solid black',
-    padding: '20px',
-    marginTop: '200px'
-  }
+  
   return (
     <Fragment>
+      {isLoading && (
+    <div className="loading-screen">
+      <div className="loading-popup">
+        <div className="loading-content">
+          <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+            Hold ON...
+          </div>&nbsp;&nbsp;
+          <RiseLoader color="blue" loading={true} size={15} /> 
+        </div>
+      </div>
+    </div>
+  )}
+  
+  <div className={isLoading ? "blur-background" : ""}></div>
       <ToastContainer />
+      <div className="login-page">
+      <div className="login-container">
+        <div className="login-card" data-testid='loginBox'>
+          <h1 className="login-heading">Kraft-Cam Services</h1>
       <div className='form-container'>
-        <Form style={formStyle} className="my-form" onSubmit={handleSave}>
+        <Form  className='login-form' onSubmit={handleSave}>
           <center>
-            <Form.Label className='form-label'>Login</Form.Label>
-            <Form.Group className="mb-3">
-            <Form.Control className='form-control' type="email" id="email" placeholder="Enter Email" onChange={(e) => handleEmailChange(e.target.value)}
+            <Form.Group className='input-field'>
+            <Form.Control className='form-control' type="email" id="email" placeholder="Enter Email" data-testid='email' onChange={(e) => handleEmailChange(e.target.value)}
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title='Enter valid email address' required />
             </Form.Group>
-            <Form.Group className="mb-3">
-              <div className="password-input-wrapper">
+            <Form.Group className='mb-3'>
+              <div className='password-input-wrapper'>
                 <Form.Control
                   className='form-control password-input'
                   type={showPassword ? 'text' : 'password'}
-                  id="password"
-                  placeholder="Password"
+                  id='password'
+                  placeholder='Password'
+                  data-testid='password'
                   onChange={(e) => handlePasswordChange(e.target.value)}
                   required
                 />
@@ -91,15 +108,21 @@ function Login() {
                 </span>
               </div>
             </Form.Group>
-            <Button type="submit" id="loginButton">Login</Button>
-            <Form.Text >
+            <Button type='submit' data-testid='loginButton' id='loginButton'>
+              Login
+            </Button>
+            <Form.Text>
+              <br/>
               &nbsp; New User/admin?
-              <a href='/signup' id='signupLink'>Signup</a>
+              <a className="link-btn"  href='/signup' data-testid='signupLink' id='signupLink'>
+                Signup
+              </a>
               {/* <Link  to="/signup" id='signupLink'>Sign Up</Link>  */}
             </Form.Text>
           </center>
         </Form>
       </div>
+      </div></div></div>
     </Fragment>
   );
 }

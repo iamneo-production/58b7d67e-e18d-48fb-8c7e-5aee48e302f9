@@ -2,21 +2,32 @@
 import React, { useState, useEffect} from 'react';
 import { Card, Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { PencilSquare, Trash } from 'react-bootstrap-icons';
-import AddCenter from '../components/addCenter';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import {Box} from '@mui/material';
+import Adminsidebar from '../../Navbar/Adminsidebar';
+import Admintopbar from '../../Navbar/Admintopbar';
+import '../../Styling/LoadingScreen.css';
+import {  BounceLoader } from 'react-spinners';
+import { API_URLS } from '../../Apis/config.js';
+
 
 function Centerprofile() {
   
   const [data, setData] = useState([]);
-
+  const[adminPage] = useState('Center Profile')
   const [show, setShow] = useState(false);
+  const [selectedCards, setSelectedCards] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [selectAll, setSelectAll] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const [editserviceCenterId, seteditServiceCenterId] = useState('');
   const [editserviceCenterName, seteditserviceCenterName] = useState('');
@@ -29,27 +40,26 @@ function Centerprofile() {
   const [editserviceCenterEndTime, seteditserviceCenterEndTime] = useState('');
   const [editserviceCenterDescription, seteditServiceCenterDescription] = useState('');
 
-
   let navigate =useNavigate();
-
   useEffect(() => {
+    localStorage.setItem('adminPage', adminPage)
     getServiceCenterData();
     const email =localStorage.getItem('email')
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Auth/getAdminByEmailId/?email=${email}`)
+    axios.get(`${API_URLS.getUserByEmailId}?email=${email}`)
     .then((result)=>{
-
+      // setUserName(result.data.username)
+      // setUserRole(result.data.userRole)
       if(result.data.userRole==="user"){
         localStorage.removeItem("email");
         navigate("/")
       }
     }).catch((error)=>{
-
     })
-  }, []);
+  }, [navigate, adminPage]);
 
 
   const getServiceCenterData = () => {
-    axios.get('https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/admin/getservicecenter', {
+    axios.get(API_URLS.getServiceCenterData, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -64,8 +74,10 @@ function Centerprofile() {
 
 
   const handleEdit = (serviceCenterId) => {
-    axios.get(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/viewServiceCenterByID/${serviceCenterId}`)
+    setIsLoading(true);
+    axios.get(`${API_URLS.viewServiceCenterByID}/${serviceCenterId}`)
       .then((result) => {
+        setIsLoading(false);
         handleShow();
         seteditserviceCenterName(result.data.serviceCenterName);
         seteditServiceCenterPhone(result.data.serviceCenterPhone);
@@ -104,22 +116,27 @@ function Centerprofile() {
       });
   }
   const handleDelete = (serviceCenterId) => {
+    
     if (window.confirm("Are you sure to delete?") === true) {
-      axios.delete(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/admin/deleteServiceCenter/${serviceCenterId}`)
+      axios.delete(`${API_URLS.deleteServiceCenter}/${serviceCenterId}`)
       .then((result)=>{
         if(result.data === "Service center deleted"){
+          setIsLoading(false);
           toast.warning(result.data)
-          axios.delete(`https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/deleteAvailableSlots/${serviceCenterId}`)
+          axios.delete(`${API_URLS.deleteAvailableSlots}/${serviceCenterId}`)
         .then((result)=>{
           getServiceCenterData();
+          setIsLoading(false);
         }).catch((error)=>{
-
+          setIsLoading(false);
         })
         }else{
+          setIsLoading(false);
             toast.error("Cant Delete Service Center, Appointments were already booked!")
         }
       }).catch((error)=>{
-        alert("Failed to Delete")
+        setIsLoading(false);
+        toast.error("Failed to Delete")
       })
     }
   }
@@ -140,27 +157,23 @@ function Centerprofile() {
     return intervals;
   }
 
-  const handleUpdate = (e) => {
+  const handleUpdate = () => {
 
+    setIsLoading(true);
     const intervals = calculateTotalTime(editserviceCenterStartTime,editserviceCenterEndTime );
     const intervalStrings = intervals.map((interval) => {
       const intervalEnd = moment(interval).add(90, 'minutes');
       return `${interval.format('HH:mm')} - ${intervalEnd.format('HH:mm')}`;
     });
-e.preventDefault();
     const data1 = {
       serviceCenterId: editserviceCenterId,
       availableSlots : intervalStrings
        };
-       const url1 = `https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/updateGetSlots/${editserviceCenterId}`;
-       axios.put(url1, data1).then((result)=>{
+       axios.put(`${API_URLS.updateGetSlots}/${editserviceCenterId}`, data1).then((result)=>{
 
        }).catch((error)=>{
 
        })
-
-    const url = `https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/ServiceCenter/admin/editServiceCenter/${editserviceCenterId}`;
-    e.preventDefault();
 
     const data = {
       serviceCenterName: editserviceCenterName,
@@ -173,47 +186,170 @@ e.preventDefault();
       serviceCenterEndTime : editserviceCenterEndTime,
       serviceCenterDescription: editserviceCenterDescription
     }
-    axios.put(url, data)
+    axios.put(`${API_URLS.editServiceCenter}/${editserviceCenterId}`, data)
       .then((result) => {
+        setIsLoading(false);
         toast.success("Service center has been updated successfully!");
         getServiceCenterData();
         handleClose();
       })
       .catch((error) => {
-        toast.warning("Failed to Update Service Center!")
+        setIsLoading(false);
+        toast.warning(error)
       })
   }
-  
-  
 
+  const handleCardSelect = (serviceCenterId) => {
+    if(selectedCards.includes(serviceCenterId)) {
+      setSelectedCards(selectedCards.filter((id) => id !== serviceCenterId));
+    } else {
+      setSelectedCards([...selectedCards, serviceCenterId]);
+    }
+  };
+ 
+  const handleSelectAll = () => {
+    if(selectAll) {
+      setSelectedCards([]);
+      setSelectAll(false);
+    } else {
+      const allServiceCenterIds = data.map((item) => item.serviceCenterId);
+      setSelectedCards(allServiceCenterIds);
+      setSelectAll(true);
+    }
+  };
+
+  const handleDeleteSelected = async () => {
+    const result = await Swal.fire({
+      title: 'Confirm Deletion',
+      text: 'Are you sure you want to delete the selected Service Centers?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+    });  
+    if(result.isConfirmed) {
+      setIsLoading(true);
+    try {
+      const deleteRequests = selectedCards.map(serviceCenterId => {
+        return axios.delete(`${API_URLS.deleteServiceCenter}/${serviceCenterId}`);
+      });
+  
+      await axios.all(deleteRequests);
+  
+      const deleteSlotsRequests = selectedCards.map(serviceCenterId => {
+        return axios.delete(`${API_URLS.deleteAvailableSlots}/${serviceCenterId}`);
+      });
+  
+      await axios.all(deleteSlotsRequests);
+  
+      getServiceCenterData();
+      setSelectedCards([]);
+      setIsLoading(false);
+      toast.warning("Selected service centers deleted");
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("Failed to delete selected service centers");
+    }
+}
+  };
   const cardStyle = {
     width: '18rem',
-    position: 'relative',
+    position: 'static',
     border: '1px solid black',
     borderRadius: '10px',
     padding: '10px',
-    height: '400px'
+    height: '400px',
+    cursor: 'pointer',
   };
-
   const modalStyle = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     }
-
-  
-    
-
+    const selectedCardStyle = {
+      ...cardStyle,
+      backgroundColor: '#c7ddf9',
+      position: 'static',
+      display: 'flex',
+      alignItems: 'center',
+    };
+    const hiddenCheckboxStyle = {
+      position: 'absolute',
+      top: '-9999px',
+      left: '-9999px',
+    };
   return (
     <div >
-     <AddCenter/>
+     <Box sx={{ display: "flex" ,flexDirection:"column",background: "linear-gradient(to bottom, rgba(7, 150, 238, 0.947), rgb(246, 246, 246))"  }}>
+    <Box sx={{
+       display: "flex",
+       minHeight: "80px" ,
+       width:"100%",
+       position:"fixed"
+     }}> <Admintopbar/> </Box>
+   <Box sx={{ 
+     display: "flex",
+     width:"100%",
+     marginTop:"80px",
+     flexDirection:"row",
+     height:"100%",
+     }}>
+     <Box component="nav"
+     sx={{
+       width: "80px",
+       flexShrink: 0,
+       height:"100%"
+     }}><Adminsidebar/>
+     </Box>
+
+     <Box sx={{
+       display:"flex",
+       width:"100%",
+       minHeight: "100%",
+         }}
+>
+
+{isLoading && (
+    <div className="loading-screen">
+      <div className="loading-popup">
+        <div className="loading-content">
+          <div style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', fontSize: '1.2em' }}>
+            Please Wait...
+          </div>&nbsp;&nbsp;
+          <BounceLoader color="Blue" loading={true} size={30} /> 
+        </div>
+      </div>
+    </div>
+  )}
+  
+  <div className={isLoading ? "blur-background" : ""}></div>
      <ToastContainer/>
        <Container className='mt-3'>
+        {selectedCards.length >0 && (
+          <div className='mb-3 d-flex justify-content-start align-items-center' >
+            <Button variant='primary' className='ms-3' onClick={handleSelectAll}>{selectAll ? 'Deselect All' : 'Select All'}</Button>
+            <Button variant='danger' className='ms-3' onClick={handleDeleteSelected} style={{marginLeft: '10px'}}>Delete</Button>
+          </div>
+        )}
           <Row xs={1} sm={2} md={3} lg={3}>
-      {data.map(item => (
-            <Col xs={12} sm={6} md={4}>
-              <Card key={item.id} className='mb-4' style={cardStyle}>
-                <Card.Img variant="top" src={item.serviceCenterImageUrl} onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Image+not+found'; }} />
+  {data.map((item) => (
+    <Col xs={12} sm={6} md={4}>
+      <Card
+        key={item.id}
+        className='mb-4'
+        style={selectedCards.includes(item.serviceCenterId) ? selectedCardStyle : cardStyle}
+        onClick={() => handleCardSelect(item.serviceCenterId)}
+      >
+        <label>
+          <input
+            type='checkbox'
+            checked={selectedCards.includes(item.serviceCenterId)}
+            onChange={() => handleCardSelect(item.serviceCenterId)}
+            style={hiddenCheckboxStyle}
+          /></label>
+                <Card.Img variant="top" src={item.serviceCenterImageUrl} 
+                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Image+not+found'; }} />
                 <Card.Body className='d-flex flex-column'>
                   <Card.Title>{item.serviceCenterName}</Card.Title>
                   <div className='d-flex justify-content-between mb-3'>
@@ -228,21 +364,23 @@ e.preventDefault();
   {item.serviceCenterEndTime.minutes.toString().padStart(2, '0')}:
   {item.serviceCenterEndTime.seconds.toString().padStart(2, '0')}
 </Card.Text>
+
                     </div>
                     <div className='text-right'>
-                      <Button variant="link" onClick={() => handleEdit(item.serviceCenterId)}><PencilSquare size={24} /></Button>
-                      <span variant="danger" onClick={() => handleDelete(item.serviceCenterId)}><Trash size={24} className='mt-4' /></span>
+                      <Button variant="link" onClick={(e) => {e.stopPropagation(); handleEdit(item.serviceCenterId)}}><PencilSquare size={24} /></Button>
+                      <span variant="danger" onClick={(e) => {e.stopPropagation(); handleDelete(item.serviceCenterId)}}><Trash size={24} className='mt-4' /></span>
                     </div>
                   </div>
 
                 </Card.Body>
               </Card>
+
             </Col>
       ))}
        </Row>
 </Container>
       <>
-      <Modal style={ modalStyle} show={show} onHide={handleClose}>
+        <Modal style={ modalStyle} show={show} onHide={handleClose}>
           <Modal.Header className='d-flex justify-content-center' closeButton>
             <Modal.Title className='text-center w-100'>Edit Centre</Modal.Title>
           </Modal.Header>
@@ -251,7 +389,7 @@ e.preventDefault();
               <Form.Group className="mb-3">
               <label><strong>Name</strong></label>
                 <Form.Control className='form-control'id="editName" type="text" value={editserviceCenterName} onChange={(e)=>seteditserviceCenterName(e.target.value)} placeholder="Enter the Name"
-                required />
+                 pattern='^[A-za-z]+$' title="Enter only alphabets" required />
               </Form.Group>
               <Form.Group className="mb-3">
               <label><strong>Phone Number</strong></label>
@@ -304,20 +442,20 @@ e.preventDefault();
               <label><strong>Description</strong></label>
                 <Form.Control className='form-control' id="editCentreDescription" as="textarea" rows={3} value={editserviceCenterDescription} onChange={(e)=>seteditServiceCenterDescription(e.target.value)}  placeholder="Description about service center" required />
               </Form.Group>
-              <Button type='submit' variant="primary" id="updateButton" >
-              Update
-            </Button>
             </Form>
+
           </Modal.Body>
           <Modal.Footer >
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            
+            <Button variant="primary" id="updateButton" onClick={handleUpdate}>
+              Update
+            </Button>
           </Modal.Footer>
         </Modal>
-
       </>
+      </Box></Box></Box>
     </div>)
 }
 

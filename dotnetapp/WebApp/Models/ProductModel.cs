@@ -9,6 +9,7 @@ namespace WebApp.Models
  public class ProductModel
     {
         public int ID { get; set; }
+        public string customerName{ get; set;}
         public string productName { get; set; }
         public string productModelNo { get; set; }
         public DateTime dateofPurchase { get; set; }

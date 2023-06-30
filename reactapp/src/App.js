@@ -9,6 +9,8 @@ import MyBookings from './components/Appointment';
 import Logout from './components/Logout';
 import PrivateRoutes from './components/PrivateRoutes';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//demo
+
 
 function App() {
   return (

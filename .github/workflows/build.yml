@@ -1,5 +1,8 @@
 name: Build
 'on':
+  merge_group:
+    branches:
+      - main
   push:
     branches:
       - main

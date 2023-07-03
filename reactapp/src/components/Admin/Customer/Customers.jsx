@@ -45,9 +45,7 @@ function Customers() {
   const handleShow1 = () => setShow1(true);
   const [selectAllChecked, setSelectAllChecked] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
-
   let navigate = useNavigate();
-
   /**
    * The function `getData` makes an HTTP GET request to `API_URLS.getAllUsers` and sets the response
    * data to the `data` state variable, or displays a warning toast if there is an error.
@@ -62,7 +60,6 @@ function Customers() {
       toast.warning(error)
     });
   }
-
   /* The above code is a React useEffect hook that is used to fetch data from an API and perform some
   actions based on the response. */
   useEffect(() => {
@@ -91,13 +88,13 @@ function Customers() {
   }, [navigate, adminPage]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) =>
-      item.username.toLowerCase().includes(searchInput.toLowerCase())
-    );
-    setSuggestions(filteredData);
+    if (data) {
+      const filteredData = data.filter((item) =>
+        item.userName.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setSuggestions(filteredData);
+    }
   }, [searchInput, data]);
-
-
  /**
   * The function `handleEdit` is used to fetch user data by ID and set the fetched data to state
   * variables for editing.
@@ -109,7 +106,7 @@ function Customers() {
     .then((result)=>{
 
       seteditUserrole(result.data.userRole)
-      seteditUsername(result.data.username)
+      seteditUsername(result.data.userName)
       seteditEmailId(result.data.email)
       seteditContactNumber(result.data.mobileNumber)
       seteditPassword(result.data.password)
@@ -125,12 +122,11 @@ function Customers() {
   const handleUpdate = () =>{
     setIsLoading(true);
     const data = {
-      email : editEmailId,
-      password : editPassword,
-      username : editUsername,
-      mobileNumber : editContactNumber,
-      userRole : editUserrole
-      
+      Email : editEmailId,
+      Password : editPassword,
+      UserName : editUsername,
+      MobileNumber : editContactNumber,
+      UserRole : editUserrole
     }
     axios.put(`${API_URLS.editUserById}/${editedId}`, data)
     .then((result)=>{
@@ -140,7 +136,6 @@ function Customers() {
       toast.success("User details updated successfully!")
     })
   }
-
   /**
    * The `handleCheckBox` function is used to handle the checkbox state changes in a React component,
    * updating the `isChecked` property of the corresponding item in the `suggestions` array.
@@ -166,8 +161,6 @@ function Customers() {
       setSuggestions(updatedSuggestions);
     }
   };
-
-
  /**
   * The handleDelete function is used to delete selected users by sending a DELETE request to the
   * server and displaying a confirmation dialog to the user.
@@ -203,33 +196,24 @@ function Customers() {
       }
     });
   };
-
 const handleUserChange = (value) => {
   seteditUserrole(value.toLowerCase());
 };
-
 const handleEmailChange = (value) => {
   seteditEmailId(value.toLowerCase());
 };
-
 const handleUsernameChange = (value) => {
   seteditUsername(value);
 };
-
 const handleMobileChange  = (value) => {
   seteditContactNumber(value);
 };
-
 const handlePasswordChange = (value) => {
   seteditPassword(value);
 };
-
-
 const Add = () =>{
   handleShow1();
 }
-
-
 /**
  * The AddUser function sends a POST request to the API to add a new user and updates the state
  * accordingly.
@@ -237,11 +221,11 @@ const Add = () =>{
 const AddUser = () =>{
   setIsLoading(true);
   const data1 = {
-    email : editEmailId,
-    password : editPassword,
-    username : editUsername,
-    mobileNumber: editContactNumber,
-    userRole : editUserrole
+    Email : editEmailId,
+    Password : editPassword,
+    UserName : editUsername,
+    MobileNumber: editContactNumber,
+    UserRole : editUserrole
   }
   axios.post(API_URLS.addUser, data1)
   .then((result)=>{
@@ -254,13 +238,11 @@ const AddUser = () =>{
 const handleNextPage = () => {
   setCurrentPage(currentPage + 1);
 };
-
 const handlePreviousPage = () => {
   if (currentPage > 1) {
     setCurrentPage(currentPage - 1);
   }
 };
-
 const [currentPage, setCurrentPage] = useState(1);
 const pageSize = 10; 
 const isDeleteButtonVisible = suggestions.some((item) => item.isChecked);
@@ -273,7 +255,6 @@ const endIndex = startIndex + pageSize;
   by username, add new users, edit existing users, and navigate through paginated results. It also
   includes loading indicators and error handling. */
   return (
-
     <div>
     <Box sx={{ display: "flex" ,flexDirection:"column", background: "linear-gradient(to bottom, rgba(7, 150, 238, 0.947), rgb(246, 246, 246))"  }}>
     <Box sx={{
@@ -303,7 +284,6 @@ const endIndex = startIndex + pageSize;
        minHeight: "100%",
        flexDirection:"column"
          }}>
-
 {isLoading && (
     <div className="loading-screen">
       <div className="loading-popup">
@@ -316,7 +296,6 @@ const endIndex = startIndex + pageSize;
       </div>
     </div>
   )}
-  
   <div className={isLoading ? "blur-background" : ""}></div>
       <ToastContainer/>
       <br />
@@ -338,8 +317,7 @@ const endIndex = startIndex + pageSize;
   >
     Delete Users
   </button>
-)}
-  
+)} 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button type="button" className="btn btn-success" onClick={Add}>
     Add User
@@ -347,7 +325,6 @@ const endIndex = startIndex + pageSize;
 </div>
 <br/> <br/>
       </div>
-      
       {suggestions.length > 0 ? (
         <table className="table table-hover">
           <thead>
@@ -370,7 +347,7 @@ const endIndex = startIndex + pageSize;
                 <tr key={index}>
                   <th> <Form.Check type='checkbox' value={item.userId} checked={item.isChecked||false} onChange= {handleCheckBox} /> </th>
                   <td>{serialNumber}</td>
-                  <td>{item.username}</td>
+                  <td>{item.userName}</td>
                   <td>{item.email}</td>
                   <td>{item.mobileNumber}</td>
                   <td>{item.userRole}</td>
@@ -521,14 +498,8 @@ const endIndex = startIndex + pageSize;
         </Modal.Footer>
       </Modal>
     </>
-
-
-
     </Box></Box></Box>
-    </div>
-    
+    </div>  
   );
 }
-
 export default Customers;
-

@@ -54,12 +54,11 @@ function Signup(){
         e.preventDefault();        
         setIsLoading(true);
         const data = {
-            
-            email: email,
-            username : username,
-            mobilenumber: mobile,
-            password: confirmPassword,
-            userrole : Usertype
+            Email: email,
+            UserName : username,
+            MobileNumber: mobile,
+            Password: confirmPassword,
+            UserRole : Usertype
         };
         if (password !== confirmPassword) {
             toast.warning("Passwords do not match");
@@ -128,8 +127,8 @@ function Signup(){
         className="form-control"
         type="text"
         id="adminuser"
-        placeholder='type - "user"'
-        onChange={(e) => handleAdminUserChange(e.target.value)} pattern="(admin|user)" 
+        placeholder='Enter admin/user'
+        onChange={(e) => handleAdminUserChange(e.target.value)} pattern="(admin|user|User|Admin)" 
         title='Enter admin or user only '  required/>
         </Form.Group>
         <Form.Group className="mb-3">

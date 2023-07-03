@@ -37,8 +37,8 @@ function Login() {
     e.preventDefault();
     setIsLoading(true);
     const data = {
-      email: email,
-      password: password
+      Email: email,
+      Password: password
     };
  
     axios.post(userLogin, data).then((result) => {
@@ -134,12 +134,3 @@ function Login() {
   );
 }
 export default Login;
-
-
-
-
-
-
-
-
-

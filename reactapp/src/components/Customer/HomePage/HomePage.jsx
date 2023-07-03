@@ -295,5 +295,4 @@ admin or not. */
   
   );
 }
-
 export default HomePage;

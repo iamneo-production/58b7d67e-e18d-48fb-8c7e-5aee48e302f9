@@ -8,6 +8,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -24,6 +25,9 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
     await page.setViewport({
       width:1200,
       height:800,
@@ -61,6 +65,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -77,6 +82,9 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
     await page.setViewport({
       width:1200,
       height:800,
@@ -108,6 +116,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -124,6 +133,9 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
     await page.setViewport({
       width:1200,
       height:800,
@@ -157,6 +169,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -173,6 +186,9 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
   await page.setViewport({
     width:1200,
     height:800,
@@ -206,6 +222,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -222,6 +239,9 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
   await page.setViewport({
     width:1200,
     height:800,
@@ -253,6 +273,7 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
@@ -269,6 +290,9 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-eeswari123
+=======
+  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
+>>>>>>> Camera-Service-Portal-PravallikaMuddana
   await page.setViewport({
     width:1200,
     height:800,

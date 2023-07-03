@@ -16,7 +16,7 @@ import { jsPDF } from 'jspdf';
 import {Box} from '@mui/material';
 import Adminsidebar from '../../Navbar/Adminsidebar';
 import Admintopbar from '../../Navbar/Admintopbar';
-import { API_URLS } from '../../Apis/config.js';
+import { API_URLS } from '../../Apis/config.js.js';
 
 
 function Service (){

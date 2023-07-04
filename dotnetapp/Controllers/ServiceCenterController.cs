@@ -20,50 +20,53 @@ namespace dotnetapp.Controllers
 
         BusinessLayer businesslayer = new BusinessLayer();
 
-        /* this method returns an IActionResult, and the result being returned is a string 
-           * and By returning Ok(result), the result will be sent as the response*/
-            [HttpPost]
-            [Route("availableSlots")]
-            public IActionResult availableSlots(AppointmentModel m)
-            {
-                string result = businesslayer.availableSlots(m);
-                return Ok(result);
-            }
-
-            /* this method returns an IActionResult, and the result being returned is a List */
+    /* this method returns an IActionResult, and the result being returned is a Model */
             [HttpGet]
-            [Route("admin/getservicecenter")]
-            public IActionResult viewServiceCenter()
+            [Route("viewServiceCenterByID/{serivceCenterId}")]
+            public IActionResult viewServiceCenterByID(string serivceCenterId)
             {
-                List<ServiceCenterModel> result = businesslayer.viewServiceCenter();
+                ServiceCenterModel result = businesslayer.viewServiceCenterByID(serivceCenterId);
                 return Ok(result);
             }
 
             /* this method returns an IActionResult, and the result being returned is a string */
-            [HttpPost]
-            [Route("admin/addServiceCenter")]
-            public IActionResult addServiceCenter([FromBody] JsonElement jsonData)
+            [HttpPut]
+            [Route("updateGetSlots/{serviceCenterId}")]
+            public IActionResult updateGetSlots(string serviceCenterId, AppointmentModel model)
             {
-                string result = businesslayer.addServiceCenter(jsonData);
+                string result = businesslayer.updateGetSlots(serviceCenterId, model);
                 return Ok(result);
             }
 
-            /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
-             * This class overrides the Read method from the JsonConverter base class to provide custom deserialization logic
-             * for converting a JSON string representation into a TimeSpan object. */
-            public class TimeSpanConverter : JsonConverter<TimeSpan>
-            {
-                public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-                {
-                    string value = reader.GetString();
-                    return TimeSpan.Parse(value);
-                }
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpDelete]
+            [Route("admin/deleteServiceCenter/{serivceCenterId}")]
 
-                public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
-                {
-                    writer.WriteStringValue(value.ToString());
-                }
+            public IActionResult deleteServiceCenter(string serivceCenterId)
+            {
+                string result = businesslayer.deleteServiceCenter(serivceCenterId);
+                return Ok(result);
             }
 
-        }
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpDelete]
+            [Route("deleteAvailableSlots/{serviceCenterId}")]
+            public IActionResult deleteAvailableSlots(string serviceCenterId)
+            {
+                string result = businesslayer.deleteAvailableSlots(serviceCenterId);
+                return Ok(result);
+            }
+
+
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpPut]
+            [Route("admin/editServiceCenter/{serviceCenterId}")]
+            public IActionResult editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+            {
+                string result = businesslayer.editServiceCenter(serviceCenterId, jsonData);
+                return Ok(result);
+            }
+        
+
     }
+}

@@ -18,46 +18,26 @@ namespace dotnetapp
         * It acts as an intermediary between the presentation layer (such as a user interface) and the data access layer. 
         * Its purpose is to encapsulate business logic and coordinate the interaction between the presentation layer and the data access layer. */
 
-        //AppointmentController
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
         {
-            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+            return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
         }
-        public string saveAppointment(ProductModel data)
+        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
         {
-            return dataAccessLayer.saveAppointment(data);
+            return dataAccessLayer.updateGetSlots(serviceCenterId, model);
         }
-        public string postAvailableSlots(AppointmentModel model)
+        public string deleteServiceCenter(string serivceCenterId)
         {
-            return dataAccessLayer.postAvailableSlots(model);
+            return dataAccessLayer.deleteServiceCenter(serivceCenterId);
         }
-        public List<ProductModel> getAllAppointments()
+        public string deleteAvailableSlots(string serviceCenterId)
         {
-            return dataAccessLayer.getAllAppointments();
+            return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
         }
-
-        //servicecentercontroller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
+        public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
         {
-            return dataAccessLayer.availableSlots(m);
-        }
-        public List<ServiceCenterModel> viewServiceCenter()
-        {
-            return dataAccessLayer.viewServiceCenter();
-        }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
+            return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
         }
 
-        //Review Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        
-        public ReviewModel getReviews(string id)
-        {
-            return dataAccessLayer.getReviews(id);
-        }
     }
  }

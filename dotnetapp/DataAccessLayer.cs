@@ -37,7 +37,38 @@ namespace dotnetapp
         /* SqlDataReader object that allows forward-only, 
         * read-only access to the result of executing a SQL query against the database. */
         SqlDataReader dr = null;
-        
+
+        //AppointmentController
+
+        internal List<ProductModel> getAllAppointments()
+        {
+            List<ProductModel> m = new List<ProductModel>();
+            SqlDataReader dr;
+
+            cmd = new SqlCommand("getAllAppointments", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ProductModel model = new ProductModel();
+                model.ID =int.Parse( dr["ID"].ToString());
+                model.customerName = dr["customerName"].ToString();
+                model.email = dr["email"].ToString();
+                model.productName = dr["productName"].ToString();
+                model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
+                model.contactNumber = dr["contactNumber"].ToString();
+                model.bookedSlots = dr["bookedSlots"].ToString();
+                model.serviceCenterId = dr["serviceCenterId"].ToString();
+                model.serviceCenterName = dr["serviceCenterName"].ToString();
+                model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
+                model.serviceCost = (dr["serviceCost"].ToString());
+                m.Add(model);
+            }
+            conn.Close();
+            return m;
+        }
+
         // ServiceCenterController
 
         /*this method insert the availableSlots while adding the service center*/

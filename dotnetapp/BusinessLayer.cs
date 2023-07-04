@@ -24,16 +24,6 @@ namespace dotnetapp
         {
             return dataAccessLayer.getAllAppointments();
         }
-
-        //servicecentercontroller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
-        {
-            return dataAccessLayer.availableSlots(m);
-        }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
-        }
+        
     }
  }

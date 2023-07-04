@@ -14,40 +14,21 @@ namespace dotnetapp.Controllers
     {
         BusinessLayer businesslayer = new BusinessLayer();
 
-        /* this method returns an IActionResult, and the result being returned is a string
-         *   * and By returning Ok(result), the result will be sent as the response*/
-        [HttpPost]
-        [Route("admin/signup")]
-        public IActionResult saveAdmin([FromBody] UserModel user)
-        {
-            string result = businesslayer.saveAdmin(user);
-            return Ok(result);
-        }
-
-        /* this method returns an IActionResult, and the result being returned is a boolean */
-        [HttpPost]
-        [Route("admin/login")]
-        public IActionResult isAdminPresent(LoginModel data)
-        {
-            Boolean result = businesslayer.isAdminPresent(data);
-            return Ok(result);
-        }
-
         /* this method returns an IActionResult, and the result being returned is a string */
-        [HttpPost]
-        [Route("user/signup")]
-        public IActionResult saveUser(UserModel user)
+        [HttpGet]
+        [Route("getAdminByEmailId")]
+        public IActionResult getAdminByEmailId(string email)
         {
-            string result = businesslayer.saveUser(user);
+            UserModel result = businesslayer.getAdminByEmailId(email);
             return Ok(result);
         }
 
-        /* this method returns an IActionResult, and the result being returned is a Boolean */
-        [HttpPost]
-        [Route("user/login")]
-        public IActionResult isUserPresent(LoginModel data)
+        /* this method returns an IActionResult, and the result being returned is a Model */
+        [HttpGet]
+        [Route("getUserByEmailId")]
+        public IActionResult getUserByEmailId(string email)
         {
-            Boolean result = businesslayer.isUserPresent(data);
+            UserModel result = businesslayer.getUserByEmailId(email);
             return Ok(result);
         }
 

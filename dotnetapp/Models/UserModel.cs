@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace dotnetapp.Models
 {
-    //This class contains the email and password of the user
-    public class LoginModel
+    //these are the attributes that are used in the model with our required datatypes
+    public class UserModel
     {
         //these are the attributes that are used in the model with our required datatypes
+        public int UserId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string UserName { get; set; }
+        public string MobileNumber { get; set; }
+        public string UserRole { get; set; }
     }
 }

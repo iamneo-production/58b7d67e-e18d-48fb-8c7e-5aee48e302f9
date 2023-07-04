@@ -40,7 +40,6 @@ go
 
 
 ==================================================================================
-
 --User
 -----------
 --Add user
@@ -77,6 +76,33 @@ Print 'Invalid'
 end;
 go
 
+--get user details by email
+-------------------------
+create proc getUserByEmail(@email varchar(100))
+as
+begin
+select *  from UserTable where Email =@email
+end;
+go
+
+--get all user details
+-----------------------
+create procedure getAllUsers
+as
+begin
+select * from UserTable
+end;
+go
+
+--get user by UserId
+-------------------
+create procedure getUsersById(@UserId int)
+as
+begin
+select * from UserTable where UserId=@UserId
+end;
+go
+
 --edit user by userId
 -------------------
 create procedure editUser(@UserId int, @email varchar(100), @password varchar(100), @username varchar(100), @mobileNumber varchar(100), @userRole varchar(100))
@@ -86,6 +112,23 @@ update  UserTable set Email = @email, Password=@password, UserName=@username, Mo
 end;
 go
 
+--delete user by UserId
+-----------------------
+create procedure deleteById(@UserId int)
+as
+begin
+delete from UserTable where UserId=@UserId
+end;
+go
+
+--delete all users 
+----------------------
+create procedure deleteUsers
+as
+begin
+delete from UserTable 
+end;
+go
 ==================================================================================
 
 --Appointments
@@ -280,6 +323,24 @@ insert into AvailableSlots (serviceCenterId, availableSlots) values ( @serviceCe
 end;
 go
 
+--update Available Slots
+-----------------------
+create procedure editAvailableSlots(@serviceCenterId varchar(300), @availableSlots varchar(max))
+as
+begin
+update  AvailableSlots set availableSlots = @availableSlots where serviceCenterId  = @serviceCenterId
+end;
+go
+
+--delete Available Slots
+--------------------------
+create procedure deleteAvailableSlots(@serviceCenterId varchar(300))
+as
+begin
+delete from AvailableSlots where serviceCenterId = @serviceCenterId
+end;
+go
+
 --show all available slots based on service center Id and Appointment date
 --------------------------------------------------------------------------
 create procedure showAvailableSlots(@serviceCenterId varchar(300), @Appointmentdate date)
@@ -317,9 +378,9 @@ BEGIN
 END;
 go
 
-
 --inserting or updating slots
 -----------------------------
+
 CREATE PROCEDURE setAvailableSlots
   @serviceCenterId VARCHAR(300),
   @Appointmentdate DATE,

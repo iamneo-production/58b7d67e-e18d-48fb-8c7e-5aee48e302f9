@@ -159,8 +159,6 @@ function Signup(){
         </Form>
         </div></div></div>
     </Fragment>
-
     )
 }
-
 export default Signup;

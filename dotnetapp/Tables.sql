@@ -15,3 +15,22 @@ serviceCenterEndTime time not null,
 serviceCenterDescription varchar(max) not null
 );
 
+--Appointment Table
+-----------------------
+CREATE TABLE Appointments (
+  ID int identity(1,1) primary key,
+  customerName varchar(30),
+  productName varchar(300),
+  productModelNo varchar(300),
+  dateofPurchase date,
+  contactNumber varchar(30),
+  problemDescription varchar(max),
+  bookedSlots varchar(50),
+  dateOfAppointment date,
+  email varchar(100),
+  serviceCenterId varchar(300),
+  serviceCenterName varchar(300),
+  dateOfAppointmentBooking datetime,
+  serviceCost varchar(10),
+  FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
+);

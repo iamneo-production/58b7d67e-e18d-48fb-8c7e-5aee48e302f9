@@ -20,6 +20,32 @@ namespace dotnetapp.Controllers
 
         BusinessLayer businesslayer = new BusinessLayer();
 
+        [HttpGet]
+        [Route("getSlotDetailsByDate/{serviceCenterId},{Date}")]
+        public IActionResult getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        {
+            List<AppointmentModel> result = businesslayer.getSlotDetailsByDate(serviceCenterId, Date);
+            return Ok(result);
+        }
+
+        /* this method returns an IActionResult, and the result being returned is a string  */
+        [HttpPost]
+        [Route("user/appointment")]
+        public IActionResult saveAppointment(ProductModel data)
+        {
+            string result = businesslayer.saveAppointment(data);
+            return Ok(result);
+        }
+
+        /* this method returns an IActionResult, and the result being returned is a string */
+        [HttpPost]
+        [Route("postAvailableSlots")]
+        public IActionResult postAvailableSlots(AppointmentModel model)
+        {
+            string result = businesslayer.postAvailableSlots(model);
+            return Ok(result);
+        }
+
         /* this method returns an IActionResult, and the result being returned is a List */
         [HttpGet]
         [Route("getAllAppointments")]

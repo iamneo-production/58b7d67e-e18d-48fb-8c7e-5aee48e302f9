@@ -18,46 +18,26 @@ namespace dotnetapp
         * It acts as an intermediary between the presentation layer (such as a user interface) and the data access layer. 
         * Its purpose is to encapsulate business logic and coordinate the interaction between the presentation layer and the data access layer. */
 
-        //AppointmentController
+        //Auth controllers
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        public string saveAdmin(UserModel user)
         {
-            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+            return dataAccessLayer.saveAdmin(user);
         }
-        public string saveAppointment(ProductModel data)
+        public Boolean isAdminPresent(LoginModel data)
         {
-            return dataAccessLayer.saveAppointment(data);
-        }
-        public string postAvailableSlots(AppointmentModel model)
-        {
-            return dataAccessLayer.postAvailableSlots(model);
-        }
-        public List<ProductModel> getAllAppointments()
-        {
-            return dataAccessLayer.getAllAppointments();
+            return (dataAccessLayer.isAdminPresent(data));
         }
 
-        //servicecentercontroller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
+        public string saveUser(UserModel user)
         {
-            return dataAccessLayer.availableSlots(m);
+            return dataAccessLayer.saveUser(user);
         }
-        public List<ServiceCenterModel> viewServiceCenter()
+        public Boolean isUserPresent(LoginModel data)
         {
-            return dataAccessLayer.viewServiceCenter();
-        }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
+            return dataAccessLayer.isUserPresent(data);
         }
 
-        //Review Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        
-        public ReviewModel getReviews(string id)
-        {
-            return dataAccessLayer.getReviews(id);
-        }
+
     }
  }

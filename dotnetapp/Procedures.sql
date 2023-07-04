@@ -1,4 +1,74 @@
 
+--Admin
+--=======
+--Add Admin procedure
+------------------------
+CREATE PROCEDURE AddAdmin
+ @email varchar(100),
+ @password varchar(100),
+ @username varchar(100),
+  @mobileNumber varchar(100),
+  @userRole varchar(100)
+AS 
+  BEGIN
+    INSERT INTO AdminTable ( Email,Password, UserName,MobileNumber, UserRole) 
+	VALUES 
+	(@email,@password, @Username, @mobileNumber, @userRole )
+END;
+go
+
+--AdminLogin procedure
+---------------------------
+create proc CameraServiceAdminLogin(@email varchar(100),@password varchar(100))
+as
+begin
+if exists(select Email from AdminTable where Email = @email)
+select Email, Password from AdminTable where Email = @email and Password = @password
+else
+Print 'Invalid'
+end;
+go
+
+==================================================================================
+
+--User
+-----------
+--Add user
+----------
+CREATE PROCEDURE AddUser
+    @email varchar(100),
+    @password varchar(100),
+    @username varchar(100),
+    @mobileNumber varchar(100),
+    @userRole varchar(100)
+AS 
+BEGIN
+    IF EXISTS(SELECT Email FROM UserTable WHERE Email = @email)
+    BEGIN
+        PRINT 'Invalid'
+    END
+    ELSE
+    BEGIN
+        INSERT INTO UserTable (Email, Password, UserName, MobileNumber, UserRole) 
+        VALUES (@email, @password, @username, @mobileNumber, @userRole)
+    END
+END;
+go
+
+--User Login 
+--------------
+create proc CameraServiceUserLogin(@email varchar(100),@password varchar(100))
+as
+begin
+if exists(select Email from UserTable where  Email =@email)
+select Email, Password from UserTable where Email = @email and Password = @password
+else
+Print 'Invalid'
+end;
+go
+
+==================================================================================
+
 --Appointments
 --------------------
 --get all appointment details

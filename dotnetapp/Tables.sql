@@ -1,3 +1,13 @@
+create table AdminTable
+(
+AdminId int identity(1,1),
+Email varchar(100) primary key,
+Password varchar(100) not null,
+UserName varchar(100) not null,
+MobileNumber varchar(100) unique,
+UserRole varchar(100) not null,
+);
+
 --ServiceCenterTable
 -----------------------
 

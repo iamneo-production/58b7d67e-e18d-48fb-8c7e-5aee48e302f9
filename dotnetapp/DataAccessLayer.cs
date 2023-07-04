@@ -24,7 +24,7 @@ namespace dotnetapp
         /*creates a new instance of the SqlConnection class, which establishes a connection to the database.
          the connection string indicates the server name (DESKTOP-IB4OOTB\\SQLEXPRESS), the database name (CameraServices), 
         and that Windows integrated security should be used for authentication*/
-        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMsSql@123;Server=localhost;Database=master;trusted_connection=false;Persist Security Info=False;Encryt=False");
+        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMsSql@123;Server=localhost;Database=master;trusted_connection=false");
 
         /*SqlCommand declares a SqlCommand object that will be used to execute SQL commands 
         * against the database.*/
@@ -370,7 +370,7 @@ namespace dotnetapp
             return msg;
         }
 
-        *this method delete the user's details list in the database*/
+        /*this method delete the user's details list in the database*/
         internal string deleteUsers(List<int> userIds)
         {
             string msg = string.Empty;
@@ -632,6 +632,31 @@ namespace dotnetapp
             return model;
         }
 
+        /*this  method get the user maill id details as per the id*/
+        private string GetEmailAddressByID(int userID)
+        {
+            string emailAddress = string.Empty;
+            cmd = new SqlCommand("getAppointmentDetailsByID", conn);
+            cmd.Parameters.AddWithValue("@ID", userID);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read() == true)
+                {
+                    UserModel model = new UserModel();
+                    emailAddress = dr["Email"].ToString();
+                }
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            return emailAddress;
+        }
         
         /*This method helps to edit the details of the appointment and save it again in the database*/
         internal string EditAppointment(int ID, [FromBody] ProductModel model)

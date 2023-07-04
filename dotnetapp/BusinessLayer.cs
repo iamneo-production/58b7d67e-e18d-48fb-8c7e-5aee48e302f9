@@ -40,10 +40,6 @@ namespace dotnetapp
         {
             return dataAccessLayer.isUserPresent(data);
         }
-        public UserModel getAdminByEmailId(string email)
-        {
-            return (dataAccessLayer.getAdminByEmailId(email));
-        }
         public UserModel getUserByEmailId(string email)
         {
             return dataAccessLayer.getUserByEmailId(email);

@@ -20,24 +20,26 @@ namespace dotnetapp
 
         //AppointmentController
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<ProductModel> getAllAppointments()
+        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
-            return dataAccessLayer.getAllAppointments();
+            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+        }
+        public string saveAppointment(ProductModel data)
+        {
+            return dataAccessLayer.saveAppointment(data);
+        }
+        public string postAvailableSlots(AppointmentModel model)
+        {
+            return dataAccessLayer.postAvailableSlots(model);
         }
 
-        //servicecentercontroller
+        //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
+        
+        public ReviewModel getReviews(string id)
         {
-            return dataAccessLayer.availableSlots(m);
+            return dataAccessLayer.getReviews(id);
         }
-        public List<ServiceCenterModel> viewServiceCenter()
-        {
-            return dataAccessLayer.viewServiceCenter();
-        }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
-        }
+        
     }
  }

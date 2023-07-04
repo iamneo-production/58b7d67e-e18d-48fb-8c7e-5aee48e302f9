@@ -30,6 +30,15 @@ namespace dotnetapp.Controllers
                 return Ok(result);
             }
 
+            /* this method returns an IActionResult, and the result being returned is a List */
+            [HttpGet]
+            [Route("admin/getservicecenter")]
+            public IActionResult viewServiceCenter()
+            {
+                List<ServiceCenterModel> result = businesslayer.viewServiceCenter();
+                return Ok(result);
+            }
+
             /* this method returns an IActionResult, and the result being returned is a string */
             [HttpPost]
             [Route("admin/addServiceCenter")]

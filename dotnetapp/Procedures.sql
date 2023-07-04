@@ -40,6 +40,15 @@ BEGIN
 END;
 go
 
+--get all service centers
+------------------------
+create proc getAllServiceCenterDetails
+as
+begin
+select * from AddCenters
+end ;
+go
+
 ==================================================================================
 --Available Slots
 ------------------

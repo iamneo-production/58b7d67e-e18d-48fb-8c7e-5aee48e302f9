@@ -31,6 +31,10 @@ namespace dotnetapp
         {
             return dataAccessLayer.availableSlots(m);
         }
+        public List<ServiceCenterModel> viewServiceCenter()
+        {
+            return dataAccessLayer.viewServiceCenter();
+        }
         public string addServiceCenter([FromBody] JsonElement jsonData)
         {
             return dataAccessLayer.addServiceCenter(jsonData);

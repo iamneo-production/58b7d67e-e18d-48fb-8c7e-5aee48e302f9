@@ -1,6 +1,6 @@
 
 --Admin
---=======
+---------
 --Add Admin procedure
 ------------------------
 CREATE PROCEDURE AddAdmin
@@ -38,8 +38,8 @@ select * from AdminTable where Email = @email
 end;
 go
 
+------------------------------------------------------------------------------
 
-==================================================================================
 --User
 -----------
 --Add user
@@ -129,7 +129,93 @@ begin
 delete from UserTable 
 end;
 go
-==================================================================================
+
+------------------------------------------------------------------------------
+
+--Service Centers
+---------------------
+--Add service centers
+--------------------
+CREATE PROCEDURE AdminAddServiceCenter(
+    @serviceCenterId varchar(300), 
+    @serviceCenterName varchar(300), 
+    @serviceCenterPhone varchar(50), 
+    @serviceCenterAddress varchar(500),
+    @serviceCenterImageUrl varchar(2048),
+    @serviceCenterMailId varchar(320),
+    @serviceCost varchar(30),
+    @serviceCenterStartTime time,
+    @serviceCenterEndTime time,
+    @serviceCenterDescription varchar(max)
+)
+AS
+BEGIN
+    IF EXISTS (SELECT Email FROM AdminTable WHERE Email = 'admin@gmail.com') AND NOT EXISTS (SELECT serviceCenterId FROM AddCenters  WHERE 
+	serviceCenterId = @serviceCenterId)
+    BEGIN
+        INSERT INTO AddCenters (serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, 
+		serviceCenterMailId, serviceCost, serviceCenterStartTime, serviceCenterEndTime, serviceCenterDescription)
+        VALUES (@serviceCenterId, @serviceCenterName, @serviceCenterPhone, @serviceCenterAddress, @serviceCenterImageUrl,
+		@serviceCenterMailId, @serviceCost,@serviceCenterStartTime,@serviceCenterEndTime, @serviceCenterDescription)
+    END
+END;
+go
+
+--get all service centers
+------------------------
+create proc getAllServiceCenterDetails
+as
+begin
+select * from AddCenters
+end ;
+go
+
+--get service center details by service center id
+-------------------------------------------------
+create procedure getServiceCenterById(@serviceCenterId varchar(300))
+as
+begin
+if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
+select * from AddCenters where serviceCenterId=@serviceCenterId
+end;
+go
+
+--update service center details
+------------------------------
+create procedure updateAddCenters(
+@serviceCenterId varchar(300), 
+@serviceCenterName varchar(300), 
+@serviceCenterPhone varchar(50), 
+@serviceCenterAddress varchar(500),
+@serviceCenterImageUrl varchar(2048),
+@serviceCenterMailId varchar(320),
+@serviceCost varchar(10),
+@serviceCenterStartTime time,
+@serviceCenterEndTime time,
+@serviceCenterDescription varchar(max))
+as
+begin
+if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
+update AddCenters set serviceCenterName=@serviceCenterName, serviceCenterPhone=@serviceCenterPhone, 
+serviceCenterAddress=@serviceCenterAddress, 
+serviceCenterImageUrl=@serviceCenterImageUrl, 
+serviceCenterMailId=@serviceCenterMailId,
+serviceCost = @serviceCost, serviceCenterStartTime= @serviceCenterStartTime, serviceCenterEndTime=@serviceCenterEndTime,
+serviceCenterDescription=@serviceCenterDescription where serviceCenterId=@serviceCenterId
+end;
+go
+
+--delete service centers by service center id
+-------------------------------------------
+create procedure deleteServiceCenterId(@serviceCenterId varchar(300))
+as
+begin
+if exists(select * from AddCenters where serviceCenterId = @serviceCenterId)
+delete from AddCenters where serviceCenterId = @serviceCenterId
+end;
+go
+
+------------------------------------------------------------------------------
 
 --Appointments
 --------------
@@ -224,93 +310,8 @@ begin
 select * from Appointments
 end;
 go
+------------------------------------------------------------------------------
 
-==================================================================================
-
---Service Centers
----------------------
---Add service centers
---------------------
-CREATE PROCEDURE AdminAddServiceCenter(
-    @serviceCenterId varchar(300), 
-    @serviceCenterName varchar(300), 
-    @serviceCenterPhone varchar(50), 
-    @serviceCenterAddress varchar(500),
-    @serviceCenterImageUrl varchar(2048),
-    @serviceCenterMailId varchar(320),
-    @serviceCost varchar(30),
-    @serviceCenterStartTime time,
-    @serviceCenterEndTime time,
-    @serviceCenterDescription varchar(max)
-)
-AS
-BEGIN
-    IF EXISTS (SELECT Email FROM AdminTable WHERE Email = 'admin@gmail.com') AND NOT EXISTS (SELECT serviceCenterId FROM AddCenters  WHERE 
-	serviceCenterId = @serviceCenterId)
-    BEGIN
-        INSERT INTO AddCenters (serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, 
-		serviceCenterMailId, serviceCost, serviceCenterStartTime, serviceCenterEndTime, serviceCenterDescription)
-        VALUES (@serviceCenterId, @serviceCenterName, @serviceCenterPhone, @serviceCenterAddress, @serviceCenterImageUrl,
-		@serviceCenterMailId, @serviceCost,@serviceCenterStartTime,@serviceCenterEndTime, @serviceCenterDescription)
-    END
-END;
-go
-
---get all service centers
-------------------------
-create proc getAllServiceCenterDetails
-as
-begin
-select * from AddCenters
-end ;
-go
-
---get service center details by service center id
--------------------------------------------------
-create procedure getServiceCenterById(@serviceCenterId varchar(300))
-as
-begin
-if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
-select * from AddCenters where serviceCenterId=@serviceCenterId
-end;
-go
-
---update service center details
-------------------------------
-create procedure updateAddCenters(
-@serviceCenterId varchar(300), 
-@serviceCenterName varchar(300), 
-@serviceCenterPhone varchar(50), 
-@serviceCenterAddress varchar(500),
-@serviceCenterImageUrl varchar(2048),
-@serviceCenterMailId varchar(320),
-@serviceCost varchar(10),
-@serviceCenterStartTime time,
-@serviceCenterEndTime time,
-@serviceCenterDescription varchar(max))
-as
-begin
-if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
-update AddCenters set serviceCenterName=@serviceCenterName, serviceCenterPhone=@serviceCenterPhone, 
-serviceCenterAddress=@serviceCenterAddress, 
-serviceCenterImageUrl=@serviceCenterImageUrl, 
-serviceCenterMailId=@serviceCenterMailId,
-serviceCost = @serviceCost, serviceCenterStartTime= @serviceCenterStartTime, serviceCenterEndTime=@serviceCenterEndTime,
-serviceCenterDescription=@serviceCenterDescription where serviceCenterId=@serviceCenterId
-end;
-go
-
---delete service centers by service center id
--------------------------------------------
-create procedure deleteServiceCenterId(@serviceCenterId varchar(300))
-as
-begin
-if exists(select * from AddCenters where serviceCenterId = @serviceCenterId)
-delete from AddCenters where serviceCenterId = @serviceCenterId
-end;
-go
-
-==================================================================================
 --Available Slots
 ------------------
 --Slots entry in AvailableSlots table
@@ -400,8 +401,9 @@ BEGIN
   END
 END;
 go
-==========================================================
---Reviews
+------------------------------------------------------------------------------
+--reviews
+--------------
 --Adding Reviews
 -----------------
 create proc addingReviews(
@@ -433,3 +435,4 @@ begin
 select * from ServiceReviews
 end;
 go
+

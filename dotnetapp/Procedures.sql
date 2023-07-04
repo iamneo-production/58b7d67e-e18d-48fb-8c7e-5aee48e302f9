@@ -239,6 +239,18 @@ END;
 go
 ==========================================================
 --Reviews
+--Adding Reviews
+-----------------
+create proc addingReviews(
+@userEmail varchar(30), @userName varchar(20), 
+@serviceCenterId varchar(30), @Rating int, @review varchar(max))
+as begin 
+insert into ServiceReviews (userEmail, userName, serviceCenterId, Rating, review) 
+values 
+( @userEmail, @userName, @serviceCenterId, @Rating, @review)
+end;
+go
+
 --calculating average review
 ---------------------------
 CREATE PROCEDURE GetAverageRating @serviceCenterId varchar(30)
@@ -248,4 +260,13 @@ BEGIN
     FROM ServiceReviews
     WHERE serviceCenterId = @serviceCenterId
 END;
+go
+
+--get all reviews
+-----------------
+create proc GetAllReviews
+as
+begin
+select * from ServiceReviews
+end;
 go

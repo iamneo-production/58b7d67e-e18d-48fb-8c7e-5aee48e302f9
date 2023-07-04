@@ -94,10 +94,17 @@ namespace dotnetapp
 
         //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
-        
+        public string AddReview(ReviewModel model)
+        {
+            return dataAccessLayer.AddReview( model);
+        }
         public ReviewModel getReviews(string id)
         {
             return dataAccessLayer.getReviews(id);
+        }
+        public List<ReviewModel> getAllReviews()
+        {
+            return dataAccessLayer.getAllReviews();
         }
     }
  }

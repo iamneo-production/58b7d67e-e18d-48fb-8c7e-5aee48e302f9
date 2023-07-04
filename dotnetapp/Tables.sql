@@ -44,3 +44,14 @@ CREATE TABLE Appointments (
   serviceCost varchar(10),
   FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
+
+--Reviews Table
+-----------------------------------
+create table ServiceReviews(
+userEmail varchar(30) ,
+userName varchar(20) , 
+serviceCenterId varchar(300) , 
+Rating int, 
+review varchar(max),
+FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
+);

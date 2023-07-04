@@ -18,12 +18,30 @@ namespace dotnetapp.Controllers
     {
         BusinessLayer businesslayer = new BusinessLayer();
 
+        /* this method returns an IActionResult, and the result being returned is a string and By returning Ok(result), the result will be sent as the response*/
+        [HttpPost]
+        [Route("AddReview")]
+        public IActionResult AddReview(ReviewModel model)
+        {
+            string result = businesslayer.AddReview(model);
+            return Ok(result);
+        }
+
         /* this method returns an IActionResult, and the result being returned is a Model */
         [HttpGet]
         [Route("getReviews/{id}")]
         public IActionResult getReviews(string id)
         {
             ReviewModel result = businesslayer.getReviews(id);
+            return Ok(result);
+        }
+
+        /* this method returns an IActionResult, and the result being returned is a list */
+        [HttpGet]
+        [Route("getAllReviews")]
+        public IActionResult getAllReviews()
+        {
+            List<ReviewModel> result = businesslayer.getAllReviews();
             return Ok(result);
         }
 

@@ -29,6 +29,16 @@ Print 'Invalid'
 end;
 go
 
+--Get Admin Details by Email
+------------------------------
+create proc getAdminByEmail(@email varchar(100))
+as
+begin
+select * from AdminTable where Email = @email
+end;
+go
+
+
 ==================================================================================
 
 --User
@@ -64,6 +74,15 @@ if exists(select Email from UserTable where  Email =@email)
 select Email, Password from UserTable where Email = @email and Password = @password
 else
 Print 'Invalid'
+end;
+go
+
+--edit user by userId
+-------------------
+create procedure editUser(@UserId int, @email varchar(100), @password varchar(100), @username varchar(100), @mobileNumber varchar(100), @userRole varchar(100))
+as
+begin
+update  UserTable set Email = @email, Password=@password, UserName=@username, MobileNumber=@mobileNumber, UserRole=@userRole where UserId = @UserId
 end;
 go
 

@@ -28,7 +28,10 @@ namespace dotnetapp
         {
             return (dataAccessLayer.isAdminPresent(data));
         }
-
+        public UserModel getAdminByEmailId(string email)
+        {
+            return (dataAccessLayer.getAdminByEmailId(email));
+        }
         public string saveUser(UserModel user)
         {
             return dataAccessLayer.saveUser(user);
@@ -36,6 +39,22 @@ namespace dotnetapp
         public Boolean isUserPresent(LoginModel data)
         {
             return dataAccessLayer.isUserPresent(data);
+        }
+        public UserModel getAdminByEmailId(string email)
+        {
+            return (dataAccessLayer.getAdminByEmailId(email));
+        }
+        public UserModel getUserByEmailId(string email)
+        {
+            return dataAccessLayer.getUserByEmailId(email);
+        }
+
+        //User Controller
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        
+        public string editUsersById(UserModel user, int UserId)
+        {
+            return dataAccessLayer.editUsersById(user, UserId);
         }
 
         //AppointmentController

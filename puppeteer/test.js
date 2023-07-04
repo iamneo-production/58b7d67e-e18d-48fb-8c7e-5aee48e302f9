@@ -10,10 +10,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
     await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -32,6 +36,8 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.setViewport({
       width:1200,
       height:800,
@@ -71,10 +77,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
     await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -93,6 +103,8 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.setViewport({
       width:1200,
       height:800,
@@ -126,10 +138,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
     await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
     await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -148,6 +164,8 @@ const puppeteer = require('puppeteer');
 =======
     await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
     await page.setViewport({
       width:1200,
       height:800,
@@ -183,10 +201,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
   await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -205,6 +227,8 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.setViewport({
     width:1200,
     height:800,
@@ -240,10 +264,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
   await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -262,6 +290,8 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.setViewport({
     width:1200,
     height:800,
@@ -295,10 +325,14 @@ const puppeteer = require('puppeteer');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
 =======
   await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-nizam9519
+<<<<<<< HEAD
 =======
   await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> origin/Camera-Service-Portal-udaysagarm
@@ -317,6 +351,8 @@ const puppeteer = require('puppeteer');
 =======
   await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
 >>>>>>> Camera-Service-Portal-Prasuna-Golakoti
+=======
+>>>>>>> Camera-Service-Portal-AlekyaRekapalli
   await page.setViewport({
     width:1200,
     height:800,

@@ -9,7 +9,7 @@ import { API_URLS } from "../Apis/config";
 
 function Admintopbar  ()  {
  
-  const[userName, setUserName] = useState("")
+  const[UserName, setUserName] = useState("")
   const[adminPage,setAdminPage] = useState("");
 
 
@@ -19,8 +19,8 @@ function Admintopbar  ()  {
     const email = localStorage.getItem("email")
     axios.get(`${API_URLS.getAdminByEmailId}/?email=${email}`)
     .then((result)=>{
-      setUserName(result.data.username)
-      localStorage.setItem("username", result.data.username)
+      setUserName(result.data.userName)
+      localStorage.setItem("username", result.data.userName)
       setAdminPage(localStorage.getItem("adminPage"))
     }).catch((error)=>{
     })    
@@ -47,7 +47,7 @@ function Admintopbar  ()  {
               style={{ width: '50px'}}
             />
         </Typography>
-        <Nav style={{fontFamily:"cursive",fontSize:"larger",fontWeight:"500"}}>Hello, {userName} &nbsp;</Nav>
+        <Nav style={{fontFamily:"cursive",fontSize:"larger",fontWeight:"500"}}>Hello, {UserName} &nbsp;</Nav>
         <Avatar/>        
         </Toolbar>
     </AppBar>

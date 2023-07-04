@@ -44,8 +44,8 @@ const togglePasswordVisibility = () => {
     const email = localStorage.getItem("email")
      axios.get(`${API_URLS.getUserByEmailId}?email=${email}`)
     .then((result)=>{
-      setUserName(result.data.username)
-      localStorage.setItem("username", result.data.username)
+      setUserName(result.data.userName)
+      localStorage.setItem("username", result.data.userName)
       setUserId(result.data.userId)
       setUserPage(localStorage.getItem("userPage"))
     }).catch((error)=>{
@@ -60,7 +60,7 @@ const togglePasswordVisibility = () => {
     handleShowProfile();
     axios.get(`${API_URLS.getUserByUserId}/${userId}`)
     .then((result)=>{
-      seteditUsername(result.data.username)
+      seteditUsername(result.data.userName)
       seteditEmailId(result.data.email)
       seteditContactNumber(result.data.mobileNumber)
       seteditPassword(result.data.password)
@@ -93,11 +93,11 @@ const togglePasswordVisibility = () => {
    */
   const updateProfile = () =>{
     const data = {
-      email : editEmailId,
-      password : editPassword,
-      username : editUsername,
-      mobileNumber: editContactNumber,
-      userRole:'user',
+      Email : editEmailId,
+      Password : editPassword,
+      UserName : editUsername,
+      MobileNumber: editContactNumber,
+      UserRole:'user',
     }
     axios.put(`${API_URLS.editUserById}/${userId}`, data)
     .then((result)=>{

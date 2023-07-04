@@ -650,7 +650,7 @@ component. */
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <div style ={{background: "linear-gradient(to bottom, rgba(0, 0,0, 0.4), rgb(246, 246, 246))"}}>
+        <div>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             Appointment Details!
@@ -747,7 +747,7 @@ component. */
                 <Form.Group className="mb-4">
                   <Form.Text style={{ fontSize: '15px', color: '#555555', fontWeight: 'bold' }}>
                     You can download your bill from
-                    <a href="/user/Appointment" style={{ color: '#007bff', marginLeft: '5px' }}>MyBookings!</a>
+                    <a href="/user/Cart" style={{ color: '#007bff', marginLeft: '5px' }}>MyBookings!</a>
                   </Form.Text>
                 </Form.Group>
               </Modal.Body>

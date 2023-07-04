@@ -50,6 +50,51 @@ select * from AddCenters
 end ;
 go
 
+--get service center details by service center id
+-------------------------------------------------
+create procedure getServiceCenterById(@serviceCenterId varchar(300))
+as
+begin
+if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
+select * from AddCenters where serviceCenterId=@serviceCenterId
+end;
+go
+
+--update service center details
+------------------------------
+create procedure updateAddCenters(
+@serviceCenterId varchar(300), 
+@serviceCenterName varchar(300), 
+@serviceCenterPhone varchar(50), 
+@serviceCenterAddress varchar(500),
+@serviceCenterImageUrl varchar(2048),
+@serviceCenterMailId varchar(320),
+@serviceCost varchar(10),
+@serviceCenterStartTime time,
+@serviceCenterEndTime time,
+@serviceCenterDescription varchar(max))
+as
+begin
+if exists (select * from AddCenters where serviceCenterId=@serviceCenterId)
+update AddCenters set serviceCenterName=@serviceCenterName, serviceCenterPhone=@serviceCenterPhone, 
+serviceCenterAddress=@serviceCenterAddress, 
+serviceCenterImageUrl=@serviceCenterImageUrl, 
+serviceCenterMailId=@serviceCenterMailId,
+serviceCost = @serviceCost, serviceCenterStartTime= @serviceCenterStartTime, serviceCenterEndTime=@serviceCenterEndTime,
+serviceCenterDescription=@serviceCenterDescription where serviceCenterId=@serviceCenterId
+end;
+go
+
+--delete service centers by service center id
+-------------------------------------------
+create procedure deleteServiceCenterId(@serviceCenterId varchar(300))
+as
+begin
+if exists(select * from AddCenters where serviceCenterId = @serviceCenterId)
+delete from AddCenters where serviceCenterId = @serviceCenterId
+end;
+go
+
 ==================================================================================
 --Available Slots
 ------------------

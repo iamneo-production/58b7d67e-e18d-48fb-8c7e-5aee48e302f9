@@ -18,93 +18,27 @@ namespace dotnetapp
         * It acts as an intermediary between the presentation layer (such as a user interface) and the data access layer. 
         * Its purpose is to encapsulate business logic and coordinate the interaction between the presentation layer and the data access layer. */
 
-        //Auth controllers
+        //Appointment Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public string saveAdmin(UserModel user)
+        public List<ProductModel> getAppointment(string email)
         {
-            return dataAccessLayer.saveAdmin(user);
+            return dataAccessLayer.getAppointment(email);
         }
-        public Boolean isAdminPresent(LoginModel data)
+        public ProductModel getAppointmentSlotsById(int id)
         {
-            return (dataAccessLayer.isAdminPresent(data));
+            return dataAccessLayer.getAppointmentSlotsById(id);
         }
-
-        public string saveUser(UserModel user)
+        public string EditAppointment(int ID, [FromBody] ProductModel model)
         {
-            return dataAccessLayer.saveUser(user);
+            return dataAccessLayer.EditAppointment(ID, model);
         }
-        public Boolean isUserPresent(LoginModel data)
+        public string updateOnDeleteAppointment(AppointmentModel model)
         {
-            return dataAccessLayer.isUserPresent(data);
+            return dataAccessLayer.updateOnDeleteAppointment(model);
         }
-
-        //AppointmentController
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        public string deleteAppointment(int ID)
         {
-            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
-        }
-        public string saveAppointment(ProductModel data)
-        {
-            return dataAccessLayer.saveAppointment(data);
-        }
-        public string postAvailableSlots(AppointmentModel model)
-        {
-            return dataAccessLayer.postAvailableSlots(model);
-        }
-        public List<ProductModel> getAllAppointments()
-        {
-            return dataAccessLayer.getAllAppointments();
-        }
-
-        //servicecentercontroller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
-        {
-            return dataAccessLayer.availableSlots(m);
-        }
-        public List<ServiceCenterModel> viewServiceCenter()
-        {
-            return dataAccessLayer.viewServiceCenter();
-        }
-        public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
-        {
-            return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
-        }
-        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
-        {
-            return dataAccessLayer.updateGetSlots(serviceCenterId, model);
-        }
-        public string deleteServiceCenter(string serivceCenterId)
-        {
-            return dataAccessLayer.deleteServiceCenter(serivceCenterId);
-        }
-        public string deleteAvailableSlots(string serviceCenterId)
-        {
-            return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
-        }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
-        }
-        public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
-        }
-
-        //Review Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string AddReview(ReviewModel model)
-        {
-            return dataAccessLayer.AddReview( model);
-        }
-        public ReviewModel getReviews(string id)
-        {
-            return dataAccessLayer.getReviews(id);
-        }
-        public List<ReviewModel> getAllReviews()
-        {
-            return dataAccessLayer.getAllReviews();
+            return dataAccessLayer.deleteAppointment(ID);
         }
     }
  }

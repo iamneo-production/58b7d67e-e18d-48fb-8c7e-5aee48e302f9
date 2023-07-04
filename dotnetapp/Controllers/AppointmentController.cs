@@ -20,38 +20,49 @@ namespace dotnetapp.Controllers
 
         BusinessLayer businesslayer = new BusinessLayer();
 
+        /* this method returns an IActionResult, and the result being returned is a list */
         [HttpGet]
-        [Route("getSlotDetailsByDate/{serviceCenterId},{Date}")]
-        public IActionResult getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        [Route("getAppointment")]
+        public IActionResult getAppointment(string email)
         {
-            List<AppointmentModel> result = businesslayer.getSlotDetailsByDate(serviceCenterId, Date);
+            List<ProductModel> result = businesslayer.getAppointment(email);
             return Ok(result);
         }
 
-        /* this method returns an IActionResult, and the result being returned is a string  */
-        [HttpPost]
-        [Route("user/appointment")]
-        public IActionResult saveAppointment(ProductModel data)
+        /* this method returns an IActionResult, and the result being returned is a Model */
+        [HttpGet]
+        [Route("getAppointmentSlotsById/{id}")]
+        public IActionResult getAppointmentSlotsById(int id)
         {
-            string result = businesslayer.saveAppointment(data);
+            ProductModel result = businesslayer.getAppointmentSlotsById(id);
             return Ok(result);
         }
 
         /* this method returns an IActionResult, and the result being returned is a string */
-        [HttpPost]
-        [Route("postAvailableSlots")]
-        public IActionResult postAvailableSlots(AppointmentModel model)
+        [HttpPut]
+        [Route("user/EditAppointment/{ID}")]
+        public IActionResult EditAppointment(int ID, [FromBody] ProductModel model)
         {
-            string result = businesslayer.postAvailableSlots(model);
+            string result = businesslayer.EditAppointment(ID, model);
             return Ok(result);
         }
 
-        /* this method returns an IActionResult, and the result being returned is a List */
-        [HttpGet]
-        [Route("getAllAppointments")]
-        public IActionResult getAllAppointments()
+
+        /* this method returns an IActionResult, and the result being returned is a string */
+        [HttpPost]
+        [Route("updateOnDeleteAppointment")]
+        public IActionResult updateOnDeleteAppointment(AppointmentModel model)
         {
-            List<ProductModel> result = businesslayer.getAllAppointments();
+            string result = businesslayer.updateOnDeleteAppointment(model);
+            return Ok(result);
+        }
+
+        /* this method returns an IActionResult, and the result being returned is a string */
+        [HttpDelete]
+        [Route("user/cancelappointment/{ID}")]
+        public IActionResult deleteAppointment(int ID)
+        {
+            string result = businesslayer.deleteAppointment(ID);
             return Ok(result);
         }
     }

@@ -1,6 +1,21 @@
+--Admin Table
+-------------
+
 create table AdminTable
 (
 AdminId int identity(1,1),
+Email varchar(100) primary key,
+Password varchar(100) not null,
+UserName varchar(100) not null,
+MobileNumber varchar(100) unique,
+UserRole varchar(100) not null,
+);
+
+--UserTable
+---------------
+create table UserTable
+(
+UserId int identity (1,1),
 Email varchar(100) primary key,
 Password varchar(100) not null,
 UserName varchar(100) not null,
@@ -45,6 +60,14 @@ CREATE TABLE Appointments (
   FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
 
+--Slots Table
+------------------------------------
+CREATE TABLE AvailableSlots (
+  serviceCenterId VARCHAR(300) NOT NULL,
+  availableSlots varchar(max),
+  Appointmentdate Date,
+);
+
 --Reviews Table
 -----------------------------------
 create table ServiceReviews(
@@ -55,3 +78,7 @@ Rating int,
 review varchar(max),
 FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
+
+
+
+ 

@@ -1,3 +1,16 @@
+
+--Appointments
+--------------------
+--get all appointment details
+----------------------------
+create procedure getAllAppointments
+as
+begin
+select * from Appointments
+end;
+go
+==================================================================================
+
 --Service Centers
 ---------------------
 --Add service centers

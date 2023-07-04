@@ -38,126 +38,37 @@ namespace dotnetapp
         * read-only access to the result of executing a SQL query against the database. */
         SqlDataReader dr = null;
 
-        //AppointmentController
+        
+        // ServiceCenterController
 
-        internal List<ProductModel> getAllAppointments()
+        List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterModel>();
+
+        /*this method gets the list of the service centers*/
+        internal List<ServiceCenterModel> viewServiceCenter()
         {
-            List<ProductModel> m = new List<ProductModel>();
             SqlDataReader dr;
 
-            cmd = new SqlCommand("getAllAppointments", conn);
+            cmd = new SqlCommand("getAllServiceCenterDetails", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             conn.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read() == true)
             {
-                ProductModel model = new ProductModel();
-                model.ID =int.Parse( dr["ID"].ToString());
-                model.customerName = dr["customerName"].ToString();
-                model.email = dr["email"].ToString();
-                model.productName = dr["productName"].ToString();
-                model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
-                model.contactNumber = dr["contactNumber"].ToString();
-                model.bookedSlots = dr["bookedSlots"].ToString();
+                ServiceCenterModel model = new ServiceCenterModel();
                 model.serviceCenterId = dr["serviceCenterId"].ToString();
                 model.serviceCenterName = dr["serviceCenterName"].ToString();
-                model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
+                model.serviceCenterPhone = dr["serviceCenterPhone"].ToString();
+                model.serviceCenterAddress = dr["serviceCenterAddress"].ToString();
+                model.serviceCenterImageUrl = dr["serviceCenterImageUrl"].ToString();
+                model.serviceCenterMailId = dr["serviceCenterMailId"].ToString();
                 model.serviceCost = (dr["serviceCost"].ToString());
-                m.Add(model);
+                model.serviceCenterStartTime = TimeSpan.Parse(dr["serviceCenterStartTime"].ToString());
+                model.serviceCenterEndTime = TimeSpan.Parse(dr["serviceCenterEndTime"].ToString());
+                model.serviceCenterDescription = dr["serviceCenterDescription"].ToString();
+                getAllServiceCenterDetails.Add(model);
             }
             conn.Close();
-            return m;
-        }
-
-        
-        // ServiceCenterController
-
-        /*this method insert the availableSlots while adding the service center*/
-        internal string availableSlots(AppointmentModel m)
-        {
-            string msg = string.Empty;
-            try
-            {
-                cmd = new SqlCommand("InsertAvailableSlots", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@serviceCenterId", m.serviceCenterId);
-
-                List<string> availableSlots = m.availableSlots;
-                string slotsString = string.Join(",", availableSlots);
-                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
-
-                conn.Open();
-                int data = cmd.ExecuteNonQuery();
-                conn.Close();
-
-                msg = "Success";
-            }
-            catch (Exception e)
-            {
-                msg = e.Message;
-            }
-            return msg;
-        }
-
-        /*this method helps the admin to add the service center*/
-        internal string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            string msg = string.Empty;
-            try
-            {
-                var options = new JsonSerializerOptions
-                {
-                    Converters = { new TimeSpanConverter() }
-                };
-
-                var model = JsonSerializer.Deserialize<ServiceCenterModel>(jsonData.GetRawText(), options);
-
-                cmd = new SqlCommand("AdminAddServiceCenter", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
-                cmd.Parameters.AddWithValue("@serviceCenterName", model.serviceCenterName);
-                cmd.Parameters.AddWithValue("@serviceCenterPhone", model.serviceCenterPhone);
-                cmd.Parameters.AddWithValue("@serviceCenterAddress", model.serviceCenterAddress);
-                cmd.Parameters.AddWithValue("@serviceCenterImageUrl", model.serviceCenterImageUrl);
-                cmd.Parameters.AddWithValue("@serviceCenterMailId", model.serviceCenterMailId);
-                cmd.Parameters.AddWithValue("@serviceCost", model.serviceCost);
-                cmd.Parameters.AddWithValue("@serviceCenterStartTime", model.serviceCenterStartTime);
-                cmd.Parameters.AddWithValue("@serviceCenterEndTime", model.serviceCenterEndTime);
-                cmd.Parameters.AddWithValue("@serviceCenterDescription", model.serviceCenterDescription);
-
-                conn.Open();
-                int data = cmd.ExecuteNonQuery();
-                if (data >= 1)
-                {
-                    msg = "Service Center added";
-                }
-                else
-                {
-                    msg = "Failed to Add Service Center";
-                }
-            }
-            catch (Exception e)
-            {
-                msg = e.Message;
-            }
-            return msg;
-        }
-
-        /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
-        * This class overrides the Read method from the JsonConverter base class to provide custom deserialization logic
-        * for converting a JSON string representation into a TimeSpan object. */
-        internal class TimeSpanConverter : JsonConverter<TimeSpan>
-        {
-            public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-            {
-                string value = reader.GetString();
-                return TimeSpan.Parse(value);
-            }
-
-            public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
-            {
-                writer.WriteStringValue(value.ToString());
-            }
+            return getAllServiceCenterDetails;
         }
 
     }

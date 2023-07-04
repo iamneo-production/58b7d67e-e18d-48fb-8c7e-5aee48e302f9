@@ -52,6 +52,26 @@ namespace dotnetapp
         {
             return dataAccessLayer.postAvailableSlots(model);
         }
+        public List<ProductModel> getAppointment(string email)
+        {
+            return dataAccessLayer.getAppointment(email);
+        }
+        public ProductModel getAppointmentSlotsById(int id)
+        {
+            return dataAccessLayer.getAppointmentSlotsById(id);
+        }
+        public string EditAppointment(int ID, [FromBody] ProductModel model)
+        {
+            return dataAccessLayer.EditAppointment(ID, model);
+        }
+        public string updateOnDeleteAppointment(AppointmentModel model)
+        {
+            return dataAccessLayer.updateOnDeleteAppointment(model);
+        }
+        public string deleteAppointment(int ID)
+        {
+            return dataAccessLayer.deleteAppointment(ID);
+        }
         public List<ProductModel> getAllAppointments()
         {
             return dataAccessLayer.getAllAppointments();

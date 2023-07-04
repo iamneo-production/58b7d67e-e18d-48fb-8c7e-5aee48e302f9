@@ -70,7 +70,90 @@ go
 ==================================================================================
 
 --Appointments
---------------------
+--------------
+--Adding Appointment
+------------------
+create procedure addAppointment(
+@customerName varchar(30),
+@productName varchar(300),
+@productModelNo varchar(300),
+@dateofPurchase date,
+@contactNumber varchar(30),
+@problemDescription varchar(max),
+@bookedSlots varchar(50),
+@dateOfAppointment date, 
+@userEmail varchar(100),
+@serviceCenterId varchar(300),
+@serviceCenterName varchar(300),
+@serviceCost varchar(10))
+as
+begin
+if not exists( 
+select bookedSlots, dateOfAppointment, serviceCenterId 
+from Appointments where bookedSlots=@bookedSlots 
+and dateOfAppointment=@dateOfAppointment and serviceCenterId = @serviceCenterId)
+insert into Appointments
+(customerName, productName, productModelNo, dateofPurchase, 
+contactNumber, problemDescription, bookedSlots, dateOfAppointment, 
+email, serviceCenterId, dateOfAppointmentBooking, serviceCenterName, serviceCost)
+values
+(@customerName, @productName, @productModelNo, @dateofPurchase, @contactNumber,
+@problemDescription, @bookedSlots, @dateOfAppointment, @userEmail, 
+@serviceCenterId, SYSDATETIME(), @serviceCenterName, @serviceCost)
+end;
+go
+
+--get appointments by user Email
+--------------------------------
+create procedure getAppointmentDetails(@userEmail varchar(320))
+as
+begin
+if exists ( select * from Appointments where email = @userEmail)
+select * from Appointments where email = @userEmail
+end;
+go
+
+--cancel appoitnment by user email
+---------------------------------
+create procedure cancelAppointment(@ID int)
+as
+begin
+delete from Appointments where ID = @ID
+end;
+go
+
+--get appointment by Appointment Id
+---------------------------------
+create procedure getAppointmentDetailsByID(@ID int)
+as
+begin
+select * from Appointments where ID = @ID
+end;
+go
+
+--update appointment by Appointment Id
+-----------------------------------
+create proc updateAppointment(@ID int, 
+@productName varchar(300), 
+@productModelNo varchar(300), 
+@dateOfPurchase date, 
+@contactNumber varchar(50), 
+@problemDescription varchar(max),
+@dateOfAppointment date,
+@bookedSlots varchar(300))
+as
+begin
+update Appointments set 
+productName=@productName,
+productModelNo=@productModelNo,
+dateOfPurchase=@dateOfPurchase,
+contactNumber=@contactNumber,
+problemDescription=@problemDescription,
+dateOfAppointment=@dateOfAppointment,
+bookedSlots=@bookedSlots where ID=@ID
+end;
+go
+
 --get all appointment details
 ----------------------------
 create procedure getAllAppointments

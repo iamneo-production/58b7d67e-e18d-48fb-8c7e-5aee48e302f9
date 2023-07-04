@@ -45,6 +45,14 @@ CREATE TABLE Appointments (
   FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
 
+--Slots Table
+------------------------------------
+CREATE TABLE AvailableSlots (
+  serviceCenterId VARCHAR(300) NOT NULL,
+  availableSlots varchar(max),
+  Appointmentdate Date,
+);
+
 --Reviews Table
 -----------------------------------
 create table ServiceReviews(

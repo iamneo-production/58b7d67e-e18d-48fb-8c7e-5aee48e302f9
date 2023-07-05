@@ -24,7 +24,7 @@ namespace dotnetapp
         /*creates a new instance of the SqlConnection class, which establishes a connection to the database.
          the connection string indicates the server name (DESKTOP-IB4OOTB\\SQLEXPRESS), the database name (CameraServices), 
         and that Windows integrated security should be used for authentication*/
-        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMsSql@123;Server=localhost;Database=master2;trusted_connection=false");
+        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMssql@123;Server=localhost;Database=master2;trusted_connection=false;Persist Security Info=False;Encrypt=False");
 
         /*SqlCommand declares a SqlCommand object that will be used to execute SQL commands 
         * against the database.*/

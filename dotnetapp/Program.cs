@@ -23,4 +23,8 @@ namespace dotnetapp
                     webBuilder.UseStartup<Startup>();
                 });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0

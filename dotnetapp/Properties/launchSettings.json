@@ -4,8 +4,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
+<<<<<<< HEAD
       "applicationUrl": "http://localhost:14060",
       "sslPort": 44376
+=======
+      "applicationUrl": "http://localhost:60882",
+      "sslPort": 44311
+>>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
     }
   },
   "profiles": {
@@ -19,7 +24,11 @@
     },
     "dotnetapp": {
       "commandName": "Project",
+<<<<<<< HEAD
       "dotnetRunMessages": "true",
+=======
+      "dotnetRunMessages": true,
+>>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
       "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "http://0.0.0.0:8080",
@@ -28,4 +37,8 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0

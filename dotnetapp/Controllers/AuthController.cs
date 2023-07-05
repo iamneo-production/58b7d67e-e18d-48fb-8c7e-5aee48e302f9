@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using dotnetapp.Models;
 
 namespace dotnetapp.Controllers
-{/*This class Control the user /admin signup and signin*/
-    [Route("api/[controller]")]
+{
+    /*This class Control the user /admin signup and signin*/
+    //[Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -21,7 +22,7 @@ namespace dotnetapp.Controllers
         public IActionResult saveAdmin([FromBody] UserModel user)
         {
             string result = businesslayer.saveAdmin(user);
-            return Ok(result);
+            return Created("AdminSignup",result);
         }
 
         /* this method returns an IActionResult, and the result being returned is a boolean */
@@ -30,7 +31,7 @@ namespace dotnetapp.Controllers
         public IActionResult isAdminPresent(LoginModel data)
         {
             Boolean result = businesslayer.isAdminPresent(data);
-            return Ok(result);
+            return Created("AdminLogin",result);
         }
 
         /* this method returns an IActionResult, and the result being returned is a string */
@@ -48,7 +49,7 @@ namespace dotnetapp.Controllers
         public IActionResult saveUser(UserModel user)
         {
             string result = businesslayer.saveUser(user);
-            return Ok(result);
+            return Created("UserSignup",result);
         }
 
         /* this method returns an IActionResult, and the result being returned is a Boolean */
@@ -57,7 +58,7 @@ namespace dotnetapp.Controllers
         public IActionResult isUserPresent(LoginModel data)
         {
             Boolean result = businesslayer.isUserPresent(data);
-            return Ok(result);
+            return Created("UserLogin",result);
         }
 
         /* this method returns an IActionResult, and the result being returned is a Model */

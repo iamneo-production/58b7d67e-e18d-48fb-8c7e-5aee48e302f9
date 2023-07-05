@@ -17,23 +17,14 @@
           "/home/coder/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-<<<<<<< HEAD
           "net6.0"
-=======
-          "net5.0"
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-<<<<<<< HEAD
           "net6.0": {
             "targetAlias": "net6.0",
-=======
-          "net5.0": {
-            "targetAlias": "net5.0",
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
             "projectReferences": {}
           }
         },
@@ -44,30 +35,8 @@
         }
       },
       "frameworks": {
-<<<<<<< HEAD
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-=======
-        "net5.0": {
-          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.AspNet.Cors": {
               "target": "Package",
@@ -88,7 +57,6 @@
             "Microsoft.SqlServer.Server": {
               "target": "Package",
               "version": "[1.0.0, )"
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
             },
             "Moq": {
               "target": "Package",
@@ -100,15 +68,11 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[5.6.3, )"
-=======
               "version": "[6.2.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
             }
           },
           "imports": [
@@ -122,23 +86,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-<<<<<<< HEAD
-=======
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

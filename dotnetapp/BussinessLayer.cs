@@ -10,7 +10,7 @@ namespace dotnetapp
     public class BusinessLayer
     {
         DataAccessLayer dataAccessLayer = new DataAccessLayer();
-        
+        //Auth Controller
         public string saveAdmin(UserModel user)
         {
             return dataAccessLayer.saveAdmin(user);
@@ -29,6 +29,13 @@ namespace dotnetapp
         public Boolean isUserPresent(LoginModel data)
         {
             return dataAccessLayer.isUserPresent(data);
+        }
+
+        //AppointmentController
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        public List<ProductModel> getAllAppointments()
+        {
+            return dataAccessLayer.getAllAppointments();
         }
 
         //Review Controller

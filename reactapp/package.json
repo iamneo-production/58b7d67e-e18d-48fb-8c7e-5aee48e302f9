@@ -52,12 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0"
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
   }
 }

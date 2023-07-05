@@ -39,7 +39,10 @@ public class AuthController : ControllerBase
         {
             return Created("UserLogin",bussinessLayer.isUserPresent(data));
         }
+<<<<<<< HEAD
 
         //main branch
+=======
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
     }
 }

@@ -9,7 +9,7 @@ using dotnetapp.Models;
 namespace dotnetapp.Controllers
 {
     /*This class Control the user /admin signup and signin*/
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace dotnetapp.Controllers
         [Route("admin/signup")]
         public IActionResult saveAdmin([FromBody] UserModel user)
         {
-            return Created("AdminSignup", bussinessLayer.saveAdmin(user));
+            return Created("AdminSignup", businesslayer.saveAdmin(user));
         }
 
        /* this method returns an IActionResult, and the result being returned is a boolean */
@@ -30,7 +30,7 @@ namespace dotnetapp.Controllers
         [Route("admin/login")]
         public IActionResult isAdminPresent(LoginModel data)
         {
-            return Created("AdminLogin",bussinessLayer.isAdminPresent(data));
+            return Created("AdminLogin",businesslayer.isAdminPresent(data));
         }
 
         /* this method returns an IActionResult, and the result being returned is a string */
@@ -38,7 +38,7 @@ namespace dotnetapp.Controllers
         [Route("user/signup")]
         public IActionResult saveUser([FromBody] UserModel user)
         {
-            return Created("UserSignup", bussinessLayer.saveUser(user));
+            return Created("UserSignup", businesslayer.saveUser(user));
         }
 
         /* this method returns an IActionResult, and the result being returned is a string */
@@ -46,7 +46,7 @@ namespace dotnetapp.Controllers
         [Route("user/login")]
         public IActionResult isUserPresent(LoginModel data)
         {
-            return Created("UserLogin",bussinessLayer.isUserPresent(data));
+            return Created("UserLogin",businesslayer.isUserPresent(data));
         }
 
           /* this method returns an IActionResult, and the result being returned is a string */

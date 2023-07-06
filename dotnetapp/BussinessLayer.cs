@@ -40,6 +40,26 @@ namespace dotnetapp
             return dataAccessLayer.isUserPresent(data);
         }
 
+         //Auth controllers
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        
+        public UserModel getAdminByEmailId(string email)
+        {
+            return (dataAccessLayer.getAdminByEmailId(email));
+        }
+        public UserModel getUserByEmailId(string email)
+        {
+            return dataAccessLayer.getUserByEmailId(email);
+        }
+
+        
+        //AppointmentController
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        public List<ProductModel> getAllAppointments()
+        {
+            return dataAccessLayer.getAllAppointments();
+        }
+
 
         //servicecentercontroller
         /*by creating an object for the data access layer, we are accessing all the methods */
@@ -47,10 +67,31 @@ namespace dotnetapp
         {
             return dataAccessLayer.availableSlots(m);
         }
+          public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
+        {
+            return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
+        }
+        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
+        {
+            return dataAccessLayer.updateGetSlots(serviceCenterId, model);
+        }
+        public string deleteServiceCenter(string serivceCenterId)
+        {
+            return dataAccessLayer.deleteServiceCenter(serivceCenterId);
+        }
+        public string deleteAvailableSlots(string serviceCenterId)
+        {
+            return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
+        }
+        public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+        {
+            return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
+        }
         public string addServiceCenter([FromBody] JsonElement jsonData)
         {
             return dataAccessLayer.addServiceCenter(jsonData);
         }
+
 
 
            //User Controller
@@ -70,6 +111,10 @@ namespace dotnetapp
         public string deleteUsers(List<int> userIds)
         {
             return dataAccessLayer.deleteUsers(userIds);
+        }
+         public string editUsersById(UserModel user, int UserId)
+        {
+            return dataAccessLayer.editUsersById(user, UserId);
         }
 
 

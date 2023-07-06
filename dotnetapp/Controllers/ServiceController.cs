@@ -30,6 +30,54 @@ namespace dotnetapp.Controllers
                 return Ok(result);
             }
 
+  /* this method returns an IActionResult, and the result being returned is a Model */
+            [HttpGet]
+            [Route("viewServiceCenterByID/{serivceCenterId}")]
+            public IActionResult viewServiceCenterByID(string serivceCenterId)
+            {
+                ServiceCenterModel result = businesslayer.viewServiceCenterByID(serivceCenterId);
+                return Ok(result);
+            }
+
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpPut]
+            [Route("updateGetSlots/{serviceCenterId}")]
+            public IActionResult updateGetSlots(string serviceCenterId, AppointmentModel model)
+            {
+                string result = businesslayer.updateGetSlots(serviceCenterId, model);
+                return Ok(result);
+            }
+
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpDelete]
+            [Route("admin/deleteServiceCenter/{serivceCenterId}")]
+
+            public IActionResult deleteServiceCenter(string serivceCenterId)
+            {
+                string result = businesslayer.deleteServiceCenter(serivceCenterId);
+                return Ok(result);
+            }
+
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpDelete]
+            [Route("deleteAvailableSlots/{serviceCenterId}")]
+            public IActionResult deleteAvailableSlots(string serviceCenterId)
+            {
+                string result = businesslayer.deleteAvailableSlots(serviceCenterId);
+                return Ok(result);
+            }
+
+
+            /* this method returns an IActionResult, and the result being returned is a string */
+            [HttpPut]
+            [Route("admin/editServiceCenter/{serviceCenterId}")]
+            public IActionResult editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+            {
+                string result = businesslayer.editServiceCenter(serviceCenterId, jsonData);
+                return Ok(result);
+            }
+
+
             /* this method returns an IActionResult, and the result being returned is a string */
             [HttpPost]
             [Route("admin/addServiceCenter")]

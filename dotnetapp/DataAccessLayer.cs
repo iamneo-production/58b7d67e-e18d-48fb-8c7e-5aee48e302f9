@@ -179,7 +179,64 @@ namespace dotnetapp
             return msg;
         }
 
-        //Service Controller
+          /*this method helps to  retrieve admin's data based on the provided email.*/
+        internal UserModel getAdminByEmailId(string email)
+        {
+            UserModel m = new UserModel();
+
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getAdminByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    m.UserName = dr["UserName"].ToString();
+                    m.UserRole = dr["UserRole"].ToString();
+                    m.UserId =int.Parse(dr["UserId"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            conn.Close();
+            return m;
+        }
+        
+
+        /*this method helps to  retrieve user's data based on the provided email.*/
+        internal UserModel getUserByEmailId(string email)
+        {
+            UserModel m = new UserModel();
+
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getUserByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    m.UserName = dr["UserName"].ToString();
+                    m.UserRole = dr["UserRole"].ToString();
+                    m.UserId = int.Parse(dr["UserId"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            conn.Close();
+            return m;
+        }
+
         
         /*this method insert the availableSlots while adding the service center*/
         internal string availableSlots(AppointmentModel m)
@@ -206,6 +263,179 @@ namespace dotnetapp
                 msg = e.Message;
             }
             return msg;
+        }
+            /*this method helps to get the service center details by their id*/
+        internal ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
+        {
+            SqlDataReader dr;
+            ServiceCenterModel model = new ServiceCenterModel();
+            cmd = new SqlCommand("getServiceCenterById", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@serviceCenterId", serivceCenterId);
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+
+                model.serviceCenterId = dr["serviceCenterId"].ToString();
+                model.serviceCenterName = dr["serviceCenterName"].ToString();
+                model.serviceCenterPhone = dr["serviceCenterPhone"].ToString();
+                model.serviceCenterAddress = dr["serviceCenterAddress"].ToString();
+                model.serviceCenterImageUrl = dr["serviceCenterImageUrl"].ToString();
+                model.serviceCenterMailId = dr["serviceCenterMailId"].ToString();
+                model.serviceCost = (dr["serviceCost"].ToString());
+                model.serviceCenterStartTime = TimeSpan.Parse(dr["serviceCenterStartTime"].ToString());
+                model.serviceCenterEndTime = TimeSpan.Parse(dr["serviceCenterEndTime"].ToString());
+                model.serviceCenterDescription = dr["serviceCenterDescription"].ToString();
+
+            }
+            conn.Close();
+            return model;
+        }
+
+        /*this method update the slots while updating the service center*/
+        internal string updateGetSlots(string serviceCenterId, AppointmentModel model)
+        {
+            string msg = string.Empty;
+
+            try
+            {
+                cmd = new SqlCommand("editAvailableSlots", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                List<string> availableSlots = model.availableSlots;
+                string slotsString = string.Join(",", availableSlots);
+                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (data >= 1)
+                {
+                    msg = "Service center updated";
+                }
+                else
+                {
+                    msg = "Failed";
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+
+        /*this method deletes the service center by the id*/
+        internal string deleteServiceCenter(string serivceCenterId)
+        {
+            string msg = string.Empty;
+            try
+            {
+                cmd = new SqlCommand("deleteServiceCenterId", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", serivceCenterId);
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+                if (data >= 1)
+                {
+                    msg = "Service center deleted";
+                }
+                else
+                {
+                    msg = "Can't Delete Service Center Appointments booked for that service center";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+
+            return msg;
+        }
+
+        /*this method deletes the available slots while deleting the service center*/
+        internal string deleteAvailableSlots(string serviceCenterId)
+        {
+            string msg = string.Empty;
+            try
+            {
+                cmd = new SqlCommand("deleteAvailableSlots", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+                if (data >= 1)
+                {
+                    msg = "Service center deleted";
+                }
+                else
+                {
+                    msg = "Failed to Delete";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+
+            return msg;
+        }
+
+        
+
+        /*this method edit the service center details according to the id*/
+        internal string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+        {
+            string msg = string.Empty;
+
+            try
+            {
+
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new TimeSpanConverter() }
+                };
+
+                var model = JsonSerializer.Deserialize<ServiceCenterModel>(jsonData.GetRawText(), options);
+
+                cmd = new SqlCommand("updateAddCenters", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                cmd.Parameters.AddWithValue("@serviceCenterName", model.serviceCenterName);
+                cmd.Parameters.AddWithValue("@serviceCenterPhone", model.serviceCenterPhone);
+                cmd.Parameters.AddWithValue("@serviceCenterAddress", model.serviceCenterAddress);
+                cmd.Parameters.AddWithValue("@serviceCenterImageUrl", model.serviceCenterImageUrl);
+                cmd.Parameters.AddWithValue("@serviceCenterMailId", model.serviceCenterMailId);
+                cmd.Parameters.AddWithValue("@serviceCost", model.serviceCost);
+                cmd.Parameters.AddWithValue("@serviceCenterStartTime", model.serviceCenterStartTime);
+                cmd.Parameters.AddWithValue("@serviceCenterEndTime", model.serviceCenterEndTime);
+                cmd.Parameters.AddWithValue("@serviceCenterDescription", model.serviceCenterDescription);
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (data >= 1)
+                {
+                    msg = "Service center updated";
+                }
+                else
+                {
+                    msg = "Failed";
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+
         }
 
         /*this method helps the admin to add the service center*/
@@ -268,6 +498,44 @@ namespace dotnetapp
                 writer.WriteStringValue(value.ToString());
             }
         }
+
+        
+        //AppointmentController
+
+        internal List<ProductModel> getAllAppointments()
+        {
+            List<ProductModel> m = new List<ProductModel>();
+            SqlDataReader dr;
+
+            cmd = new SqlCommand("getAllAppointments", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ProductModel model = new ProductModel();
+                model.ID =int.Parse( dr["ID"].ToString());
+                model.customerName = dr["customerName"].ToString();
+                model.email = dr["email"].ToString();
+                model.productName = dr["productName"].ToString();
+                model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
+                model.contactNumber = dr["contactNumber"].ToString();
+                model.bookedSlots = dr["bookedSlots"].ToString();
+                model.serviceCenterId = dr["serviceCenterId"].ToString();
+                model.serviceCenterName = dr["serviceCenterName"].ToString();
+                model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
+                model.serviceCost = (dr["serviceCost"].ToString());
+                m.Add(model);
+            }
+            conn.Close();
+            return m;
+        }
+
+
+
+
+
+
 
          //UserController 
 
@@ -393,7 +661,42 @@ namespace dotnetapp
             return msg;
         }
 
+        /*this method helps to edit the user's details by their id*/
+        internal string editUsersById(UserModel user, int UserId)
+        {
+            string msg = string.Empty;
 
+            try
+            {
+                cmd = new SqlCommand("editUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+                cmd.Parameters.AddWithValue("@email", user.Email);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@username", user.UserName);
+                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
+
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (data >= 1)
+                {
+                    msg = "User Details Updated";
+                }
+                else
+                {
+                    msg = "Failed";
+                }
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
 
 
 

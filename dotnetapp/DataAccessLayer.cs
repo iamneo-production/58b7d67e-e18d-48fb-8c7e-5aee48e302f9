@@ -1087,7 +1087,7 @@ internal string EditAppointment(int ID, [FromBody] ProductModel model)
 
             return msg;
         }
-
+List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterModel>();
 /*this method gets the list of the service centers*/
         internal List<ServiceCenterModel> viewServiceCenter()
         {

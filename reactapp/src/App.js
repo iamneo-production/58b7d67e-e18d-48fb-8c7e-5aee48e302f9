@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import Signup from './components/Auth/Signup/Signup';
 import Login from './components/Auth/Login/Login';
@@ -11,10 +12,15 @@ import Booking from './components/Customer/Cart/Cart';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
 import Review from './components/Admin/Review/Review';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+=======
+import logo from './logo.svg';
+import './App.css';
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Router>
         <Routes>
         <Route element={<PrivateRoutes />}>
@@ -31,6 +37,22 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
         </Routes>
       </Router>
+=======
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
     </div>
   );
 }

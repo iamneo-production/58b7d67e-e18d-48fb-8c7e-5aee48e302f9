@@ -20,8 +20,8 @@ namespace dotnetapp.Controllers
 
         BusinessLayer businesslayer = new BusinessLayer();
 
-        /* this method returns an IActionResult, and the result being returned is a string 
-           * and By returning Ok(result), the result will be sent as the response*/
+            /* this method returns an IActionResult, and the result being returned is a string 
+                * and By returning Ok(result), the result will be sent as the response*/
             [HttpPost]
             [Route("availableSlots")]
             public IActionResult availableSlots(AppointmentModel m)
@@ -30,7 +30,15 @@ namespace dotnetapp.Controllers
                 return Ok(result);
             }
 
-  /* this method returns an IActionResult, and the result being returned is a Model */
+            /* this method returns an IActionResult, and the result being returned is a List */
+            [HttpGet]
+            [Route("admin/getservicecenter")]
+            public IActionResult viewServiceCenter()
+            {
+                List<ServiceCenterModel> result = businesslayer.viewServiceCenter();
+                return Ok(result);
+            }
+            /* this method returns an IActionResult, and the result being returned is a Model */
             [HttpGet]
             [Route("viewServiceCenterByID/{serivceCenterId}")]
             public IActionResult viewServiceCenterByID(string serivceCenterId)
@@ -47,7 +55,6 @@ namespace dotnetapp.Controllers
                 string result = businesslayer.updateGetSlots(serviceCenterId, model);
                 return Ok(result);
             }
-
             /* this method returns an IActionResult, and the result being returned is a string */
             [HttpDelete]
             [Route("admin/deleteServiceCenter/{serivceCenterId}")]
@@ -66,8 +73,6 @@ namespace dotnetapp.Controllers
                 string result = businesslayer.deleteAvailableSlots(serviceCenterId);
                 return Ok(result);
             }
-
-
             /* this method returns an IActionResult, and the result being returned is a string */
             [HttpPut]
             [Route("admin/editServiceCenter/{serviceCenterId}")]
@@ -76,8 +81,6 @@ namespace dotnetapp.Controllers
                 string result = businesslayer.editServiceCenter(serviceCenterId, jsonData);
                 return Ok(result);
             }
-
-
             /* this method returns an IActionResult, and the result being returned is a string */
             [HttpPost]
             [Route("admin/addServiceCenter")]
@@ -86,7 +89,6 @@ namespace dotnetapp.Controllers
                 string result = businesslayer.addServiceCenter(jsonData);
                 return Ok(result);
             }
-
             /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
              * This class overrides the Read method from the JsonConverter base class to provide custom deserialization logic
              * for converting a JSON string representation into a TimeSpan object. */

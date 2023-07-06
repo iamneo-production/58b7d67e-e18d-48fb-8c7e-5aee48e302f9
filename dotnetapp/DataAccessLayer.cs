@@ -463,6 +463,23 @@ namespace dotnetapp
             return msg;
 
         }
+         /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
+        * This class overrides the Read method from the JsonConverter base class to provide custom deserialization logic
+        * for converting a JSON string representation into a TimeSpan object. */
+        internal class TimeSpanConverter : JsonConverter<TimeSpan>
+        {
+            public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            {
+                string value = reader.GetString();
+                return TimeSpan.Parse(value);
+            }
+
+            public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
+            {
+                writer.WriteStringValue(value.ToString());
+            }
+        }
+
            //UserController 
 
         /* this method  adds the user in the database*/

@@ -39,10 +39,6 @@ namespace dotnetapp
         {
             return dataAccessLayer.isUserPresent(data);
         }
-
-         //Auth controllers
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        
         public UserModel getAdminByEmailId(string email)
         {
             return (dataAccessLayer.getAdminByEmailId(email));
@@ -94,7 +90,7 @@ namespace dotnetapp
 
 
 
-           //User Controller
+        //User Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string addUser(UserModel user)
         {
@@ -117,15 +113,7 @@ namespace dotnetapp
             return dataAccessLayer.editUsersById(user, UserId);
         }
 
-
-
-
-
-
-
-
-
-          //Review Controller
+        //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string AddReview(ReviewModel model)
         {

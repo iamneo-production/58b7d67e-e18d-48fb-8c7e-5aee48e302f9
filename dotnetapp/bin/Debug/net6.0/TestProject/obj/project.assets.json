@@ -2,7 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-<<<<<<< HEAD
       "Azure.Core/1.25.0": {
         "type": "package",
         "dependencies": {
@@ -47,8 +46,6 @@
           }
         }
       },
-=======
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
       "Castle.Core/5.1.1": {
         "type": "package",
         "dependencies": {
@@ -130,7 +127,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.AspNetCore.Cors/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -214,8 +210,6 @@
           }
         }
       },
-=======
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
       "Microsoft.CodeCoverage/17.1.0": {
         "type": "package",
         "compile": {
@@ -238,7 +232,6 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-<<<<<<< HEAD
       "Microsoft.Data.SqlClient/5.1.1": {
         "type": "package",
         "dependencies": {
@@ -258,60 +251,26 @@
         },
         "compile": {
           "ref/net6.0/Microsoft.Data.SqlClient.dll": {
-=======
-      "Microsoft.Data.SqlClient/2.1.4": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Data.SqlClient.SNI.runtime": "2.1.1",
-          "Microsoft.Identity.Client": "4.21.1",
-          "Microsoft.IdentityModel.JsonWebTokens": "6.8.0",
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.8.0",
-          "Microsoft.Win32.Registry": "4.7.0",
-          "System.Configuration.ConfigurationManager": "4.7.0",
-          "System.Diagnostics.DiagnosticSource": "4.7.0",
-          "System.Runtime.Caching": "4.7.0",
-          "System.Security.Principal.Windows": "4.7.0",
-          "System.Text.Encoding.CodePages": "4.7.0"
-        },
-        "compile": {
-          "ref/netcoreapp3.1/Microsoft.Data.SqlClient.dll": {
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-<<<<<<< HEAD
           "lib/net6.0/Microsoft.Data.SqlClient.dll": {
-=======
-          "lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll": {
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "related": ".pdb;.xml"
           }
         },
         "runtimeTargets": {
-<<<<<<< HEAD
           "runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll": {
             "assetType": "runtime",
             "rid": "unix"
           },
           "runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll": {
-=======
-          "runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll": {
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "assetType": "runtime",
             "rid": "win"
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.Data.SqlClient.SNI.runtime/5.1.0": {
-=======
-      "Microsoft.Data.SqlClient.SNI.runtime/2.1.1": {
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
         "type": "package",
         "runtimeTargets": {
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
@@ -8920,6 +8879,15 @@
   },
   "logs": [
     {
+<<<<<<< HEAD
+=======
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /home/coder/project/workspace/dotnetapp/TestProject/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

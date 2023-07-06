@@ -9,7 +9,7 @@ using dotnetapp.Models;
 namespace dotnetapp.Controllers
 {
     /*This class Control the user /admin signup and signin*/
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

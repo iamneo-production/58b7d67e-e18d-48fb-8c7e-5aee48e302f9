@@ -24,17 +24,14 @@ namespace dotnetapp
         {
             return dataAccessLayer.saveAdmin(user);
         }
-
         public Boolean isAdminPresent(LoginModel data)
         {
             return (dataAccessLayer.isAdminPresent(data));
         }
-
         public string saveUser(UserModel user)
         {
             return dataAccessLayer.saveUser(user);
         }
-        
         public Boolean isUserPresent(LoginModel data)
         {
             return dataAccessLayer.isUserPresent(data);
@@ -48,22 +45,39 @@ namespace dotnetapp
             return dataAccessLayer.getUserByEmailId(email);
         }
 
-        
         //AppointmentController
         /*by creating an object for the data access layer, we are accessing all the methods */
         public List<ProductModel> getAllAppointments()
         {
             return dataAccessLayer.getAllAppointments();
         }
-
-
+        public List<ProductModel> getAppointment(string email)
+        {
+            return dataAccessLayer.getAppointment(email);
+        }
+        public ProductModel getAppointmentSlotsById(int id)
+        {
+            return dataAccessLayer.getAppointmentSlotsById(id);
+        }
+        public string EditAppointment(int ID, [FromBody] ProductModel model)
+        {
+            return dataAccessLayer.EditAppointment(ID, model);
+        }
+        public string updateOnDeleteAppointment(AppointmentModel model)
+        {
+            return dataAccessLayer.updateOnDeleteAppointment(model);
+        }
+        public string deleteAppointment(int ID)
+        {
+            return dataAccessLayer.deleteAppointment(ID);
+        }
         //servicecentercontroller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string availableSlots(AppointmentModel m)
         {
             return dataAccessLayer.availableSlots(m);
         }
-          public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
+        public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
         {
             return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
         }
@@ -87,9 +101,6 @@ namespace dotnetapp
         {
             return dataAccessLayer.addServiceCenter(jsonData);
         }
-
-
-
         //User Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string addUser(UserModel user)
@@ -108,11 +119,10 @@ namespace dotnetapp
         {
             return dataAccessLayer.deleteUsers(userIds);
         }
-         public string editUsersById(UserModel user, int UserId)
+        public string editUsersById(UserModel user, int UserId)
         {
             return dataAccessLayer.editUsersById(user, UserId);
         }
-
         //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string AddReview(ReviewModel model)

@@ -20,27 +20,16 @@ namespace dotnetapp.Controllers
 
         BusinessLayer businesslayer = new BusinessLayer();
 
-<<<<<<< HEAD
-        /* this method returns an IActionResult, and the result being returned is a List */
-            [HttpGet]
-            [Route("admin/getservicecenter")]
-            public IActionResult viewServiceCenter()
-=======
             /* this method returns an IActionResult, and the result being returned is a string 
                 * and By returning Ok(result), the result will be sent as the response*/
             [HttpPost]
             [Route("availableSlots")]
             public IActionResult availableSlots(AppointmentModel m)
->>>>>>> 401714efe78e2923f1b7f7a41350a4ccfdad5286
             {
                 List<ServiceCenterModel> result = businesslayer.viewServiceCenter();
                 return Ok(result);
             }
 
-<<<<<<< HEAD
-    }
-}
-=======
             /* this method returns an IActionResult, and the result being returned is a List */
             [HttpGet]
             [Route("admin/getservicecenter")]
@@ -119,4 +108,3 @@ namespace dotnetapp.Controllers
 
         }
     }
->>>>>>> 401714efe78e2923f1b7f7a41350a4ccfdad5286

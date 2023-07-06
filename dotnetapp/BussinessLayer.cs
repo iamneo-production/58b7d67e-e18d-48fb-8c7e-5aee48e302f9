@@ -41,6 +41,35 @@ namespace dotnetapp
         {
             return dataAccessLayer.addServiceCenter(jsonData);
         }
+
+
+           //User Controller
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        public string addUser(UserModel user)
+        {
+            return dataAccessLayer.addUser(user);
+        }
+        public List<UserModel> getAllUsers()
+        {
+            return dataAccessLayer.getAllUsers();
+        }
+        public UserModel getUser(int UserId)
+        {
+            return dataAccessLayer.getUser(UserId);
+        }
+        public string deleteUsers(List<int> userIds)
+        {
+            return dataAccessLayer.deleteUsers(userIds);
+        }
+
+
+
+
+
+
+
+
+
           //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string AddReview(ReviewModel model)

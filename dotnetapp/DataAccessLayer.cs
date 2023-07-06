@@ -159,6 +159,95 @@ namespace dotnetapp
             }
             return msg;
         }
+
+
+        /*this method insert the availableSlots while adding the service center*/
+        internal string availableSlots(AppointmentModel m)
+        {
+            string msg = string.Empty;
+            try
+            {
+                cmd = new SqlCommand("InsertAvailableSlots", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", m.serviceCenterId);
+
+                List<string> availableSlots = m.availableSlots;
+                string slotsString = string.Join(",", availableSlots);
+                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
+
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                msg = "Success";
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+
+        /*this method helps the admin to add the service center*/
+        internal string addServiceCenter([FromBody] JsonElement jsonData)
+        {
+            string msg = string.Empty;
+            try
+            {
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new TimeSpanConverter() }
+                };
+
+                var model = JsonSerializer.Deserialize<ServiceCenterModel>(jsonData.GetRawText(), options);
+
+                cmd = new SqlCommand("AdminAddServiceCenter", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
+                cmd.Parameters.AddWithValue("@serviceCenterName", model.serviceCenterName);
+                cmd.Parameters.AddWithValue("@serviceCenterPhone", model.serviceCenterPhone);
+                cmd.Parameters.AddWithValue("@serviceCenterAddress", model.serviceCenterAddress);
+                cmd.Parameters.AddWithValue("@serviceCenterImageUrl", model.serviceCenterImageUrl);
+                cmd.Parameters.AddWithValue("@serviceCenterMailId", model.serviceCenterMailId);
+                cmd.Parameters.AddWithValue("@serviceCost", model.serviceCost);
+                cmd.Parameters.AddWithValue("@serviceCenterStartTime", model.serviceCenterStartTime);
+                cmd.Parameters.AddWithValue("@serviceCenterEndTime", model.serviceCenterEndTime);
+                cmd.Parameters.AddWithValue("@serviceCenterDescription", model.serviceCenterDescription);
+
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                if (data >= 1)
+                {
+                    msg = "Service Center added";
+                }
+                else
+                {
+                    msg = "Failed to Add Service Center";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+
+        /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
+        * This class overrides the Read method from the JsonConverter base class to provide custom deserialization logic
+        * for converting a JSON string representation into a TimeSpan object. */
+        internal class TimeSpanConverter : JsonConverter<TimeSpan>
+        {
+            public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            {
+                string value = reader.GetString();
+                return TimeSpan.Parse(value);
+            }
+
+            public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
+            {
+                writer.WriteStringValue(value.ToString());
+            }
+        }
         
 
     }

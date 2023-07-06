@@ -239,6 +239,36 @@ namespace dotnetapp
         }
 
         //Service Center
+
+        List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterModel>();
+
+        /*this method gets the list of the service centers*/
+        internal List<ServiceCenterModel> viewServiceCenter()
+        {
+            SqlDataReader dr;
+
+            cmd = new SqlCommand("getAllServiceCenterDetails", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ServiceCenterModel model = new ServiceCenterModel();
+                model.serviceCenterId = dr["serviceCenterId"].ToString();
+                model.serviceCenterName = dr["serviceCenterName"].ToString();
+                model.serviceCenterPhone = dr["serviceCenterPhone"].ToString();
+                model.serviceCenterAddress = dr["serviceCenterAddress"].ToString();
+                model.serviceCenterImageUrl = dr["serviceCenterImageUrl"].ToString();
+                model.serviceCenterMailId = dr["serviceCenterMailId"].ToString();
+                model.serviceCost = (dr["serviceCost"].ToString());
+                model.serviceCenterStartTime = TimeSpan.Parse(dr["serviceCenterStartTime"].ToString());
+                model.serviceCenterEndTime = TimeSpan.Parse(dr["serviceCenterEndTime"].ToString());
+                model.serviceCenterDescription = dr["serviceCenterDescription"].ToString();
+                getAllServiceCenterDetails.Add(model);
+            }
+            conn.Close();
+            return getAllServiceCenterDetails;
+        }
         
         /*this method insert the availableSlots while adding the service center*/
         internal string availableSlots(AppointmentModel m)

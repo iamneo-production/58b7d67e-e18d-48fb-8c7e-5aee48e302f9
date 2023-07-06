@@ -565,6 +565,31 @@ namespace dotnetapp
             conn.Close();
             return model;
         }
+        /*this  method get the user maill id details as per the id*/
+        private string GetEmailAddressByID(int userID)
+        {
+            string emailAddress = string.Empty;
+            cmd = new SqlCommand("getAppointmentDetailsByID", conn);
+            cmd.Parameters.AddWithValue("@ID", userID);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read() == true)
+                {
+                    UserModel model = new UserModel();
+                    emailAddress = dr["Email"].ToString();
+                }
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            return emailAddress;
+        }
         /*This method helps to edit the details of the appointment and save it again in the database*/
         internal string EditAppointment(int ID, [FromBody] ProductModel model)
         {

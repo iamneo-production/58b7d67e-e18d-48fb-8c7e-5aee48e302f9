@@ -248,7 +248,65 @@ namespace dotnetapp
                 writer.WriteStringValue(value.ToString());
             }
         }
-        
+          //Review Controller
+
+        /*this method adds the review about the service*/
+        internal string AddReview(ReviewModel model)
+        {
+            string msg = string.Empty;
+           
+            try
+            {
+              
+
+                cmd = new SqlCommand("addingReviews", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userEmail", model.userEmail);
+                cmd.Parameters.AddWithValue("@userName", model.userName);
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
+                cmd.Parameters.AddWithValue("@Rating", model.Rating);
+                cmd.Parameters.AddWithValue("@review", model.review);
+                conn.Open();
+                int d = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (d >= 1)
+                {
+                    msg = "Thanks for the Feedback";
+                }
+                else
+                {
+                    msg = "Failed to give review";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+
+        /*this method displays the list of reviews*/
+        internal List<ReviewModel> getAllReviews()
+        {
+            List<ReviewModel> list = new List<ReviewModel>();
+            SqlDataReader dr;
+            cmd = new SqlCommand("GetAllReviews", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ReviewModel model = new ReviewModel();
+                model.userName = dr["userName"].ToString();
+                model.userEmail = dr["userEmail"].ToString();
+                model.review = dr["review"].ToString();
+                model.Rating = int.Parse(dr["Rating"].ToString());
+                list.Add(model);
+            }
+            conn.Close();
+            return list;
+        }
 
     }
 }

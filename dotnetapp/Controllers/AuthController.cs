@@ -79,10 +79,6 @@ namespace dotnetapp.Controllers
         {
             UserModel result = businesslayer.getUserByEmailId(email);
             return Ok(result);
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
         }
     }
 }

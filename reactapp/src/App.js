@@ -11,10 +11,6 @@ import Booking from './components/Customer/Cart/Cart';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
 import Review from './components/Admin/Review/Review';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-<<<<<<< HEAD
-
-=======
->>>>>>> 34111c214527f0e3feecd5013b54bd3bcee9c003
 
 function App() {
   return (

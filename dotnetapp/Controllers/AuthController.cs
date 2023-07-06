@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Threading.Tasks;
 using dotnetapp.Models;
 
@@ -22,31 +24,34 @@ namespace dotnetapp.Controllers
         [Route("admin/signup")]
         public IActionResult saveAdmin([FromBody] UserModel user)
         {
-            return Created("AdminSignup", bussinessLayer.saveAdmin(user));
+            return Created("AdminSignup", businesslayer.saveAdmin(user));
         }
 
+       /* this method returns an IActionResult, and the result being returned is a boolean */
        /* this method returns an IActionResult, and the result being returned is a boolean */
         [HttpPost]
         [Route("admin/login")]
         public IActionResult isAdminPresent(LoginModel data)
         {
-            return Created("AdminLogin",bussinessLayer.isAdminPresent(data));
+            return Created("AdminLogin",businesslayer.isAdminPresent(data));
         }
 
+        /* this method returns an IActionResult, and the result being returned is a string */
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("user/signup")]
         public IActionResult saveUser([FromBody] UserModel user)
         {
-            return Created("UserSignup", bussinessLayer.saveUser(user));
+            return Created("UserSignup", businesslayer.saveUser(user));
         }
 
+        /* this method returns an IActionResult, and the result being returned is a string */
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("user/login")]
         public IActionResult isUserPresent(LoginModel data)
         {
-            return Created("UserLogin",bussinessLayer.isUserPresent(data));
+            return Created("UserLogin",businesslayer.isUserPresent(data));
         }
 
           /* this method returns an IActionResult, and the result being returned is a string */

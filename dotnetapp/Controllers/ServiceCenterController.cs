@@ -12,7 +12,7 @@ using System.Text.Json.Serialization;
 
 namespace dotnetapp.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class ServiceCenterController : ControllerBase
     {

@@ -118,17 +118,73 @@
           "targetAlias": "net6.0",
           "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Microsoft.AspNet.Cors": {
               "target": "Package",
               "version": "[5.2.9, )"
             },
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
               "version": "[5.2.9, )"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -137,8 +193,28 @@
               "target": "Package",
               "version": "[5.1.1, )"
             },
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -158,12 +234,50 @@
               "version": "[6.0.0, )"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Microsoft.SqlServer.Server": {
               "target": "Package",
               "version": "[1.0.0, )"
             },
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+>>>>>>> a1a3a2a82a72f08ce298f920ed3498214145b9d6
             "Moq": {
               "target": "Package",
               "version": "[4.18.4, )"

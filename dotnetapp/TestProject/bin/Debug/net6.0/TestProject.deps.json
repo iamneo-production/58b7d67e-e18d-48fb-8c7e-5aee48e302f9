@@ -20,6 +20,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Azure.Core/1.25.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
@@ -54,8 +66,20 @@
           }
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Castle.Core/5.1.1": {
         "dependencies": {
           "System.Diagnostics.EventLog": "6.0.0"
@@ -112,6 +136,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.AspNetCore.Cors/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
@@ -148,8 +184,20 @@
           }
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.CodeCoverage/17.1.0": {
         "runtime": {
           "lib/netcoreapp1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
@@ -160,6 +208,18 @@
       },
       "Microsoft.CSharp/4.5.0": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.Data.SqlClient/5.1.1": {
         "dependencies": {
           "Azure.Identity": "1.7.0",
@@ -198,6 +258,10 @@
         }
       },
       "Microsoft.Data.SqlClient.SNI.runtime/5.1.0": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "Microsoft.Data.SqlClient/2.1.4": {
         "dependencies": {
@@ -235,6 +299,14 @@
       },
       "Microsoft.Data.SqlClient.SNI.runtime/2.1.1": {
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
         "runtimeTargets": {
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
@@ -310,10 +382,26 @@
       "Microsoft.EntityFrameworkCore.SqlServer/6.0.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.Data.SqlClient": "5.1.1",
 =======
           "Microsoft.Data.SqlClient": "2.1.4",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.Data.SqlClient": "5.1.1",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.Data.SqlClient": "5.1.1",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.Data.SqlClient": "5.1.1",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.Data.SqlClient": "5.1.1",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.EntityFrameworkCore.Relational": "6.0.0"
         },
         "runtime": {
@@ -351,13 +439,37 @@
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.Extensions.Logging/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -380,6 +492,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.Identity.Client/4.47.2": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "6.24.0"
@@ -478,6 +602,10 @@
           "System.Buffers": "4.5.0"
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "Microsoft.Identity.Client/4.21.1": {
         "runtime": {
@@ -544,6 +672,14 @@
         }
       },
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.NET.Test.Sdk/17.1.0": {
         "dependencies": {
           "Microsoft.CodeCoverage": "17.1.0",
@@ -551,10 +687,26 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
       "Microsoft.NETCore.Platforms/1.1.0": {},
 =======
       "Microsoft.NETCore.Platforms/3.1.0": {},
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
@@ -565,6 +717,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
@@ -573,8 +737,20 @@
           }
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "Microsoft.TestPlatform.ObjectModel/17.1.0": {
         "dependencies": {
           "NuGet.Frameworks": "5.11.0",
@@ -825,6 +1001,18 @@
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "System.Security.AccessControl": "6.0.0",
           "System.Security.Principal.Windows": "5.0.0"
         }
@@ -842,6 +1030,10 @@
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
           "System.Security.AccessControl": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0"
@@ -864,6 +1056,14 @@
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.700.19.56404"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
@@ -881,10 +1081,26 @@
       "NETStandard.Library/2.0.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0"
 =======
           "Microsoft.NETCore.Platforms": "3.1.0"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0"
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
         }
       },
       "Newtonsoft.Json/10.0.1": {
@@ -1029,15 +1245,39 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Buffers/4.5.0": {},
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1100,6 +1340,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Configuration.ConfigurationManager/6.0.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -1109,6 +1361,10 @@
           "lib/net6.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.922.41905"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Configuration.ConfigurationManager/4.7.0": {
         "dependencies": {
@@ -1120,6 +1376,14 @@
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.700.19.56404"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
@@ -1127,10 +1391,26 @@
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "System.Security.Principal.Windows": "5.0.0",
 =======
           "System.Security.Principal.Windows": "4.7.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "System.Security.Principal.Windows": "5.0.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "System.Security.Principal.Windows": "5.0.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "System.Security.Principal.Windows": "5.0.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "System.Security.Principal.Windows": "5.0.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "runtime": {
@@ -1157,10 +1437,26 @@
       "System.Diagnostics.Debug/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1174,15 +1470,43 @@
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Drawing.Common/6.0.0": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "6.0.0"
@@ -1205,6 +1529,10 @@
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Drawing.Common/4.7.0": {
         "dependencies": {
@@ -1230,6 +1558,14 @@
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.700.19.56404"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
@@ -1252,15 +1588,39 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Formats.Asn1/5.0.0": {},
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1268,10 +1628,26 @@
       "System.Globalization.Extensions/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "System.Globalization": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -1280,6 +1656,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.IdentityModel.Tokens.Jwt/6.24.0": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "6.24.0",
@@ -1289,6 +1677,10 @@
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
             "assemblyVersion": "6.24.0.0",
             "fileVersion": "6.24.0.31013"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.IdentityModel.Tokens.Jwt/6.8.0": {
         "dependencies": {
@@ -1300,16 +1692,40 @@
             "assemblyVersion": "6.8.0.0",
             "fileVersion": "6.8.0.11012"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
       "System.IO/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -1319,10 +1735,26 @@
       "System.IO.FileSystem/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.IO.FileSystem.Primitives": "4.3.0",
@@ -1368,6 +1800,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
@@ -1382,8 +1826,20 @@
         }
       },
       "System.Numerics.Vectors/4.5.0": {},
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.ObjectModel/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1396,10 +1852,26 @@
       "System.Reflection/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
@@ -1433,10 +1905,26 @@
       "System.Reflection.Extensions/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Reflection": "4.3.0",
           "System.Runtime": "4.3.0"
@@ -1446,10 +1934,26 @@
       "System.Reflection.Primitives/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1463,10 +1967,26 @@
       "System.Resources.ResourceManager/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Globalization": "4.3.0",
           "System.Reflection": "4.3.0",
@@ -1476,6 +1996,18 @@
       "System.Runtime/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0"
         }
@@ -1496,6 +2028,10 @@
             "assetType": "runtime",
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "6.0.21.52210"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.NETCore.Targets": "1.1.0"
@@ -1518,6 +2054,14 @@
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.700.19.56404"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
@@ -1525,10 +2069,26 @@
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1536,10 +2096,26 @@
       "System.Runtime.Handles/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
@@ -1547,10 +2123,26 @@
       "System.Runtime.InteropServices/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
@@ -1582,6 +2174,18 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Security.AccessControl/6.0.0": {},
       "System.Security.Cryptography.Cng/5.0.0": {
         "dependencies": {
@@ -1620,6 +2224,10 @@
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
@@ -1661,10 +2269,22 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
       },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
       "System.Text.Encoding.CodePages/6.0.0": {
         "dependencies": {
@@ -1674,29 +2294,89 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+      "System.Text.Encoding.CodePages/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+      "System.Text.Encoding.CodePages/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+      "System.Text.Encoding.CodePages/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+      "System.Text.Encoding.CodePages/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
         }
       },
       "System.Text.Encoding.Extensions/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0"
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Text.Encodings.Web/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
       "System.Text.Json/4.7.2": {},
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1711,15 +2391,43 @@
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.NETCore.Platforms": "1.1.0",
 =======
           "Microsoft.NETCore.Platforms": "3.1.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "Microsoft.NETCore.Platforms": "1.1.0",
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
       "System.Threading.Tasks.Extensions/4.5.4": {},
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
@@ -1737,6 +2445,10 @@
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "System.Threading.Tasks.Extensions/4.3.0": {
         "dependencies": {
@@ -1762,6 +2474,14 @@
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.700.19.56404"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           }
         }
       },
@@ -1782,10 +2502,26 @@
           "System.Text.RegularExpressions": "4.3.0",
           "System.Threading.Tasks": "4.3.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           "System.Threading.Tasks.Extensions": "4.5.4"
 =======
           "System.Threading.Tasks.Extensions": "4.3.0"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+          "System.Threading.Tasks.Extensions": "4.5.4"
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+          "System.Threading.Tasks.Extensions": "4.5.4"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "System.Threading.Tasks.Extensions": "4.5.4"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+          "System.Threading.Tasks.Extensions": "4.5.4"
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
         }
       },
       "System.Xml.XDocument/4.3.0": {
@@ -1821,6 +2557,18 @@
       "dotnetapp/1.0.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Microsoft.AspNet.Cors": "5.2.9",
           "Microsoft.AspNet.WebApi.Cors": "5.2.9",
           "Microsoft.AspNetCore.Cors": "2.2.0",
@@ -1829,12 +2577,24 @@
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.SqlServer.Server": "1.0.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
           "Microsoft.AspNet.WebApi.Cors": "5.2.9",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
           "Moq": "4.18.4",
           "NUnit": "3.13.3",
           "Swashbuckle.AspNetCore": "5.6.3",
@@ -1853,6 +2613,18 @@
       "sha512": ""
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Azure.Core/1.25.0": {
       "type": "package",
       "serviceable": true,
@@ -1867,8 +2639,20 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Castle.Core/5.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1912,6 +2696,18 @@
       "hashPath": "microsoft.aspnet.webapi.cors.5.2.9.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.AspNetCore.Cors/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -1947,8 +2743,20 @@
       "path": "microsoft.bcl.asyncinterfaces/1.1.1",
       "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.CodeCoverage/17.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1964,6 +2772,18 @@
       "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.Data.SqlClient/5.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1977,6 +2797,10 @@
       "sha512": "sha512-jVsElisM5sfBzaaV9kdq2NXZLwIbytetnsOIlJ0cQGgQP4zFNBmkfHBnpwtmKrtBJBEV9+9PVQPVrcCVhDgcIg==",
       "path": "microsoft.data.sqlclient.sni.runtime/5.1.0",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "Microsoft.Data.SqlClient/2.1.4": {
       "type": "package",
@@ -1992,6 +2816,14 @@
       "path": "microsoft.data.sqlclient.sni.runtime/2.1.1",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "Microsoft.EntityFrameworkCore/6.0.0": {
       "type": "package",
@@ -2078,6 +2910,18 @@
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -2085,8 +2929,20 @@
       "path": "microsoft.extensions.fileproviders.abstractions/2.2.0",
       "hashPath": "microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.Extensions.Logging/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2116,6 +2972,18 @@
       "hashPath": "microsoft.extensions.primitives.6.0.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.Identity.Client/4.47.2": {
       "type": "package",
       "serviceable": true,
@@ -2178,6 +3046,10 @@
       "sha512": "sha512-iZNkjYqlo8sIOI0bQfpsSoMTmB/kyvmV2h225ihyZT33aTp48ZpF6qYnXxzSXmHt8DpBAwBTX+1s1UFLbYfZKg==",
       "path": "microsoft.net.http.headers/2.2.0",
       "hashPath": "microsoft.net.http.headers.2.2.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "Microsoft.Identity.Client/4.21.1": {
       "type": "package",
@@ -2221,6 +3093,14 @@
       "path": "microsoft.identitymodel.tokens/6.8.0",
       "hashPath": "microsoft.identitymodel.tokens.6.8.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "Microsoft.NET.Test.Sdk/17.1.0": {
       "type": "package",
@@ -2230,12 +3110,28 @@
       "hashPath": "microsoft.net.test.sdk.17.1.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
@@ -2244,6 +3140,14 @@
       "path": "microsoft.netcore.platforms/3.1.0",
       "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "Microsoft.NETCore.Targets/1.1.0": {
       "type": "package",
@@ -2260,6 +3164,18 @@
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2267,8 +3183,20 @@
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.TestPlatform.ObjectModel/17.1.0": {
       "type": "package",
       "serviceable": true,
@@ -2291,12 +3219,28 @@
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "Microsoft.Win32.SystemEvents/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "Microsoft.Win32.SystemEvents/4.7.0": {
       "type": "package",
@@ -2305,6 +3249,14 @@
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "Moq/4.18.4": {
       "type": "package",
@@ -2419,6 +3371,18 @@
       "hashPath": "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Buffers/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -2426,8 +3390,20 @@
       "path": "system.buffers/4.5.0",
       "hashPath": "system.buffers.4.5.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Collections/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2478,12 +3454,28 @@
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
       "path": "system.configuration.configurationmanager/6.0.1",
       "hashPath": "system.configuration.configurationmanager.6.0.1.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Configuration.ConfigurationManager/4.7.0": {
       "type": "package",
@@ -2492,6 +3484,14 @@
       "path": "system.configuration.configurationmanager/4.7.0",
       "hashPath": "system.configuration.configurationmanager.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",
@@ -2529,12 +3529,28 @@
       "hashPath": "system.diagnostics.tools.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Drawing.Common/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
       "path": "system.drawing.common/6.0.0",
       "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Drawing.Common/4.7.0": {
       "type": "package",
@@ -2543,6 +3559,14 @@
       "path": "system.drawing.common/4.7.0",
       "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Dynamic.Runtime/4.3.0": {
       "type": "package",
@@ -2552,6 +3576,18 @@
       "hashPath": "system.dynamic.runtime.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Formats.Asn1/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2559,8 +3595,20 @@
       "path": "system.formats.asn1/5.0.0",
       "hashPath": "system.formats.asn1.5.0.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Globalization/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2576,12 +3624,28 @@
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.IdentityModel.Tokens.Jwt/6.24.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Qibsj9MPWq8S/C0FgvmsLfIlHLE7ay0MJIaAmK94ivN3VyDdglqReed5qMvdQhSL0BzK6v0Z1wB/sD88zVu6Jw==",
       "path": "system.identitymodel.tokens.jwt/6.24.0",
       "hashPath": "system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.IdentityModel.Tokens.Jwt/6.8.0": {
       "type": "package",
@@ -2590,6 +3654,14 @@
       "path": "system.identitymodel.tokens.jwt/6.8.0",
       "hashPath": "system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.IO/4.3.0": {
       "type": "package",
@@ -2627,6 +3699,18 @@
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Memory/4.5.4": {
       "type": "package",
       "serviceable": true,
@@ -2648,8 +3732,20 @@
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.ObjectModel/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2728,12 +3824,28 @@
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Runtime.Caching/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-E0e03kUp5X2k+UAoVl6efmI7uU7JRBWi5EIdlQ7cr0NpBGjHG4fWII35PgsBY9T4fJQ8E4QPsL0rKksU9gcL5A==",
       "path": "system.runtime.caching/6.0.0",
       "hashPath": "system.runtime.caching.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Runtime.Caching/4.7.0": {
       "type": "package",
@@ -2742,6 +3854,14 @@
       "path": "system.runtime.caching/4.7.0",
       "hashPath": "system.runtime.caching.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
@@ -2793,6 +3913,18 @@
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Security.AccessControl/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2827,6 +3959,10 @@
       "sha512": "sha512-t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Security.AccessControl/4.7.0": {
       "type": "package",
@@ -2863,6 +3999,14 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Text.Encoding/4.3.0": {
       "type": "package",
@@ -2872,12 +4016,28 @@
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Text.Encoding.CodePages/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ZFCILZuOvtKPauZ/j/swhvw68ZRi9ATCfvGbk1QfydmcXBkIWecWKn/250UH7rahZ5OoDBaiAudJtPvLwzw85A==",
       "path": "system.text.encoding.codepages/6.0.0",
       "hashPath": "system.text.encoding.codepages.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Text.Encoding.CodePages/4.7.0": {
       "type": "package",
@@ -2886,6 +4046,14 @@
       "path": "system.text.encoding.codepages/4.7.0",
       "hashPath": "system.text.encoding.codepages.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Text.Encoding.Extensions/4.3.0": {
       "type": "package",
@@ -2895,6 +4063,18 @@
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Text.Encodings.Web/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2909,8 +4089,20 @@
       "path": "system.text.json/4.7.2",
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2933,6 +4125,18 @@
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     "System.Threading.Tasks.Extensions/4.5.4": {
       "type": "package",
       "serviceable": true,
@@ -2946,6 +4150,10 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "System.Threading.Tasks.Extensions/4.3.0": {
       "type": "package",
@@ -2961,6 +4169,14 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
 >>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
+=======
+>>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
+=======
+>>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
     },
     "System.Xml.ReaderWriter/4.3.0": {
       "type": "package",

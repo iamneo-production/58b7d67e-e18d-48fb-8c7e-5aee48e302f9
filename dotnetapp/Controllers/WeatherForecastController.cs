@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 
-namespace dotnetapp.Controllers;
-
-[ApiController]
+namespace dotnetapp.Controllers
+{
+    [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
@@ -33,4 +33,5 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+}
 }

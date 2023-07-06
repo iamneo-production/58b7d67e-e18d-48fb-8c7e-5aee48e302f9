@@ -160,7 +160,65 @@ namespace dotnetapp
             return msg;
         }
 
+          /*this method helps to  retrieve admin's data based on the provided email.*/
+        internal UserModel getAdminByEmailId(string email)
+        {
+            UserModel m = new UserModel();
 
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getAdminByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    m.UserName = dr["UserName"].ToString();
+                    m.UserRole = dr["UserRole"].ToString();
+                    m.UserId =int.Parse(dr["UserId"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            conn.Close();
+            return m;
+        }
+        
+
+        /*this method helps to  retrieve user's data based on the provided email.*/
+        internal UserModel getUserByEmailId(string email)
+        {
+            UserModel m = new UserModel();
+
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getUserByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    m.UserName = dr["UserName"].ToString();
+                    m.UserRole = dr["UserRole"].ToString();
+                    m.UserId = int.Parse(dr["UserId"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            conn.Close();
+            return m;
+        }
+
+        
         /*this method insert the availableSlots while adding the service center*/
         internal string availableSlots(AppointmentModel m)
         {
@@ -373,7 +431,42 @@ namespace dotnetapp
             return msg;
         }
 
+        /*this method helps to edit the user's details by their id*/
+        internal string editUsersById(UserModel user, int UserId)
+        {
+            string msg = string.Empty;
 
+            try
+            {
+                cmd = new SqlCommand("editUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+                cmd.Parameters.AddWithValue("@email", user.Email);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@username", user.UserName);
+                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
+
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (data >= 1)
+                {
+                    msg = "User Details Updated";
+                }
+                else
+                {
+                    msg = "Failed";
+                }
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
 
 
 

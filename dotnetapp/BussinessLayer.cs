@@ -30,6 +30,18 @@ namespace dotnetapp
             return dataAccessLayer.isUserPresent(data);
         }
 
+         //Auth controllers
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        
+        public UserModel getAdminByEmailId(string email)
+        {
+            return (dataAccessLayer.getAdminByEmailId(email));
+        }
+        public UserModel getUserByEmailId(string email)
+        {
+            return dataAccessLayer.getUserByEmailId(email);
+        }
+
 
         //servicecentercontroller
         /*by creating an object for the data access layer, we are accessing all the methods */
@@ -60,6 +72,10 @@ namespace dotnetapp
         public string deleteUsers(List<int> userIds)
         {
             return dataAccessLayer.deleteUsers(userIds);
+        }
+         public string editUsersById(UserModel user, int UserId)
+        {
+            return dataAccessLayer.editUsersById(user, UserId);
         }
 
 

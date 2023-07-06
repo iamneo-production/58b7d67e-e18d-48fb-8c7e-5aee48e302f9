@@ -463,35 +463,7 @@ namespace dotnetapp
             return msg;
 
         }
-        /*this method helps to  retrieve admin's data based on the provided email.*/
-        internal UserModel getAdminByEmailId(string email)
-        {
-            UserModel m = new UserModel();
-
-            try
-            {
-                SqlDataReader dr;
-                cmd = new SqlCommand("getAdminByEmail", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@email", email);
-                conn.Open();
-                dr = cmd.ExecuteReader();
-                while (dr.Read() == true)
-                {
-                    m.UserName = dr["UserName"].ToString();
-                    m.UserRole = dr["UserRole"].ToString();
-                    m.UserId =int.Parse(dr["UserId"].ToString());
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-            conn.Close();
-            return m;
-        }
-        
-        //UserController 
+           //UserController 
 
         /* this method  adds the user in the database*/
         internal string addUser(UserModel user)

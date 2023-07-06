@@ -42,6 +42,14 @@ namespace dotnetapp
             return dataAccessLayer.getUserByEmailId(email);
         }
 
+        
+        //AppointmentController
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        public List<ProductModel> getAllAppointments()
+        {
+            return dataAccessLayer.getAllAppointments();
+        }
+
 
         //servicecentercontroller
         /*by creating an object for the data access layer, we are accessing all the methods */
@@ -73,6 +81,7 @@ namespace dotnetapp
         {
             return dataAccessLayer.addServiceCenter(jsonData);
         }
+
 
 
            //User Controller

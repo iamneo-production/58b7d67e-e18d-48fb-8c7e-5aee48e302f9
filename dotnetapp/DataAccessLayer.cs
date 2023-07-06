@@ -480,6 +480,44 @@ namespace dotnetapp
             }
         }
 
+        
+        //AppointmentController
+
+        internal List<ProductModel> getAllAppointments()
+        {
+            List<ProductModel> m = new List<ProductModel>();
+            SqlDataReader dr;
+
+            cmd = new SqlCommand("getAllAppointments", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ProductModel model = new ProductModel();
+                model.ID =int.Parse( dr["ID"].ToString());
+                model.customerName = dr["customerName"].ToString();
+                model.email = dr["email"].ToString();
+                model.productName = dr["productName"].ToString();
+                model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
+                model.contactNumber = dr["contactNumber"].ToString();
+                model.bookedSlots = dr["bookedSlots"].ToString();
+                model.serviceCenterId = dr["serviceCenterId"].ToString();
+                model.serviceCenterName = dr["serviceCenterName"].ToString();
+                model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
+                model.serviceCost = (dr["serviceCost"].ToString());
+                m.Add(model);
+            }
+            conn.Close();
+            return m;
+        }
+
+
+
+
+
+
+
          //UserController 
 
         /* this method  adds the user in the database*/

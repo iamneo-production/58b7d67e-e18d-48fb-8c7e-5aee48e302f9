@@ -47,6 +47,18 @@ namespace dotnetapp
 
         //AppointmentController
         /*by creating an object for the data access layer, we are accessing all the methods */
+        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
+        {
+            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+        }
+        public string saveAppointment(ProductModel data)
+        {
+            return dataAccessLayer.saveAppointment(data);
+        }
+        public string postAvailableSlots(AppointmentModel model)
+        {
+            return dataAccessLayer.postAvailableSlots(model);
+        }
         public List<ProductModel> getAllAppointments()
         {
             return dataAccessLayer.getAllAppointments();
@@ -130,6 +142,10 @@ namespace dotnetapp
         }
         //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
+        public ReviewModel getReviews(string id)
+        {
+            return dataAccessLayer.getReviews(id);
+        }
         public string AddReview(ReviewModel model)
         {
             return dataAccessLayer.AddReview( model);

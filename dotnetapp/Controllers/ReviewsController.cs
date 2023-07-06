@@ -35,5 +35,13 @@ namespace dotnetapp.Controllers
             List<ReviewModel> result = businesslayer.getAllReviews();
             return Ok(result);
         }
+        /* this method returns an IActionResult, and the result being returned is a Model */
+        [HttpGet]
+        [Route("getReviews/{id}")]
+        public IActionResult getReviews(string id)
+        {
+            ReviewModel result = businesslayer.getReviews(id);
+            return Ok(result);
+        }
     }
 }

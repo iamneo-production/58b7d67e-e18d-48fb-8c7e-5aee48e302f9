@@ -13,16 +13,35 @@ using System.Data;
 using System.Text.Json.Serialization;
 using System.Net.Mail;
 using System.Net;
+
 namespace dotnetapp
 {
     public class DataAccessLayer
     {
+        /*The DataAccessLayer class represents a data access layer in the application. 
+     * It is responsible for handling database operations and interacting with the underlying database. */
 
-        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMssql@123;Server=localhost;Database=master2;trusted_connection=false;Persist Security Info=False;Encrypt=False");
+        /*creates a new instance of the SqlConnection class, which establishes a connection to the database.
+         the connection string indicates the server name (DESKTOP-IB4OOTB\\SQLEXPRESS), the database name (CameraServices), 
+        and that Windows integrated security should be used for authentication*/
+        SqlConnection conn = new SqlConnection("User ID=sa;password=examlyMsSql@123;Server=localhost;Database=master;trusted_connection=false;Persist Security Info=False;Encryt=False");
+
+        /*SqlCommand declares a SqlCommand object that will be used to execute SQL commands 
+        * against the database.*/
         SqlCommand cmd = null;
+
+        /* SqlDataAdapter object that provides the ability 
+      * to fill a DataSet or DataTable with data from the database. */
         SqlDataAdapter da = null;
+
+        /* SqlDataReader object that allows forward-only, 
+        * read-only access to the result of executing a SQL query against the database. */
         SqlDataReader dr = null;
 
+
+        //Auth Controller
+
+        /*This method helps to save the admin data in the database.  */
         internal string saveAdmin(UserModel user)
         {
             string msg = string.Empty;
@@ -160,7 +179,8 @@ namespace dotnetapp
             return msg;
         }
 
-
+        //Service Controller
+        
         /*this method insert the availableSlots while adding the service center*/
         internal string availableSlots(AppointmentModel m)
         {

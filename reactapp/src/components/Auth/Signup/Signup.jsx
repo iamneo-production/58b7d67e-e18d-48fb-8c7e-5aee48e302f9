@@ -61,6 +61,7 @@ function Signup(){
             UserRole : Usertype
         };
         if (password !== confirmPassword) {
+            setIsLoading(false);
             toast.warning("Passwords do not match");
             return;
         }

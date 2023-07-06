@@ -34,7 +34,6 @@ namespace dotnetapp.Controllers
         public IActionResult saveAdmin([FromBody] UserModel user)
         {
             return Created("AdminSignup", businesslayer.saveAdmin(user));
-            return Created("AdminSignup", businesslayer.saveAdmin(user));
         }
 
        /* this method returns an IActionResult, and the result being returned is a boolean */
@@ -43,7 +42,6 @@ namespace dotnetapp.Controllers
         [Route("admin/login")]
         public IActionResult isAdminPresent(LoginModel data)
         {
-            return Created("AdminLogin",businesslayer.isAdminPresent(data));
             return Created("AdminLogin",businesslayer.isAdminPresent(data));
         }
 
@@ -54,7 +52,6 @@ namespace dotnetapp.Controllers
         public IActionResult saveUser([FromBody] UserModel user)
         {
             return Created("UserSignup", businesslayer.saveUser(user));
-            return Created("UserSignup", businesslayer.saveUser(user));
         }
 
         /* this method returns an IActionResult, and the result being returned is a string */
@@ -64,8 +61,6 @@ namespace dotnetapp.Controllers
         public IActionResult isUserPresent(LoginModel data)
         {
             return Created("UserLogin",businesslayer.isUserPresent(data));
-<<<<<<< HEAD
-<<<<<<< HEAD
         }
 
           /* this method returns an IActionResult, and the result being returned is a string */

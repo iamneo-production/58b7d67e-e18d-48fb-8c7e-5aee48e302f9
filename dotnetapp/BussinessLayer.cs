@@ -49,6 +49,26 @@ namespace dotnetapp
         {
             return dataAccessLayer.availableSlots(m);
         }
+          public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
+        {
+            return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
+        }
+        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
+        {
+            return dataAccessLayer.updateGetSlots(serviceCenterId, model);
+        }
+        public string deleteServiceCenter(string serivceCenterId)
+        {
+            return dataAccessLayer.deleteServiceCenter(serivceCenterId);
+        }
+        public string deleteAvailableSlots(string serviceCenterId)
+        {
+            return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
+        }
+        public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
+        {
+            return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
+        }
         public string addServiceCenter([FromBody] JsonElement jsonData)
         {
             return dataAccessLayer.addServiceCenter(jsonData);

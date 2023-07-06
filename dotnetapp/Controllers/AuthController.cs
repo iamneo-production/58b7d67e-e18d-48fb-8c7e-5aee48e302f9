@@ -11,16 +11,7 @@ using dotnetapp.Models;
 namespace dotnetapp.Controllers
 {
     /*This class Control the user /admin signup and signin*/
-    [ApiController]
-    public class AuthController : ControllerBase
-    {
-        BusinessLayer businesslayer = new BusinessLayer();
-
-        /* this method returns an IActionResult, and the result being returned is a string
-         *   * and By returning Ok(result), the result will be sent as the response*/
-namespace dotnetapp.Controllers
-{
-    /*This class Control the user /admin signup and signin*/
+    //[Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

@@ -14,19 +14,13 @@ using System.Text.Json.Serialization;
 using System.Net.Mail;
 using System.Net;
 
-
 namespace dotnetapp
 {
     public class DataAccessLayer
     {
         /*The DataAccessLayer class represents a data access layer in the application. 
      * It is responsible for handling database operations and interacting with the underlying database. */
-        /*The DataAccessLayer class represents a data access layer in the application. 
-     * It is responsible for handling database operations and interacting with the underlying database. */
 
-        /*creates a new instance of the SqlConnection class, which establishes a connection to the database.
-         the connection string indicates the server name (DESKTOP-IB4OOTB\\SQLEXPRESS), the database name (CameraServices), 
-        and that Windows integrated security should be used for authentication*/
         /*creates a new instance of the SqlConnection class, which establishes a connection to the database.
          the connection string indicates the server name (DESKTOP-IB4OOTB\\SQLEXPRESS), the database name (CameraServices), 
         and that Windows integrated security should be used for authentication*/
@@ -34,13 +28,7 @@ namespace dotnetapp
 
         /*SqlCommand declares a SqlCommand object that will be used to execute SQL commands 
         * against the database.*/
-
-        /*SqlCommand declares a SqlCommand object that will be used to execute SQL commands 
-        * against the database.*/
         SqlCommand cmd = null;
-
-        /* SqlDataAdapter object that provides the ability 
-      * to fill a DataSet or DataTable with data from the database. */
 
         /* SqlDataAdapter object that provides the ability 
       * to fill a DataSet or DataTable with data from the database. */
@@ -48,15 +36,8 @@ namespace dotnetapp
 
         /* SqlDataReader object that allows forward-only, 
         * read-only access to the result of executing a SQL query against the database. */
-
-        /* SqlDataReader object that allows forward-only, 
-        * read-only access to the result of executing a SQL query against the database. */
         SqlDataReader dr = null;
 
-
-        //Auth Controller
-
-        /*This method helps to save the admin data in the database.  */
 
         //Auth Controller
 
@@ -92,7 +73,6 @@ namespace dotnetapp
             return msg;
         }
         /*This method helps to check whether the admin present or not and check the email and password ae correct and return the boolean value.  */
-        /*This method helps to check whether the admin present or not and check the email and password ae correct and return the boolean value.  */
         internal Boolean isAdminPresent(LoginModel data)
         {
             Boolean msg = false;
@@ -119,7 +99,6 @@ namespace dotnetapp
             }
             return msg;
         }
-        /*This method helps to save the user data in the database.  */
         /*This method helps to save the user data in the database.  */
         internal string saveUser(UserModel user)
         {
@@ -175,7 +154,6 @@ namespace dotnetapp
             }
             return msg;
         }
-         /* This method helps to check whether the user present or not and check the email and password are correct and return the boolean value */
          /* This method helps to check whether the user present or not and check the email and password are correct and return the boolean value */
         internal Boolean isUserPresent(LoginModel data)
         {
@@ -485,6 +463,245 @@ namespace dotnetapp
             return msg;
 
         }
+        /*this method helps to  retrieve admin's data based on the provided email.*/
+        internal UserModel getAdminByEmailId(string email)
+        {
+            UserModel m = new UserModel();
+
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getAdminByEmail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    m.UserName = dr["UserName"].ToString();
+                    m.UserRole = dr["UserRole"].ToString();
+                    m.UserId =int.Parse(dr["UserId"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            conn.Close();
+            return m;
+        }
         
+        //UserController 
+
+        /* this method  adds the user in the database*/
+        internal string addUser(UserModel user)
+        {
+            string msg = string.Empty;
+            try
+            {
+                cmd = new SqlCommand("AddUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@email", user.Email);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@username", user.UserName);
+                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
+                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                if (data >= 1)
+                {
+                    msg = "User Added";
+                }
+                else
+                {
+                    msg = "Email Id or Mobile Number already Exists!";
+                }
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+        internal List<UserModel> list = new List<UserModel>();
+        /*this method helps to get list of users*/
+        internal List<UserModel> getAllUsers()
+        {
+            SqlDataReader dr;
+            cmd = new SqlCommand("getAllUsers", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                UserModel user = new UserModel();
+                user.UserId = int.Parse(dr["UserId"].ToString());
+                user.Email = dr["Email"].ToString();
+                user.UserName = dr["UserName"].ToString();
+                user.Password = dr["Password"].ToString();
+                user.MobileNumber = dr["MobileNumber"].ToString();
+                user.UserRole = dr["UserRole"].ToString();
+
+                list.Add(user);
+            }
+            conn.Close();
+
+            return list;
+        }
+        /*this method get the user details by their id*/
+        internal UserModel getUser(int UserId)
+        {
+            UserModel user = new UserModel();
+            try
+            {
+                SqlDataReader dr;
+                cmd = new SqlCommand("getUsersById", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    user.Email = dr["Email"].ToString();
+                    user.UserName = dr["UserName"].ToString();
+                    user.Password = dr["Password"].ToString();
+                    user.MobileNumber = dr["MobileNumber"].ToString();
+                    user.UserRole = dr["UserRole"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return user;
+        }
+        /*this method delete the user's details list in the database*/
+        internal string deleteUsers(List<int> userIds)
+        {
+            string msg = string.Empty;
+            try
+            {
+                foreach (int userId in userIds)
+                {
+                    using (SqlCommand cmd = new SqlCommand("deleteById", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        conn.Open();
+                        int data = cmd.ExecuteNonQuery();
+                        conn.Close();
+                        if (data >= 1)
+                        {
+                            msg += $"User with ID {userId} deleted!\n";
+                        }
+                        else
+                        {
+                            msg += $"Failed to delete user with ID {userId}\n";
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+
+            return msg;
+        }
+          /*this method helps to edit the user's details by their id*/
+        internal string editUsersById(UserModel user, int UserId)
+        {
+            string msg = string.Empty;
+
+            try
+            {
+                cmd = new SqlCommand("editUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+                cmd.Parameters.AddWithValue("@email", user.Email);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@username", user.UserName);
+                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
+
+                conn.Open();
+                int data = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (data >= 1)
+                {
+                    msg = "User Details Updated";
+                }
+                else
+                {
+                    msg = "Failed";
+                }
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+          //Review Controller
+
+        /*this method adds the review about the service*/
+        internal string AddReview(ReviewModel model)
+        {
+            string msg = string.Empty;
+           
+            try
+            {
+                cmd = new SqlCommand("addingReviews", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userEmail", model.userEmail);
+                cmd.Parameters.AddWithValue("@userName", model.userName);
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
+                cmd.Parameters.AddWithValue("@Rating", model.Rating);
+                cmd.Parameters.AddWithValue("@review", model.review);
+                conn.Open();
+                int d = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (d >= 1)
+                {
+                    msg = "Thanks for the Feedback";
+                }
+                else
+                {
+                    msg = "Failed to give review";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+            }
+            return msg;
+        }
+        /*this method displays the list of reviews*/
+        internal List<ReviewModel> getAllReviews()
+        {
+            List<ReviewModel> list = new List<ReviewModel>();
+            SqlDataReader dr;
+            cmd = new SqlCommand("GetAllReviews", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read() == true)
+            {
+                ReviewModel model = new ReviewModel();
+                model.userName = dr["userName"].ToString();
+                model.userEmail = dr["userEmail"].ToString();
+                model.review = dr["review"].ToString();
+                model.Rating = int.Parse(dr["Rating"].ToString());
+                list.Add(model);
+            }
+            conn.Close();
+            return list;
+        }
+
     }
 }

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+=======
+>>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/CoverletSourceRootsMapping
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/dotnetapp.deps.json
 /home/coder/project/workspace/dotnetapp/TestProject/bin/Debug/net6.0/dotnetapp.runtimeconfig.json

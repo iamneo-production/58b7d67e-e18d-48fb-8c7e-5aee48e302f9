@@ -24,8 +24,6 @@ as
 begin
 if exists(select Email from AdminTable where Email = @email)
 select Email, Password from AdminTable where Email = @email and Password = @password
-else
-Print 'Invalid'
 end;
 go
 

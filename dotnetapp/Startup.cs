@@ -25,22 +25,26 @@ namespace dotnetapp
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //string connectionString = Configuration.GetConnectionString("myconnstring");
-           // services.AddDbContext<ProductDBContext>(opt => opt.UseSqlServer(connectionString));
-           // services.AddScoped<IProductService, ProductService>();
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotnetapp", Version = "v1" });
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,6 +57,8 @@ namespace dotnetapp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(); // Add this line before UseAuthorization()
 
             app.UseAuthorization();
 

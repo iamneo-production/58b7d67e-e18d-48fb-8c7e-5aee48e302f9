@@ -67,8 +67,6 @@ as
 begin
 if exists(select Email from UserTable where  Email =@email)
 select Email, Password from UserTable where Email = @email and Password = @password
-else
-Print 'Invalid'
 end;
 go
 

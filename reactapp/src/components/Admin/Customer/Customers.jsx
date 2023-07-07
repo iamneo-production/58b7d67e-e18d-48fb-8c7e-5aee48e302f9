@@ -340,10 +340,10 @@ const endIndex = startIndex + pageSize;
             </tr>
           </thead>
           <tbody>
-            {suggestions.slice(startIndex, endIndex).map((item, indexNumber)=> {
-              const serialNumber = startIndex + indexNumber + 1;
+            {suggestions.slice(startIndex, endIndex).map((item, index)=> {
+              const serialNumber = startIndex + index + 1;
               return (
-                <tr key={indexNumber}>
+                <tr key={item.index}>
                   <th> <Form.Check type='checkbox' value={item.userId} checked={item.isChecked||false} onChange= {handleCheckBox} /> </th>
                   <td>{serialNumber}</td>
                   <td>{item.userName}</td>

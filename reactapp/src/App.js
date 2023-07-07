@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import logo from './logo.svg';
-import './App.css';
-=======
-<<<<<<< HEAD
-import logo from './logo.svg';
-import './App.css';
-=======
 import './App.css';
 import Signup from './components/Auth/Signup/Signup';
 import Login from './components/Auth/Login/Login';
@@ -19,33 +11,10 @@ import Booking from './components/Customer/Cart/Cart';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
 import Review from './components/Admin/Review/Review';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
->>>>>>> db596c43117de0c22a7b930977cd21201b277fc1
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> db596c43117de0c22a7b930977cd21201b277fc1
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-<<<<<<< HEAD
-=======
-=======
       <Router>
         <Routes>
         <Route element={<PrivateRoutes />}>
@@ -62,8 +31,6 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
         </Routes>
       </Router>
->>>>>>> ec1e52be55edcc620ba2a8acb496d88da5abf6a0
->>>>>>> db596c43117de0c22a7b930977cd21201b277fc1
     </div>
   );
 }

@@ -358,7 +358,7 @@ function Centerprofile() {
         )}
           <Row xs={1} sm={2} md={3} lg={3}>
   {data.map((item) => (
-    <Col xs={12} sm={6} md={4}>
+    <Col xs={12} sm={6} md={4} key={item.id}>
       <Card
         key={item.id}
         className='mb-4'

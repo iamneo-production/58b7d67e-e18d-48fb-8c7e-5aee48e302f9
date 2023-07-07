@@ -28,10 +28,6 @@ namespace dotnetapp
         {
             return (dataAccessLayer.isAdminPresent(data));
         }
-        public UserModel getAdminByEmailId(string email)
-        {
-            return (dataAccessLayer.getAdminByEmailId(email));
-        }
         public string saveUser(UserModel user)
         {
             return dataAccessLayer.saveUser(user);
@@ -40,34 +36,13 @@ namespace dotnetapp
         {
             return dataAccessLayer.isUserPresent(data);
         }
+        public UserModel getAdminByEmailId(string email)
+        {
+            return (dataAccessLayer.getAdminByEmailId(email));
+        }
         public UserModel getUserByEmailId(string email)
         {
             return dataAccessLayer.getUserByEmailId(email);
-        }
-
-        //User Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        //User Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public string addUser(UserModel user)
-        {
-            return dataAccessLayer.addUser(user);
-        }
-        public List<UserModel> getAllUsers()
-        {
-            return dataAccessLayer.getAllUsers();
-        }
-        public UserModel getUser(int UserId)
-        {
-            return dataAccessLayer.getUser(UserId);
-        }
-        public string editUsersById(UserModel user, int UserId)
-        {
-            return dataAccessLayer.editUsersById(user, UserId);
-        }
-        public string deleteUsers(List<int> userIds)
-        {
-            return dataAccessLayer.deleteUsers(userIds);
         }
 
         //AppointmentController
@@ -83,6 +58,10 @@ namespace dotnetapp
         public string postAvailableSlots(AppointmentModel model)
         {
             return dataAccessLayer.postAvailableSlots(model);
+        }
+        public List<ProductModel> getAllAppointments()
+        {
+            return dataAccessLayer.getAllAppointments();
         }
         public List<ProductModel> getAppointment(string email)
         {
@@ -104,20 +83,16 @@ namespace dotnetapp
         {
             return dataAccessLayer.deleteAppointment(ID);
         }
-        public List<ProductModel> getAllAppointments()
-        {
-            return dataAccessLayer.getAllAppointments();
-        }
-
         //servicecentercontroller
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public string availableSlots(AppointmentModel m)
-        {
-            return dataAccessLayer.availableSlots(m);
-        }
+
         public List<ServiceCenterModel> viewServiceCenter()
         {
             return dataAccessLayer.viewServiceCenter();
+        }
+        public string availableSlots(AppointmentModel m)
+        {
+            return dataAccessLayer.availableSlots(m);
         }
         public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
         {
@@ -135,28 +110,49 @@ namespace dotnetapp
         {
             return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
         }
-        public string addServiceCenter([FromBody] JsonElement jsonData)
-        {
-            return dataAccessLayer.addServiceCenter(jsonData);
-        }
         public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
         {
             return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
         }
-
+        public string addServiceCenter([FromBody] JsonElement jsonData)
+        {
+            return dataAccessLayer.addServiceCenter(jsonData);
+        }
+        //User Controller
+        /*by creating an object for the data access layer, we are accessing all the methods */
+        public string addUser(UserModel user)
+        {
+            return dataAccessLayer.addUser(user);
+        }
+        public List<UserModel> getAllUsers()
+        {
+            return dataAccessLayer.getAllUsers();
+        }
+        public UserModel getUser(int UserId)
+        {
+            return dataAccessLayer.getUser(UserId);
+        }
+        public string deleteUsers(List<int> userIds)
+        {
+            return dataAccessLayer.deleteUsers(userIds);
+        }
+        public string editUsersById(UserModel user, int UserId)
+        {
+            return dataAccessLayer.editUsersById(user, UserId);
+        }
         //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public string AddReview(ReviewModel model)
-        {
-            return dataAccessLayer.AddReview( model);
-        }
         public ReviewModel getReviews(string id)
         {
             return dataAccessLayer.getReviews(id);
+        }
+        public string AddReview(ReviewModel model)
+        {
+            return dataAccessLayer.AddReview( model);
         }
         public List<ReviewModel> getAllReviews()
         {
             return dataAccessLayer.getAllReviews();
         }
     }
- }
+}

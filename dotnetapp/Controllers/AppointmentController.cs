@@ -17,9 +17,8 @@ namespace dotnetapp.Controllers
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-
         BusinessLayer businesslayer = new BusinessLayer();
-
+        /* this method returns an IActionResult, and the result being returned is a List and By returning Ok(result), the result will be sent as the response*/
         [HttpGet]
         [Route("getSlotDetailsByDate/{serviceCenterId},{Date}")]
         public IActionResult getSlotDetailsByDate(string serviceCenterId, DateTime Date)
@@ -27,7 +26,6 @@ namespace dotnetapp.Controllers
             List<AppointmentModel> result = businesslayer.getSlotDetailsByDate(serviceCenterId, Date);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a string  */
         [HttpPost]
         [Route("user/appointment")]
@@ -36,7 +34,6 @@ namespace dotnetapp.Controllers
             string result = businesslayer.saveAppointment(data);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("postAvailableSlots")]
@@ -45,7 +42,6 @@ namespace dotnetapp.Controllers
             string result = businesslayer.postAvailableSlots(model);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a list */
         [HttpGet]
         [Route("getAppointment")]
@@ -54,7 +50,6 @@ namespace dotnetapp.Controllers
             List<ProductModel> result = businesslayer.getAppointment(email);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a Model */
         [HttpGet]
         [Route("getAppointmentSlotsById/{id}")]
@@ -63,7 +58,6 @@ namespace dotnetapp.Controllers
             ProductModel result = businesslayer.getAppointmentSlotsById(id);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPut]
         [Route("user/EditAppointment/{ID}")]
@@ -72,8 +66,6 @@ namespace dotnetapp.Controllers
             string result = businesslayer.EditAppointment(ID, model);
             return Ok(result);
         }
-
-
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("updateOnDeleteAppointment")]
@@ -82,7 +74,6 @@ namespace dotnetapp.Controllers
             string result = businesslayer.updateOnDeleteAppointment(model);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpDelete]
         [Route("user/cancelappointment/{ID}")]
@@ -91,7 +82,6 @@ namespace dotnetapp.Controllers
             string result = businesslayer.deleteAppointment(ID);
             return Ok(result);
         }
-
         /* this method returns an IActionResult, and the result being returned is a List */
         [HttpGet]
         [Route("getAllAppointments")]

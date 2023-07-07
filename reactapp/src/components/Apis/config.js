@@ -20,7 +20,7 @@ export const API_URLS = {
   //User Side
   //HomePage API's
   getAdminByEmailId: 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/getAdminByEmailId',
-  getServiceCenterData: 'https://8080-cafaddadbadfcefbadbddebabfddbdad.project.examly.io/admin/getservicecenter',
+  getServiceCenterData: 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/admin/getservicecenter',
   //Dashbaord API's
   getSlotDetailsByDate: 'https://8080-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/api/Appointment/getSlotDetailsByDate',
   reverseGeocoding: 'https://nominatim.openstreetmap.org/reverse?format=jsonv2',

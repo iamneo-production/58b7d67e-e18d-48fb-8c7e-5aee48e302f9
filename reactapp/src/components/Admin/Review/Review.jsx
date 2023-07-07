@@ -83,9 +83,9 @@ check the user role based on the email stored in the local storage. */
                   </tr>
                 </thead>
                 <tbody>
-                  {currentReviews.map((review, index) => (
-                    <tr key={index}>
-                      <td>{index + 1 + indexOfFirstReview}</td>
+                  {currentReviews.map((review, indexNumber) => (
+                    <tr key={indexNumber}>
+                      <td>{indexNumber + 1 + indexOfFirstReview}</td>
                       <td>{review.userName}</td>
                       <td>{review.userEmail}</td>
                       <td>{review.review}</td>

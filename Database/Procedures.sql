@@ -161,7 +161,7 @@ go
 create proc getAllServiceCenterDetails
 as
 begin
-select serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, serviceCenterMailId
+select serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, serviceCenterMailId,
 serviceCost, serviceCenterStartTime, serviceCenterEndTime, serviceCenterDescription from AddCenters
 end ;
 go
@@ -303,7 +303,8 @@ go
 create procedure getAllAppointments
 as
 begin
-select * from Appointments
+select ID, customerName, productName, productModelNo, dateofPurchase, contactNumber, problemDescription, bookedSlots,
+dateOfAppointment, email, serviceCenterId, serviceCenterName, dateOfAppointmentBooking, serviceCost from Appointments
 end;
 go
 ------------------------------------------------------------------------------

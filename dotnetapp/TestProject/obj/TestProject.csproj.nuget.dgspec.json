@@ -117,18 +117,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-<<<<<<< HEAD
             "Microsoft.AspNet.Cors": {
               "target": "Package",
               "version": "[5.2.9, )"
             },
-=======
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
               "version": "[5.2.9, )"
             },
-<<<<<<< HEAD
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -137,8 +133,6 @@
               "target": "Package",
               "version": "[5.1.1, )"
             },
-=======
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -157,13 +151,10 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
-<<<<<<< HEAD
             "Microsoft.SqlServer.Server": {
               "target": "Package",
               "version": "[1.0.0, )"
             },
-=======
->>>>>>> origin/DotNet_React_AE_Camera_Service_2023-AlekyaRekapalli
             "Moq": {
               "target": "Package",
               "version": "[4.18.4, )"

@@ -161,7 +161,8 @@ go
 create proc getAllServiceCenterDetails
 as
 begin
-select * from AddCenters
+select serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, serviceCenterMailId
+serviceCost, serviceCenterStartTime, serviceCenterEndTime, serviceCenterDescription from AddCenters
 end ;
 go
 

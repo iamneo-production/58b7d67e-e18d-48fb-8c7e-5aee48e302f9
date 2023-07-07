@@ -24,8 +24,6 @@ as
 begin
 if exists(select Email from AdminTable where Email = @email)
 select Email, Password from AdminTable where Email = @email and Password = @password
-else
-Print 'Invalid'
 end;
 go
 
@@ -39,7 +37,6 @@ end;
 go
 
 ------------------------------------------------------------------------------
-
 --User
 -----------
 --Add user
@@ -54,15 +51,14 @@ AS
 BEGIN
     IF EXISTS(SELECT Email FROM UserTable WHERE Email = @email)
     BEGIN
-        PRINT 'Invalid'
     END
     ELSE
     BEGIN
         INSERT INTO UserTable (Email, Password, UserName, MobileNumber, UserRole) 
-        VALUES (@email, @password, @username, @mobileNumber, @userRole)
-    END
+        VALUES (@email, @password, @username, @mobileNumber, @userRole);
+    END;
 END;
-go
+
 
 --User Login 
 --------------
@@ -71,8 +67,6 @@ as
 begin
 if exists(select Email from UserTable where  Email =@email)
 select Email, Password from UserTable where Email = @email and Password = @password
-else
-Print 'Invalid'
 end;
 go
 
@@ -90,7 +84,7 @@ go
 create procedure getAllUsers
 as
 begin
-select * from UserTable
+select UserId, Email, Password, UserName, MobileNumber, UserRole from UserTable
 end;
 go
 
@@ -127,6 +121,7 @@ create procedure deleteUsers
 as
 begin
 delete from UserTable 
+where UserId > 0
 end;
 go
 
@@ -166,7 +161,8 @@ go
 create proc getAllServiceCenterDetails
 as
 begin
-select * from AddCenters
+select serviceCenterId, serviceCenterName, serviceCenterPhone, serviceCenterAddress, serviceCenterImageUrl, serviceCenterMailId,
+serviceCost, serviceCenterStartTime, serviceCenterEndTime, serviceCenterDescription from AddCenters
 end ;
 go
 
@@ -307,7 +303,8 @@ go
 create procedure getAllAppointments
 as
 begin
-select * from Appointments
+select ID, customerName, productName, productModelNo, dateofPurchase, contactNumber, problemDescription, bookedSlots,
+dateOfAppointment, email, serviceCenterId, serviceCenterName, dateOfAppointmentBooking, serviceCost from Appointments
 end;
 go
 ------------------------------------------------------------------------------
@@ -432,6 +429,6 @@ go
 create proc GetAllReviews
 as
 begin
-select * from ServiceReviews
+select userEmail, userName, serviceCenterId, Rating, review from ServiceReviews
 end;
 go

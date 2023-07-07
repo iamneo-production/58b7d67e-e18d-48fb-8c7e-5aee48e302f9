@@ -103,7 +103,7 @@ namespace dotnetapp
         internal string saveUser(UserModel user)
         {
             List<ProductModel> list = new List<ProductModel>();
-
+            string msg = string.Empty;
             try
             {
                 cmd = new SqlCommand("AddUser", conn);

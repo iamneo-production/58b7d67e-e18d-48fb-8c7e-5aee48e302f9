@@ -20,10 +20,10 @@ namespace dotnetapp.Controllers
         BusinessLayer businesslayer = new BusinessLayer();
         /* this method returns an IActionResult, and the result being returned is a List and By returning Ok(result), the result will be sent as the response*/
         [HttpGet]
-        [Route("getAppointment")]
-        public IActionResult getAppointment(string email)
+        [Route("getSlotDetailsByDate/{serviceCenterId},{Date}")]
+        public IActionResult getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
-            List<ProductModel> result = businesslayer.getAppointment(email);
+            List<AppointmentModel> result = businesslayer.getSlotDetailsByDate(serviceCenterId, Date);
             return Ok(result);
         }
         /* this method returns an IActionResult, and the result being returned is a string  */
@@ -87,7 +87,7 @@ namespace dotnetapp.Controllers
         [Route("getAllAppointments")]
         public IActionResult getAllAppointments()
         {
-            string result = businesslayer.deleteAppointment(ID);
+            List<ProductModel> result = businesslayer.getAllAppointments();
             return Ok(result);
         }
     }

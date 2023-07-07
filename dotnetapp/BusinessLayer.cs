@@ -13,28 +13,27 @@ namespace dotnetapp
 
         DataAccessLayer dataAccessLayer = new DataAccessLayer();
 
-
         /*The BusinessLayer class represents the business layer in our application. 
         * It acts as an intermediary between the presentation layer (such as a user interface) and the data access layer. 
         * Its purpose is to encapsulate business logic and coordinate the interaction between the presentation layer and the data access layer. */
 
-        //Appointment Controller
+        //Auth controllers
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<ProductModel> getAppointment(string email)
+        public string saveAdmin(UserModel user)
         {
-            return dataAccessLayer.getAppointment(email);
+            return dataAccessLayer.saveAdmin(user);
         }
-        public ProductModel getAppointmentSlotsById(int id)
+        public Boolean isAdminPresent(LoginModel data)
         {
-            return dataAccessLayer.getAppointmentSlotsById(id);
+            return (dataAccessLayer.isAdminPresent(data));
         }
         public string saveUser(UserModel user)
         {
-            return dataAccessLayer.EditAppointment(ID, model);
+            return dataAccessLayer.saveUser(user);
         }
-        public string updateOnDeleteAppointment(AppointmentModel model)
+        public Boolean isUserPresent(LoginModel data)
         {
-            return dataAccessLayer.updateOnDeleteAppointment(model);
+            return dataAccessLayer.isUserPresent(data);
         }
         public UserModel getAdminByEmailId(string email)
         {

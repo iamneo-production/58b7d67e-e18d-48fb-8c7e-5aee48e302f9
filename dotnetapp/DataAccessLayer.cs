@@ -276,7 +276,7 @@ namespace dotnetapp
             string msg = string.Empty;
             try
             {
-                cmd = new SqlCommand("cancelAppointment", conn);
+                cmd = new SqlCommand("InsertAvailableSlots", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@serviceCenterId", m.serviceCenterId);
 

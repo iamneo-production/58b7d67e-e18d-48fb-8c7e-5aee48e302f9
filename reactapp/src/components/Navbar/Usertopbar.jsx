@@ -5,15 +5,13 @@ information, such as email, username, mobile number, and password. The component
 Bootstrap components and makes API requests to fetch and update user data. */
 import { Avatar,AppBar, Toolbar, Typography } from "@mui/material";
 import React, { useEffect, useState } from 'react';
-import {  Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import Modal from 'react-bootstrap/Modal';
-import { Form, Button} from 'react-bootstrap';
-import { Eye, EyeSlash } from 'react-bootstrap-icons';
+import { Form, Button, Nav} from 'react-bootstrap';
+import { Eye, EyeSlash, PencilSquare } from 'react-bootstrap-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { PencilSquare } from 'react-bootstrap-icons';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { API_URLS } from "../Apis/config";
 

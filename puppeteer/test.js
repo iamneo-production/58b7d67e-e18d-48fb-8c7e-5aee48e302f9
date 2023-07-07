@@ -3,41 +3,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-    await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-    await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-    await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-    await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-    await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-    await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-    await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+    await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -53,10 +19,10 @@ const puppeteer = require('puppeteer');
       await page.click('#submitButton');
       await page.waitForNavigation();
       await page.waitForSelector('#loginButton',{timeout:3000});
-      console.log('TESTCASE:FE_Signup:success');
+      console.log('TESTCASE:FE_signup:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_Signup:failure');
+      console.log('TESTCASE:FE_signup:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -70,41 +36,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-    await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-    await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-    await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-    await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-    await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-    await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-    await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+    await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -114,10 +46,10 @@ const puppeteer = require('puppeteer');
       await page.click('#loginButton');
       await page.waitForNavigation();
       await page.waitForSelector('#homeButton',{timeout:3000});
-      console.log('TESTCASE:FE_Login:success');
+      console.log('TESTCASE:FE_login:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_Login:failure');
+      console.log('TESTCASE:FE_login:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -131,41 +63,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-    await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-    await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-    await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-    await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-    await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-    await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-    await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-    await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+    await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -179,10 +77,10 @@ const puppeteer = require('puppeteer');
       await page.waitForSelector('#grid1',{timeout:3000});
       await page.click('#dashBoardButton');
       await page.waitForSelector('#grid1',{timeout:3000});
-      console.log('TESTCASE:FE_UserHomeOperation:success');
+      console.log('TESTCASE:FE_userHomeOperation:success');
     }
      catch(e){
-      console.log('TESTCASE:FE_UserHomeOperation:failure');
+      console.log('TESTCASE:FE_userHomeOperation:failure');
     }finally{
       await page.close();
       await browser.close();
@@ -194,41 +92,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-  await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-  await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-  await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-  await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-  await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-  await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-  await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+  await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -241,10 +105,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#centerName1',{timeout:3000});
     await page.click('#logoutButton');
     await page.waitForSelector('#loginButton',{timeout:3000});
-    console.log('TESTCASE:FE_UserBookingOperation:success');
+    console.log('TESTCASE:FE_userBookingOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_UserBookingOperation:failure');
+    console.log('TESTCASE:FE_userBookingOperation:failure');
   }finally{
     await page.close();
     await browser.close();
@@ -257,41 +121,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-  await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-  await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-  await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-  await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-  await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-  await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-  await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+  await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -303,10 +133,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#adminAddCenter',{timeout:3000});
     await page.click('#logout');
     await page.waitForSelector('#loginButton',{timeout:3000});
-    console.log('TESTCASE:FE_AdminAddCenterOperation:success');
+    console.log('TESTCASE:FE_adminAddCenterOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_AdminAddCenterOperation:failure');
+    console.log('TESTCASE:FE_adminAddCenterOperation:failure');
   }finally{
     await page.close();
     await browser.close();
@@ -318,41 +148,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
-  await page.goto('https://8081-dacffecaccfeadfcefbadbddebabfddbdad.project.examly.io/');
-=======
-  await page.goto('https://8081-baaddaabadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-nizam9519
-<<<<<<< HEAD
-=======
-  await page.goto('https://8081-cbadceaccdaaadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-udaysagarm
-=======
-  await page.goto('https://8081-ddeebefffcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> origin/Camera-Service-Portal-NamrathaBudithi
-=======
-  await page.goto('https://8081-cddafbcbabccadefcdadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Manoj-Deva
-=======
-  await page.goto('https://8081-cefebdfefadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-eeswari123
-=======
-  await page.goto('https://8081-bebcabcadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-PravallikaMuddana
-=======
-  await page.goto('https://8081-cceadddfdfadfcefbadbddebabfddbdad.project.examly.io/');
->>>>>>> Camera-Service-Portal-Prasuna-Golakoti
-=======
->>>>>>> Camera-Service-Portal-AlekyaRekapalli
+  await page.goto('https://8081-dbbdcffeadfcefbaddfabafceaa.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
@@ -364,10 +160,10 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#adminProfileView',{timeout:3000});
     await page.click('#logout');
     await page.waitForSelector('#loginButton',{timeout:3000});
-    console.log('TESTCASE:FE_AdminProfileViewOperation:success');
+    console.log('TESTCASE:FE_adminProfileViewOperation:success');
   }
    catch(e){
-    console.log('TESTCASE:FE_AdminProfileViewOperation:failure');
+    console.log('TESTCASE:FE_adminProfileViewOperation:failure');
   }finally{
     await page.close();
     await browser.close();

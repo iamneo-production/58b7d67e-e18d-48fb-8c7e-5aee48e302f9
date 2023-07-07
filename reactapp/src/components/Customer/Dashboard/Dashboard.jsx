@@ -303,7 +303,6 @@ component. */
           });
           const updatedSlots = availableSlots.filter((slot) => slot !== selectedTime);
           setAvailableSlots(updatedSlots);
-          //  toast.success(result.data);
           setselectedCardCenterName(selectedCard.serviceCenterName);
           setselectedCardServiceCost(selectedCard.serviceCost);
           setselectedCardServiceMailId(selectedCard.serviceCenterMailId)

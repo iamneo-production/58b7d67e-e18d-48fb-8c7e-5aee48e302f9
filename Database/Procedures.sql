@@ -126,7 +126,8 @@ go
 create procedure deleteUsers
 as
 begin
-delete from UserTable where UserId > 0
+delete from UserTable 
+where UserId > 0
 end;
 go
 

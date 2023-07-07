@@ -39,7 +39,6 @@ end;
 go
 
 ------------------------------------------------------------------------------
-
 --User
 -----------
 --Add user
@@ -54,15 +53,14 @@ AS
 BEGIN
     IF EXISTS(SELECT Email FROM UserTable WHERE Email = @email)
     BEGIN
-        PRINT 'Invalid'
     END
     ELSE
     BEGIN
         INSERT INTO UserTable (Email, Password, UserName, MobileNumber, UserRole) 
-        VALUES (@email, @password, @username, @mobileNumber, @userRole)
-    END
+        VALUES (@email, @password, @username, @mobileNumber, @userRole);
+    END;
 END;
-go
+
 
 --User Login 
 --------------

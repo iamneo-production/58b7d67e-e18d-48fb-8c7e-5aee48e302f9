@@ -429,6 +429,6 @@ go
 create proc GetAllReviews
 as
 begin
-select * from ServiceReviews
+select userEmail, userName, serviceCenterId, Rating, review from ServiceReviews
 end;
 go

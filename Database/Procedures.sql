@@ -84,7 +84,7 @@ go
 create procedure getAllUsers
 as
 begin
-select * from UserTable
+select UserId, Email, Password, UserName, MobileNumber, UserRole from UserTable
 end;
 go
 

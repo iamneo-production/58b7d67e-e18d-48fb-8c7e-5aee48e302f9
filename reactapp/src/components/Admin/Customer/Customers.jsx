@@ -7,11 +7,10 @@ includes loading indicators and error handling. */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { PencilSquare } from 'react-bootstrap-icons';
+import { PencilSquare, Eye, EyeSlash } from 'react-bootstrap-icons';
 import { Form, Button } from 'react-bootstrap';
 import {  MDBCol } from 'mdbreact';
 import Modal from 'react-bootstrap/Modal';
-import { Eye, EyeSlash } from 'react-bootstrap-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Box} from '@mui/material';
@@ -341,10 +340,10 @@ const endIndex = startIndex + pageSize;
             </tr>
           </thead>
           <tbody>
-            {suggestions.slice(startIndex, endIndex).map((item, index)=> {
-              const serialNumber = startIndex + index + 1;
+            {suggestions.slice(startIndex, endIndex).map((item, indexNumber)=> {
+              const serialNumber = startIndex + indexNumber + 1;
               return (
-                <tr key={index}>
+                <tr key={indexNumber}>
                   <th> <Form.Check type='checkbox' value={item.userId} checked={item.isChecked||false} onChange= {handleCheckBox} /> </th>
                   <td>{serialNumber}</td>
                   <td>{item.userName}</td>

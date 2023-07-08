@@ -1,17 +1,12 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "OAV7D5galEYVTo3yB5A1XN7oCxKGQ1+7sGwtKDG7d4I+yM89Ln6GLuSAoeCyDKGeUDiNDpelgnuhLsiSQ/p3PQ==",
-=======
-  "dgSpecHash": "9/Gx1dwxgDQHkprmds7+1QxkAJwBpGJ19PDHDG3UYwqKl6zdsNjRgO7KU30Ybhlfdod6qLZ8dM1Bc9upawoo4A==",
->>>>>>> e37609a505af145ceff663ba4732494c89907a7c
   "success": true,
   "projectFilePath": "/home/coder/project/workspace/dotnetapp/dotnetapp.csproj",
   "expectedPackageFiles": [
     "/home/coder/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/home/coder/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/home/coder/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
-    "/home/coder/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.aspnet.cors/5.2.9/microsoft.aspnet.cors.5.2.9.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.aspnet.webapi.client/5.2.9/microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.aspnet.webapi.core/5.2.9/microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
@@ -21,16 +16,12 @@
     "/home/coder/.nuget/packages/microsoft.aspnetcore.http.extensions/2.2.0/microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "/home/coder/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
+    "/home/coder/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.data.sqlclient/5.1.1/microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.1.0/microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore/5.0.0/microsoft.entityframeworkcore.5.0.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.0/microsoft.entityframeworkcore.abstractions.5.0.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.0/microsoft.entityframeworkcore.analyzers.5.0.0.nupkg.sha512",
-<<<<<<< HEAD
-=======
-    "/home/coder/.nuget/packages/microsoft.entityframeworkcore.design/5.0.0/microsoft.entityframeworkcore.design.5.0.0.nupkg.sha512",
->>>>>>> e37609a505af145ceff663ba4732494c89907a7c
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.0/microsoft.entityframeworkcore.inmemory.5.0.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore.relational/5.0.0/microsoft.entityframeworkcore.relational.5.0.0.nupkg.sha512",
     "/home/coder/.nuget/packages/microsoft.entityframeworkcore.sqlserver/5.0.0/microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",
@@ -69,10 +60,10 @@
     "/home/coder/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/coder/.nuget/packages/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/home/coder/.nuget/packages/runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "/home/coder/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/home/coder/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/coder/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/coder/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
@@ -142,15 +133,12 @@
   ],
   "logs": [
     {
-<<<<<<< HEAD
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file /home/coder/project/workspace/dotnetapp/obj/project.nuget.cache : After parsing a value an unexpected character was encountered: \". Path 'logs[1].targetGraphs[0]', line 166, position 8."
+      "message": "Problem reading the cache file /home/coder/project/workspace/dotnetapp/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     },
     {
-=======
->>>>>>> e37609a505af145ceff663ba4732494c89907a7c
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

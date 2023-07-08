@@ -95,7 +95,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+              Console.WriteLine(e.Message);  
             }
             return msg;
         }
@@ -203,7 +203,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message); 
             }
             conn.Close();
             return m;
@@ -232,7 +232,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message); 
             }
             conn.Close();
             return m;
@@ -562,7 +562,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message); 
             }
             return user;
         }
@@ -716,7 +716,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message); 
             }
             return list1;
 
@@ -913,7 +913,7 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message); 
             }
             conn.Close();
             return model;
@@ -1180,7 +1180,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
             }
             catch (Exception e)
             {
-
+                    Console.WriteLine(e.Message); 
             }
             conn.Close();
             return model;

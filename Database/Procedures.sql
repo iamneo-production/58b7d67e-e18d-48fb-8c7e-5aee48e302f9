@@ -1,4 +1,3 @@
-
 --Admin
 ---------
 --Add Admin procedure
@@ -126,7 +125,7 @@ go
 create procedure deleteUsers
 as
 begin
-delete from UserTable 
+delete from UserTable where UserId>0
 end;
 go
 

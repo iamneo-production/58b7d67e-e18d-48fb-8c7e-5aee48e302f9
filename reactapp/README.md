@@ -6,35 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5cbd79ad505f985ded7e4d2a5b2d776b3529f9da
-### `npm install`
-
-Install all the required dependencies to run the app
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -42,21 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
-=======
->>>>>>> 5cbd79ad505f985ded7e4d2a5b2d776b3529f9da
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
 
 ### `npm test`
 
@@ -75,27 +31,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-=======
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
@@ -103,19 +38,6 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
 
 ## Learn More
 
@@ -145,5 +67,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

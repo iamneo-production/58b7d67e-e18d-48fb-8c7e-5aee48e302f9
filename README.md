@@ -52,11 +52,23 @@ Any package if required you can install by the above command. The package that y
 #### To Work with SQLServer:
 sqlcmd -U sa 
 password: examlyMssql@123
+
+  
 1> create database DBName
+
+
 2> go
+
+
 1> use DBName
+
+
 2> go
+
+
 1> create table TableName(id int identity(1,1),........)
+
+
 2> go
 
 ### Challenges
@@ -67,6 +79,12 @@ Delete the node modules and reinstall them by using the command
 
 If there are any challenges in running the test case in the dotnet part
 use these commands:
+
+
 dotnet clean
+
+
 dotnet restore
+
+
 dotnet run

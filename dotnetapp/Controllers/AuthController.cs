@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,7 +27,6 @@ namespace dotnetapp.Controllers
         }
 
        /* this method returns an IActionResult, and the result being returned is a boolean */
-       /* this method returns an IActionResult, and the result being returned is a boolean */
         [HttpPost]
         [Route("admin/login")]
         public IActionResult isAdminPresent(LoginModel data)
@@ -36,7 +34,7 @@ namespace dotnetapp.Controllers
             return Created("AdminLogin",businesslayer.isAdminPresent(data));
         }
 
-        /* this method returns an IActionResult, and the result being returned is a string */
+     
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("user/signup")]
@@ -45,7 +43,6 @@ namespace dotnetapp.Controllers
             return Created("UserSignup", businesslayer.saveUser(user));
         }
 
-        /* this method returns an IActionResult, and the result being returned is a string */
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpPost]
         [Route("user/login")]

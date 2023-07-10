@@ -31,15 +31,7 @@ namespace dotnetapp
             //string connectionString = Configuration.GetConnectionString("myconnstring");
            // services.AddDbContext<ProductDBContext>(opt => opt.UseSqlServer(connectionString));
            // services.AddScoped<IProductService, ProductService>();
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder =>
-                {
-                    builder.AllowAnyOrigin()
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
-                });
-            });
+            services.AddCors();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -61,8 +53,6 @@ namespace dotnetapp
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors();
 
             app.UseAuthorization();
 

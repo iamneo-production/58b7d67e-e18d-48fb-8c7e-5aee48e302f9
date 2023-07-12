@@ -25,6 +25,10 @@ https://docs.google.com/document/d/15xdl9qkzr5NUlxoHzpjl-smfzJY_eWkk/edit?usp=sh
 
 ## Instructions and Commands to run the project
 
+### Login Credentials for Admin
+user id: admin@gmail.com
+password: Admin@123
+
 ### React Project
 
 #### cd reactapp

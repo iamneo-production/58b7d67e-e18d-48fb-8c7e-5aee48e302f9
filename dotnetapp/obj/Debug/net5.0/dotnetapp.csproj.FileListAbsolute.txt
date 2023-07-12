@@ -1,5 +1,15 @@
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/appsettings.Development.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/appsettings.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/appsettings.Development.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/appsettings.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/dotnetapp.deps.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/dotnetapp.runtimeconfig.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/TestProject.deps.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/TestProject.runtimeconfig.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/TestProject/obj/project.assets.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/bin/Debug/net6.0/TestProject/obj/TestProject.csproj.nuget.dgspec.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/obj/project.assets.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/TestProject/obj/TestProject.csproj.nuget.dgspec.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/dotnetapp
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/dotnetapp.deps.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/dotnetapp.runtimeconfig.json
@@ -16,6 +26,11 @@
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/System.Web.Http.Cors.dll
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.Data.SqlClient.dll
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.Identity.Client.dll
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.Identity.Client.Extensions.Msal.dll
 /home/coder/project/workspace/dotnetapp/bin/Debug/net5.0/Microsoft.IdentityModel.Abstractions.dll

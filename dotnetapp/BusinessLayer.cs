@@ -54,6 +54,18 @@ namespace dotnetapp
         /*by creating an object for the data access layer, we are accessing all the methods */
         public List<ProductModel> getAllAppointments()
         {
+            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+        }
+        public string saveAppointment(ProductModel data)
+        {
+            return dataAccessLayer.saveAppointment(data);
+        }
+        public string postAvailableSlots(AppointmentModel model)
+        {
+            return dataAccessLayer.postAvailableSlots(model);
+        }
+        public List<ProductModel> getAllAppointments()
+        {
             return dataAccessLayer.getAllAppointments();
         }
         public List<ProductModel> getAppointment(string email)
@@ -108,9 +120,8 @@ namespace dotnetapp
             return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
         }
         public string addServiceCenter([FromBody] JsonElement jsonData)
->>>>>>> 401714efe78e2923f1b7f7a41350a4ccfdad5286
         {
-            return dataAccessLayer.viewServiceCenter();
+            return dataAccessLayer.addServiceCenter(jsonData);
         }
         //User Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
@@ -136,6 +147,10 @@ namespace dotnetapp
         }
         //Review Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
+        public ReviewModel getReviews(string id)
+        {
+            return dataAccessLayer.getReviews(id);
+        }
         public string AddReview(ReviewModel model)
         {
             return dataAccessLayer.AddReview( model);

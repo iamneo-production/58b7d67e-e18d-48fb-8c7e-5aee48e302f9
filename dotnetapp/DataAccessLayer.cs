@@ -203,7 +203,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-               Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -938,7 +938,6 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
             return emailAddress;

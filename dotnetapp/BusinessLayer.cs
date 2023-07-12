@@ -114,14 +114,6 @@ namespace dotnetapp
         {
             return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
         }
-
-        //Review Controller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        
-        public ReviewModel getReviews(string id)
-        {
-            return dataAccessLayer.getReviews(id);
-        }
         //User Controller
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string addUser(UserModel user)

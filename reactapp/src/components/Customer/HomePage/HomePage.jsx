@@ -222,7 +222,7 @@ admin or not. */
                               </strong>
                               {item.serviceCenterStartTime.hours.toString().padStart(2, '0')}:
                               {item.serviceCenterStartTime.minutes.toString().padStart(2, '0')}:
-                              {item.serviceCenterStartTime.seconds.toString().padStart(2, '0')} - 
+                              {item.serviceCenterStartTime.seconds.toString().padStart(2, '0')} -
                               {item.serviceCenterEndTime.hours.toString().padStart(2, '0')}:
                               {item.serviceCenterEndTime.minutes.toString().padStart(2, '0')}:
                               {item.serviceCenterEndTime.seconds.toString().padStart(2, '0')}

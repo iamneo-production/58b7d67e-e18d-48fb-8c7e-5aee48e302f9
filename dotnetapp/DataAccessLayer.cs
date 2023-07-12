@@ -694,62 +694,32 @@ namespace dotnetapp
 /*this method helps the get the slots according to the given date*/
         internal List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
-            string msg = string.Empty;
+            List<AppointmentModel> list1 = new List<AppointmentModel>();
+
             try
             {
-                cmd = new SqlCommand("AddAdmin", conn);
+                SqlDataReader dr;
+                cmd = new SqlCommand("showAvailableSlots", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@email", user.Email);
-                cmd.Parameters.AddWithValue("@password", user.Password);
-                cmd.Parameters.AddWithValue("@username", user.UserName);
-                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
-                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                cmd.Parameters.AddWithValue("@Appointmentdate", Date);
                 conn.Open();
-                int data = cmd.ExecuteNonQuery();
-                if (data >= 1)
+                dr = cmd.ExecuteReader();
+                while (dr.Read() == true)
                 {
-                    msg = "Admin Added";
-                }
-                else
-                {
-                    msg = "Email Id or Mobile Number already Exists!";
-                }
+                    AppointmentModel m1 = new AppointmentModel();
+                    List<string> availableSlots1 = dr["availableSlots"].ToString().Split(',').ToList();
+                    m1.availableSlots = availableSlots1;
+                    list1.Add(m1);
 
-            }
-            catch (Exception e)
-            {
-                msg = e.Message;
-            }
-            return msg;
-        }
-
-
-        /*This method helps to check whether the admin present or not and check the email and password ae correct and return the boolean value.  */
-        internal Boolean isAdminPresent(LoginModel data)
-        {
-            Boolean msg = false;
-            try
-            {
-                da = new SqlDataAdapter("CameraServiceAdminLogin", conn);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@email", data.Email);
-                da.SelectCommand.Parameters.AddWithValue("@password", data.Password);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count >= 1)
-                {
-                    msg = true;
-                }
-                else
-                {
-                    msg = false;
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            return msg;
+            return list1;
+
         }
 
 
@@ -758,31 +728,59 @@ namespace dotnetapp
 internal string saveAppointment(ProductModel data)
         {
             string msg = string.Empty;
+
             try
             {
-                cmd = new SqlCommand("AddUser", conn);
+                cmd = new SqlCommand("addAppointment", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@email", user.Email);
-                cmd.Parameters.AddWithValue("@password", user.Password);
-                cmd.Parameters.AddWithValue("@username", user.UserName );
-                cmd.Parameters.AddWithValue("@mobileNumber", user.MobileNumber);
-                cmd.Parameters.AddWithValue("@userRole", user.UserRole);
+
+                cmd.Parameters.AddWithValue("@customerName", data.customerName);
+
+                cmd.Parameters.AddWithValue("@productName", data.productName);
+
+                cmd.Parameters.AddWithValue("@productModelNo", data.productModelNo);
+
+                cmd.Parameters.AddWithValue("@dateofPurchase", data.dateofPurchase);
+
+                cmd.Parameters.AddWithValue("@contactNumber", data.contactNumber);
+
+                cmd.Parameters.AddWithValue("@problemDescription", data.problemDescription);
+
+                cmd.Parameters.AddWithValue("@bookedSlots", data.bookedSlots);
+
+                cmd.Parameters.AddWithValue("@dateOfAppointment", data.dateOfAppointment);
+
+                cmd.Parameters.AddWithValue("@userEmail", data.email);
+
+                cmd.Parameters.AddWithValue("@serviceCenterId", data.serviceCenterId);
+
+                cmd.Parameters.AddWithValue("@serviceCenterName", data.serviceCenterName);
+
+                cmd.Parameters.AddWithValue("@serviceCost", data.serviceCost);
+
                 conn.Open();
-                int data = cmd.ExecuteNonQuery();
-                if (data >= 1)
+                int d = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (d >= 1)
                 {
                     MailMessage email = new MailMessage();
                     email.From = new MailAddress("kraftcamservices@gmail.com");
-                    email.To.Add(user.Email);
-                    email.Subject = "Thanks for Signing in with our services Kraft-Cam";
-                    string emailBody = $"Hello {user.UserName},\n\n"
-                    + "Thank you for signing up for our website! We are thrilled to have you as a new member of our community and are excited to provide you with our exceptional services.\n\n"
-                    + "At Kraft-Cam, our mission is to deliver top-notch Camera Services that meet your needs and exceed your expectations. We have a team of dedicated professionals who are passionate about ensuring your satisfaction.\n\n"
-                    + "As a valued member, you now have access to a wide range of features and benefits. Whether it's Lens Clean, Internal services, Battery services, etc., we have designed our platform to cater to your needs.\n\n"
-                    + "We invite you to explore our website and take full advantage of the resources available to you. Should you have any questions, concerns, or feedback, our friendly support team is always here to assist you. We value your input and strive to continuously improve our services based on your valuable insights.\n\n"
-                    + "Once again, thank you for choosing Kraft-Cam. We truly appreciate your trust and confidence in us. We look forward to serving you and ensuring that your experience with us is nothing short of exceptional.\n\n"
-                    + "Best wishes,\n"
-                    + "Team Kraft_Cam";
+                    email.To.Add(data.email);
+                    email.Subject = "Appointment Booked Successfully - Kraft-Cam Services";
+                    string emailBody = $"Hello, {data.customerName}\n\n"
+                        + "Thank you for booking an appointment with Kraft-Cam! We are thrilled to have you as our customer and are committed to providing you with the best camera services.\n\n"
+                        + $"Service Name: {data.serviceCenterName}\n"
+                        + $"Camera Name: {data.productName}\n"
+                        + $"Customer Contact: {data.contactNumber}\n"
+                         + $"Appointment Date: {data.dateOfAppointment.ToString("dd-MM-yyyy")}\n"
+                        + $"Booked Slot: {data.bookedSlots}\n\n"
+                        + "At Kraft-Cam, our mission is to deliver top-notch camera services that meet your needs and exceed your expectations. We have a team of dedicated professionals who are passionate about ensuring your satisfaction.\n\n"
+                        + "We invite you to visit our service center 10 minutes before your booked slot. Our experts will be ready to assist you with your camera needs.\n\n"
+                        + "Once again, thank you for choosing Kraft-Cam. We truly appreciate your trust and confidence in us. We look forward to providing you with exceptional service and a great experience.\n\n"
+                        + "Best regards,\n"
+                        + "Team Kraft-Cam";
+
 
                     email.Body = emailBody;
 
@@ -796,39 +794,50 @@ internal string saveAppointment(ProductModel data)
                     };
 
                     smtp.Send(email);
-                    msg = "User Added";
+
+                    msg = "Appointment Booked Successfully";
                 }
                 else
                 {
-                    msg = "Email Id or Mobile Number already Exists!";
+                    msg = "Appointment is already booked";
                 }
             }
             catch (Exception e)
             {
                 msg = e.Message;
             }
+
             return msg;
         }
 
  /*this method helps to add available slots at the time of appointment booking*/
         internal string postAvailableSlots(AppointmentModel model)
         {
-            Boolean msg = false;
+            string msg = string.Empty;
             try
             {
-                da = new SqlDataAdapter("CameraServiceUserLogin", conn);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@email", data.Email);
-                da.SelectCommand.Parameters.AddWithValue("@password", data.Password);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count >= 1)
+
+                cmd = new SqlCommand("setAvailableSlots", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
+
+                cmd.Parameters.AddWithValue("@Appointmentdate", model.Appointmentdate);
+
+                List<string> availableSlots = model.availableSlots;
+                string slotsString = string.Join(",", availableSlots);
+                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
+
+                conn.Open();
+                int d = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (d >= 1)
                 {
-                    msg = true;
+                    msg = "Slots Updated";
                 }
                 else
                 {
-                    msg = false;
+                    msg = "Failed to update";
                 }
             }
             catch (Exception e)

@@ -358,7 +358,7 @@ function Centerprofile() {
         )}
           <Row xs={1} sm={2} md={3} lg={3}>
   {data.map((item) => (
-    <Col xs={12} sm={6} md={4}>
+    <Col xs={12} sm={6} md={4} key={item.id}>
       <Card
         key={item.id}
         className='mb-4'
@@ -381,12 +381,7 @@ function Centerprofile() {
                       <Card.Text><strong><em>Address: </em></strong>{item.serviceCenterAddress}</Card.Text>
                       <Card.Text>
   <em>Available Timing: </em>
-  {item.serviceCenterStartTime.hours.toString().padStart(2, '0')}:
-  {item.serviceCenterStartTime.minutes.toString().padStart(2, '0')}:
-  {item.serviceCenterStartTime.seconds.toString().padStart(2, '0')} - 
-  {item.serviceCenterEndTime.hours.toString().padStart(2, '0')}:
-  {item.serviceCenterEndTime.minutes.toString().padStart(2, '0')}:
-  {item.serviceCenterEndTime.seconds.toString().padStart(2, '0')}
+  {item.serviceCenterStartTime}-{item.serviceCenterEndTime}
 </Card.Text>
 
                     </div>

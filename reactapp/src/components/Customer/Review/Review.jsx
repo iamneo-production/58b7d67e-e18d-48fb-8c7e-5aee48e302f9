@@ -193,7 +193,7 @@ when the `navigate` variable changes. */
           <Modal.Body>
             <Form.Label style={{fontWeight:'normal'}}>Your feedback is valuable to us.</Form.Label>
             <Form.Group>
-              <Form.Label style={{fontWeight:'normal'}}> Service Name : {selectedBooking && selectedBooking.serviceCenterName} </Form.Label>
+              <Form.Label style={{fontWeight:'normal'}}> Service Name : {selectedBooking?.serviceCenterName} </Form.Label>
             </Form.Group>
             <Form.Group controlId="rating">
               <Form.Label style={{fontWeight:'normal'}}>Rate Our Service :</Form.Label>

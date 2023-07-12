@@ -56,6 +56,15 @@ namespace dotnetapp.Controllers
             return Ok(result);
         }
 
+        /* this method returns an IActionResult, and the result being returned is a string */
+        [HttpDelete]
+        [Route("deleteUsers")]
+        public IActionResult deleteUsers(List<int> userIds)
+        {
+            string result = businesslayer.deleteUsers(userIds);
+            return Ok(result);
+        }
+
     }
 
 }

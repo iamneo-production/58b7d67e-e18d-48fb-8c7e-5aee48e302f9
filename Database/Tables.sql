@@ -90,3 +90,7 @@ Rating int,
 review varchar(max),
 FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
+
+
+
+ 

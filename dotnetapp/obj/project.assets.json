@@ -6645,12 +6645,6 @@
   },
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /home/coder/project/workspace/dotnetapp/obj/project.nuget.cache : Unexpected character encountered while parsing value: =. Path 'expectedPackageFiles[1]', line 9, position 0."
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

@@ -61,7 +61,7 @@ namespace dotnetapp
         }
         public List<ProductModel> getAllAppointments()
         {
-            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
+            return dataAccessLayer.getAllAppointments();
         }
         public List<ProductModel> getAppointment(string email)
         {
@@ -92,7 +92,7 @@ namespace dotnetapp
         }
         public string availableSlots(AppointmentModel m)
         {
-            return dataAccessLayer.saveAppointment(data);
+            return dataAccessLayer.availableSlots(m);
         }
         public ServiceCenterModel viewServiceCenterByID(string serivceCenterId)
         {
@@ -113,6 +113,10 @@ namespace dotnetapp
         public string editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
         {
             return dataAccessLayer.editServiceCenter(serviceCenterId, jsonData);
+        }
+        public string addServiceCenter([FromBody] JsonElement jsonData)
+        {
+            return dataAccessLayer.addServiceCenter(jsonData);
         }
         //User Controller
         /*by creating an object for the data access layer, we are accessing all the methods */

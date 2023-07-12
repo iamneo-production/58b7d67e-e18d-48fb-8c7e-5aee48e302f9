@@ -5,6 +5,14 @@
 >>>>>>> d404d3ce6f557994a78aad85e4ebc56aa9d8cd6d
 /home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/appsettings.Development.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/appsettings.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/appsettings.Development.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/appsettings.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/dotnetapp.deps.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/dotnetapp.runtimeconfig.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/TestProject.deps.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/TestProject.runtimeconfig.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/TestProject/obj/project.assets.json
+/home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/bin/Debug/net6.0/TestProject/obj/TestProject.csproj.nuget.dgspec.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/obj/project.assets.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/TestProject/obj/TestProject.csproj.nuget.dgspec.json
 /home/coder/project/workspace/dotnetapp/bin/Debug/net6.0/dotnetapp

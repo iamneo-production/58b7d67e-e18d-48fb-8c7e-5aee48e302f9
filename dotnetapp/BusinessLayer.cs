@@ -18,11 +18,6 @@ namespace dotnetapp
         * It acts as an intermediary between the presentation layer (such as a user interface) and the data access layer. 
         * Its purpose is to encapsulate business logic and coordinate the interaction between the presentation layer and the data access layer. */
 
-<<<<<<< HEAD
-        //servicecentercontroller
-        /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<ServiceCenterModel> viewServiceCenter()
-=======
         //Auth controllers
         /*by creating an object for the data access layer, we are accessing all the methods */
         public string saveAdmin(UserModel user)
@@ -52,7 +47,7 @@ namespace dotnetapp
 
         //AppointmentController
         /*by creating an object for the data access layer, we are accessing all the methods */
-        public List<ProductModel> getAllAppointments()
+        public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
             return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
         }

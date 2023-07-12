@@ -95,14 +95,13 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return msg;
         }
         /*This method helps to save the user data in the database.  */
         internal string saveUser(UserModel user)
         {
-            List<ProductModel> list = new List<ProductModel>();
             string msg = string.Empty;
             try
             {
@@ -204,7 +203,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -233,7 +232,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -563,7 +562,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return user;
         }
@@ -717,7 +716,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return list1;
 
@@ -914,7 +913,7 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;
@@ -939,7 +938,6 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
             return emailAddress;
@@ -1181,7 +1179,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;

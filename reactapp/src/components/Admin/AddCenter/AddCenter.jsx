@@ -44,9 +44,11 @@ function AddCenter() {
  /**
   * The above code defines several functions that handle changes to different input values.
   */
+
  const  handleCenterIdChange = (value) => {
     setCenterId(value);
   };
+
   const handleNameChange = (value) => {
     setName(value);
   };
@@ -54,27 +56,33 @@ function AddCenter() {
   const handleNumberChange = (value) => {
     setNumber(value);
   };
+
   const handleAddressChange = (value) => {
     setAddress(value);
   };
+
   const handleImageUrlChange = (value) => {
     setImageUrl(value);
   };
+
   const handleEmailChange = (value) => {
     setEmail(value);
   };
+
   const handleCostChange = (value) => {
     const stringValue = value.toString(); 
     setCost(stringValue); 
   };
+
   const handleStartTimeChange = (value) => {
     setStartTime(value);
-  }
+  };
 
   const handleEndTimeChange = (value) => {
     const formattedTime = moment(value, 'hh:mm A').format('HH:mm');
     setEndTime(formattedTime);
-  }
+  };
+
   const handleDescriptionChange = (value) => {
     setDescription(value);
   };
@@ -83,6 +91,7 @@ function AddCenter() {
   case, the `useEffect` hook is used to fetch user data based on the email stored in the local
   storage and check if the user role is "user". If the user role is "user", the email is removed
   from the local storage and the user is redirected to the loginpage ("/"). */
+
 
   useEffect(()=>{
     const email =localStorage.getItem('email')
@@ -135,9 +144,9 @@ function AddCenter() {
       serviceCenterId: addCenterId,
       availableSlots : intervalStrings
        };
-      console.log(data1)
-     axios
-       .post(API_URLS.availableSlots, data1)
+      
+    axios
+      .post(API_URLS.availableSlots, data1)
       .then((result) => {
         e.preventDefault();
         const data = {
@@ -172,7 +181,7 @@ function AddCenter() {
       })
       .catch((error) => {
         setIsLoading(false);
-     });   
+      });   
   }
 
   const formStyle = {

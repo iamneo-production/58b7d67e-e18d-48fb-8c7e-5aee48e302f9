@@ -164,9 +164,7 @@ dependencies (navigate and userPage) change. */
     axios.get(`${API_URLS.getSlotDetailsByDate}/${editserviceCenterID},${formattedDate}`, data3).then((result) => {
       const availableSlots = result.data[0].availableSlots;
       if(availableSlots) {
-      //const filteredSlots = availableSlots.filter(slot => slot.date !== formattedDate);
       seteditAvailableSlots(availableSlots);
-      } else {
       }
     })
     .catch((error) => {

@@ -47,6 +47,8 @@ namespace dotnetapp.Controllers
             return Ok(result);
         }
 
+
+
         /* this method returns an IActionResult, and the result being returned is a string */
         [HttpDelete]
         [Route("deleteUsers")]
@@ -56,12 +58,12 @@ namespace dotnetapp.Controllers
             return Ok(result);
         }
 
-        /* this method returns an IActionResult, and the result being returned is a string */
-        [HttpDelete]
-        [Route("deleteUsers")]
-        public IActionResult deleteUsers(List<int> userIds)
+          /* this method returns an IActionResult, and the result being returned is a string */
+        [HttpPut]
+        [Route("editUsersById/{UserId}")]
+        public IActionResult editUsersById(UserModel user, int UserId)
         {
-            string result = businesslayer.deleteUsers(userIds);
+            string result = businesslayer.editUsersById(user, UserId);
             return Ok(result);
         }
 

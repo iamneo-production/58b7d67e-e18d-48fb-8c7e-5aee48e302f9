@@ -26,7 +26,7 @@ namespace dotnetapp.Controllers
             [Route("availableSlots")]
             public IActionResult availableSlots(AppointmentModel m)
             {
-                ServiceCenterModel result = businesslayer.viewServiceCenterByID(serivceCenterId);
+                string result = businesslayer.availableSlots(m);
                 return Ok(result);
             }
 
@@ -106,5 +106,5 @@ namespace dotnetapp.Controllers
                 }
             }
 
+        }
     }
-}

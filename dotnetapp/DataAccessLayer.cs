@@ -720,6 +720,7 @@ namespace dotnetapp
             }
             return list1;
 
+        }
 
 
 
@@ -730,31 +731,82 @@ internal string saveAppointment(ProductModel data)
 
             try
             {
-                cmd = new SqlCommand("editAvailableSlots", conn);
+                cmd = new SqlCommand("addAppointment", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
-                List<string> availableSlots = model.availableSlots;
-                string slotsString = string.Join(",", availableSlots);
-                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
+
+                cmd.Parameters.AddWithValue("@customerName", data.customerName);
+
+                cmd.Parameters.AddWithValue("@productName", data.productName);
+
+                cmd.Parameters.AddWithValue("@productModelNo", data.productModelNo);
+
+                cmd.Parameters.AddWithValue("@dateofPurchase", data.dateofPurchase);
+
+                cmd.Parameters.AddWithValue("@contactNumber", data.contactNumber);
+
+                cmd.Parameters.AddWithValue("@problemDescription", data.problemDescription);
+
+                cmd.Parameters.AddWithValue("@bookedSlots", data.bookedSlots);
+
+                cmd.Parameters.AddWithValue("@dateOfAppointment", data.dateOfAppointment);
+
+                cmd.Parameters.AddWithValue("@userEmail", data.email);
+
+                cmd.Parameters.AddWithValue("@serviceCenterId", data.serviceCenterId);
+
+                cmd.Parameters.AddWithValue("@serviceCenterName", data.serviceCenterName);
+
+                cmd.Parameters.AddWithValue("@serviceCost", data.serviceCost);
+
                 conn.Open();
-                int data = cmd.ExecuteNonQuery();
+                int d = cmd.ExecuteNonQuery();
                 conn.Close();
 
-                if (data >= 1)
+                if (d >= 1)
                 {
-                    msg = "Service center updated";
+                    MailMessage email = new MailMessage();
+                    email.From = new MailAddress("kraftcamservices@gmail.com");
+                    email.To.Add(data.email);
+                    email.Subject = "Appointment Booked Successfully - Kraft-Cam Services";
+                    string emailBody = $"Hello, {data.customerName}\n\n"
+                        + "Thank you for booking an appointment with Kraft-Cam! We are thrilled to have you as our customer and are committed to providing you with the best camera services.\n\n"
+                        + $"Service Name: {data.serviceCenterName}\n"
+                        + $"Camera Name: {data.productName}\n"
+                        + $"Customer Contact: {data.contactNumber}\n"
+                         + $"Appointment Date: {data.dateOfAppointment.ToString("dd-MM-yyyy")}\n"
+                        + $"Booked Slot: {data.bookedSlots}\n\n"
+                        + "At Kraft-Cam, our mission is to deliver top-notch camera services that meet your needs and exceed your expectations. We have a team of dedicated professionals who are passionate about ensuring your satisfaction.\n\n"
+                        + "We invite you to visit our service center 10 minutes before your booked slot. Our experts will be ready to assist you with your camera needs.\n\n"
+                        + "Once again, thank you for choosing Kraft-Cam. We truly appreciate your trust and confidence in us. We look forward to providing you with exceptional service and a great experience.\n\n"
+                        + "Best regards,\n"
+                        + "Team Kraft-Cam";
+
+
+                    email.Body = emailBody;
+
+                    SmtpClient smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential("kraftcamservices@gmail.com", "nvutaqbuynvnqeia")
+                    };
+
+                    smtp.Send(email);
+
+                    msg = "Appointment Booked Successfully";
                 }
                 else
                 {
-                    msg = "Failed";
+                    msg = "Appointment is already booked";
                 }
-
-
             }
             catch (Exception e)
             {
                 msg = e.Message;
             }
+
             return msg;
         }
 
@@ -764,19 +816,28 @@ internal string saveAppointment(ProductModel data)
             string msg = string.Empty;
             try
             {
-                cmd = new SqlCommand("deleteServiceCenterId", conn);
+
+                cmd = new SqlCommand("setAvailableSlots", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@serviceCenterId", serivceCenterId);
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
+
+                cmd.Parameters.AddWithValue("@Appointmentdate", model.Appointmentdate);
+
+                List<string> availableSlots = model.availableSlots;
+                string slotsString = string.Join(",", availableSlots);
+                cmd.Parameters.AddWithValue("@availableSlots", slotsString);
+
                 conn.Open();
-                int data = cmd.ExecuteNonQuery();
+                int d = cmd.ExecuteNonQuery();
                 conn.Close();
-                if (data >= 1)
+
+                if (d >= 1)
                 {
-                    msg = "Service center deleted";
+                    msg = "Slots Updated";
                 }
                 else
                 {
-                    msg = "Can't Delete Service Center Appointments booked for that service center";
+                    msg = "Failed to update";
                 }
             }
             catch (Exception e)
@@ -1058,6 +1119,12 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
         internal string addServiceCenter([FromBody] JsonElement jsonData)
         {
             string msg = string.Empty;
+            try
+            {
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new TimeSpanConverter() }
+                };
 
                 var model = JsonSerializer.Deserialize<ServiceCenterModel>(jsonData.GetRawText(), options);
 

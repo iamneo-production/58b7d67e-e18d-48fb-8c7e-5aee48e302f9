@@ -272,8 +272,12 @@ namespace dotnetapp
         /*this method insert the availableSlots while adding the service center*/
         internal string availableSlots(AppointmentModel m)
         {
-            List<ProductModel> m = new List<ProductModel>();
-            SqlDataReader dr;
+            string msg = string.Empty;
+            try
+            {
+                cmd = new SqlCommand("InsertAvailableSlots", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serviceCenterId", m.serviceCenterId);
 
                 List<string> availableSlots = m.availableSlots;
                 string slotsString = string.Join(",", availableSlots);
@@ -1150,19 +1154,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
             }
             catch (Exception e)
             {
-                ProductModel model = new ProductModel();
-                model.ID =int.Parse( dr["ID"].ToString());
-                model.customerName = dr["customerName"].ToString();
-                model.email = dr["email"].ToString();
-                model.productName = dr["productName"].ToString();
-                model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
-                model.contactNumber = dr["contactNumber"].ToString();
-                model.bookedSlots = dr["bookedSlots"].ToString();
-                model.serviceCenterId = dr["serviceCenterId"].ToString();
-                model.serviceCenterName = dr["serviceCenterName"].ToString();
-                model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
-                model.serviceCost = (dr["serviceCost"].ToString());
-                m.Add(model);
+                msg = e.Message;
             }
             return msg;
         }

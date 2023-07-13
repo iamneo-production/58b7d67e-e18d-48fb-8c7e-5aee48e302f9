@@ -1,6 +1,3 @@
---Admin Table
--------------
-
 create table AdminTable
 (
 AdminId int identity(1,1),
@@ -18,18 +15,6 @@ create table UserTable
 UserId int identity (1,1),
 Email varchar(100) primary key,
 Password varchar(100) collate Latin1_General_CS_AS not null,
-UserName varchar(100) not null,
-MobileNumber varchar(100) unique,
-UserRole varchar(100) not null,
-);
-
---UserTable
----------------
-create table UserTable
-(
-UserId int identity (1,1),
-Email varchar(100) primary key,
-Password varchar(100) not null,
 UserName varchar(100) not null,
 MobileNumber varchar(100) unique,
 UserRole varchar(100) not null,
@@ -90,7 +75,3 @@ Rating int,
 review varchar(max),
 FOREIGN KEY (serviceCenterId) REFERENCES AddCenters(serviceCenterId)
 );
-
-
-
- 

@@ -3,11 +3,10 @@ admin or a user. The form collects the user's email, username, mobile number, pa
 the password. It also includes form validation for email, username, mobile number, and password
 fields. */
 import React, { Fragment, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
-import {  useNavigate } from "react-router-dom";
 import '../../Styling/LoadingScreen.css';
 import '../../Styling/signup.css';
 import {  ScaleLoader } from 'react-spinners';

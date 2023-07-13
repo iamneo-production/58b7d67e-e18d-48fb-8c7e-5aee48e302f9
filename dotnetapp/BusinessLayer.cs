@@ -49,19 +49,19 @@ namespace dotnetapp
         /*by creating an object for the data access layer, we are accessing all the methods */
         public List<AppointmentModel> getSlotDetailsByDate(string serviceCenterId, DateTime Date)
         {
-            return dataAccessLayer.viewServiceCenterByID(serivceCenterId);
+            return dataAccessLayer.getSlotDetailsByDate(serviceCenterId, Date);
         }
-        public string updateGetSlots(string serviceCenterId, AppointmentModel model)
+        public string saveAppointment(ProductModel data)
         {
-            return dataAccessLayer.updateGetSlots(serviceCenterId, model);
+            return dataAccessLayer.saveAppointment(data);
         }
-        public string deleteServiceCenter(string serivceCenterId)
+        public string postAvailableSlots(AppointmentModel model)
         {
-            return dataAccessLayer.deleteServiceCenter(serivceCenterId);
+            return dataAccessLayer.postAvailableSlots(model);
         }
-        public string deleteAvailableSlots(string serviceCenterId)
+        public List<ProductModel> getAllAppointments()
         {
-            return dataAccessLayer.deleteAvailableSlots(serviceCenterId);
+            return dataAccessLayer.getAllAppointments();
         }
         public List<ProductModel> getAppointment(string email)
         {

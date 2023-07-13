@@ -95,7 +95,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return msg;
         }
@@ -203,7 +203,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -232,7 +232,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -562,7 +562,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return user;
         }
@@ -712,21 +712,14 @@ namespace dotnetapp
                     m1.availableSlots = availableSlots1;
                     list1.Add(m1);
 
-                model.serviceCenterId = dr["serviceCenterId"].ToString();
-                model.serviceCenterName = dr["serviceCenterName"].ToString();
-                model.serviceCenterPhone = dr["serviceCenterPhone"].ToString();
-                model.serviceCenterAddress = dr["serviceCenterAddress"].ToString();
-                model.serviceCenterImageUrl = dr["serviceCenterImageUrl"].ToString();
-                model.serviceCenterMailId = dr["serviceCenterMailId"].ToString();
-                model.serviceCost = (dr["serviceCost"].ToString());
-                model.serviceCenterStartTime = TimeSpan.Parse(dr["serviceCenterStartTime"].ToString());
-                model.serviceCenterEndTime = TimeSpan.Parse(dr["serviceCenterEndTime"].ToString());
-                model.serviceCenterDescription = dr["serviceCenterDescription"].ToString();
-
+                }
             }
-            conn.Close();
-            return model;
-        }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return list1;
+
 
 
 
@@ -859,7 +852,7 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;
@@ -884,7 +877,6 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
             return emailAddress;
@@ -1067,19 +1059,11 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
         {
             string msg = string.Empty;
 
-            try
-            {
-
-                var options = new JsonSerializerOptions
-                {
-                    Converters = { new TimeSpanConverter() }
-                };
-
                 var model = JsonSerializer.Deserialize<ServiceCenterModel>(jsonData.GetRawText(), options);
 
-                cmd = new SqlCommand("updateAddCenters", conn);
+                cmd = new SqlCommand("AdminAddServiceCenter", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                cmd.Parameters.AddWithValue("@serviceCenterId", model.serviceCenterId);
                 cmd.Parameters.AddWithValue("@serviceCenterName", model.serviceCenterName);
                 cmd.Parameters.AddWithValue("@serviceCenterPhone", model.serviceCenterPhone);
                 cmd.Parameters.AddWithValue("@serviceCenterAddress", model.serviceCenterAddress);
@@ -1089,20 +1073,17 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
                 cmd.Parameters.AddWithValue("@serviceCenterStartTime", model.serviceCenterStartTime);
                 cmd.Parameters.AddWithValue("@serviceCenterEndTime", model.serviceCenterEndTime);
                 cmd.Parameters.AddWithValue("@serviceCenterDescription", model.serviceCenterDescription);
+
                 conn.Open();
                 int data = cmd.ExecuteNonQuery();
-                conn.Close();
-
                 if (data >= 1)
                 {
-                    msg = "Service center updated";
+                    msg = "Service Center added";
                 }
                 else
                 {
-                    msg = "Failed";
+                    msg = "Failed to Add Service Center";
                 }
-
-
             }
             catch (Exception e)
             {
@@ -1131,7 +1112,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;

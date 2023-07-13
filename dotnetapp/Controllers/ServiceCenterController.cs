@@ -86,7 +86,7 @@ namespace dotnetapp.Controllers
             [Route("admin/addServiceCenter")]
             public IActionResult addServiceCenter([FromBody] JsonElement jsonData)
             {
-                string result = businesslayer.deleteServiceCenter(serivceCenterId);
+                string result = businesslayer.addServiceCenter(jsonData);
                 return Ok(result);
             }
             /*TimeSpanConverter class that inherits from JsonConverter<TimeSpan>. 
@@ -94,20 +94,17 @@ namespace dotnetapp.Controllers
              * for converting a JSON string representation into a TimeSpan object. */
             public class TimeSpanConverter : JsonConverter<TimeSpan>
             {
-                string result = businesslayer.deleteAvailableSlots(serviceCenterId);
-                return Ok(result);
-            }
+                public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+                {
+                    string value = reader.GetString();
+                    return TimeSpan.Parse(value);
+                }
 
-
-            /* this method returns an IActionResult, and the result being returned is a string */
-            [HttpPut]
-            [Route("admin/editServiceCenter/{serviceCenterId}")]
-            public IActionResult editServiceCenter(string serviceCenterId, [FromBody] JsonElement jsonData)
-            {
-                string result = businesslayer.editServiceCenter(serviceCenterId, jsonData);
-                return Ok(result);
+                public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
+                {
+                    writer.WriteStringValue(value.ToString());
+                }
             }
-        
 
     }
 }

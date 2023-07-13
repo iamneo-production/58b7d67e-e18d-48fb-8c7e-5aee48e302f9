@@ -1,164 +1,94 @@
-# Getting Started with Create React App
+# 58b7d67e-e18d-48fb-8c7e-5aee48e302f9
+https://sonarcloud.io/summary/overall?id=examly-test_58b7d67e-e18d-48fb-8c7e-5aee48e302f9
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Name : DotNet_React_AE_Camera_Service_2023
 
-## Available Scripts
+# DESIGN DOCUMENT
+https://docs.google.com/document/d/15xdl9qkzr5NUlxoHzpjl-smfzJY_eWkk/edit?usp=sharing&ouid=102646418630416371585&rtpof=true&sd=true
 
-In the project directory, you can run:
+## Project Completion Status Report
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5cbd79ad505f985ded7e4d2a5b2d776b3529f9da
-=======
->>>>>>> 7797356674132b6a1c6bb5352c9026bc1f776df2
-### `npm install`
+#### Virtusa Batch 01 Team 05
 
-Install all the required dependencies to run the app
+#### Team Members
 
-### `npm start`
+1. Manoj Deva - Team Leader, Appointment and Cart UI and APIs
+2. Sai Ganga Prasuna Golakoti - Customer Dashboard UI and APIs
+3. Rudra Eeswari Kalyani - Services UI and APIs
+4. Shaik Khwaja Nizam Mohammad - Navbar UI and APIs
+5. Meka Uday Sagar Reddy - Reviews UI and APIs
+6. Sreeramula Sankeerthana - AddCenters and AdminHomePage UI and APIs
+7. Sri Sai Pravallika Muddana - CustomersHomePage UI and APIs
+8. Alekya Rekapalli - Login and Signup UI and APIs
+9. Namratha Budithi - Customers UI and APIs
+10. Durga Devi Addagalla - CenterProfile UI and APIs
 
-Runs the app in the development mode.\
-Open [https://8081-cafaddadbadfcefbadbddebabfddbdad.project.examly.io/](https://8081-cafaddadbadfcefbadbddebabfddbdad.project.examly.io/) to view it in your browser.
+## Instructions and Commands to run the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-### `npm start`
+### Login Credentials for Admin
+user id: admin@gmail.com
+password: Admin@123
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### React Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
-=======
->>>>>>> 5cbd79ad505f985ded7e4d2a5b2d776b3529f9da
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> 7797356674132b6a1c6bb5352c9026bc1f776df2
+#### cd reactapp
+To select the react project folder
+#### npm install
+To install the packages
+#### npm start
+To start the frontend in 8081 port
 
-### `npm test`
+### DotNet Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### cd dotnetapp
+To select the dotnet project folder
+#### dotnet restore
+To install the dependencies
+#### dotnet run
+To run the application in 8080 port
+#### dotnet clean
+If found any errors then run the clean command and start install and run the project again.
+#### dotnet add package package_name --version 6.0
+Any package if required you can install by the above command. The package that you are installing should support .Net 6.0 version.
 
-### `npm run build`
+### Database connection
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### To Work with SQLServer:
+sqlcmd -U sa 
+password: examlyMssql@123
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+1> create database DBName
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2> go
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7797356674132b6a1c6bb5352c9026bc1f776df2
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1> use DBName
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2> go
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1> create table TableName(id int identity(1,1),........)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1e5d4c8a2c785f1af11c44957158b26c23595b82
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> d3b1ba8fb5941e415fe114a25a9c8ca16f4af93c
-=======
->>>>>>> 7797356674132b6a1c6bb5352c9026bc1f776df2
 
-## Learn More
+2> go
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Challenges
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If there are any challenges in running the test case in the angular/ react part
+Delete the node modules and reinstall them by using the command
+"npm install / npm i"
 
-### Code Splitting
+If there are any challenges in running the test case in the dotnet part
+use these commands:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+dotnet clean
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+dotnet restore
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-<<<<<<< HEAD
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
->>>>>>> 7797356674132b6a1c6bb5352c9026bc1f776df2
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+dotnet run

@@ -10,6 +10,8 @@ UserName varchar(100) not null,
 MobileNumber varchar(100) unique,
 UserRole varchar(100) not null,
 );
+INSERT INTO AdminTable (Email, Password, UserName,MobileNumber,UserRole)
+VALUES ('admin@gmail.com','Admin@123','Admin',9398222359,'Admin', );
 
 --UserTable
 ---------------
@@ -23,17 +25,7 @@ MobileNumber varchar(100) unique,
 UserRole varchar(100) not null,
 );
 
---UserTable
----------------
-create table UserTable
-(
-UserId int identity (1,1),
-Email varchar(100) primary key,
-Password varchar(100) not null,
-UserName varchar(100) not null,
-MobileNumber varchar(100) unique,
-UserRole varchar(100) not null,
-);
+
 
 --ServiceCenterTable
 -----------------------

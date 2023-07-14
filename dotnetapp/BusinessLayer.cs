@@ -40,9 +40,9 @@ namespace dotnetapp
         {
             return (dataAccessLayer.getAdminByEmailId(email));
         }
-        public UserModel getUserByEmailId(string email)
+         public Boolean isUserPresent(LoginModel data)
         {
-            return dataAccessLayer.getUserByEmailId(email);
+            return dataAccessLayer.isUserPresent(data);
         }
 
         //AppointmentController

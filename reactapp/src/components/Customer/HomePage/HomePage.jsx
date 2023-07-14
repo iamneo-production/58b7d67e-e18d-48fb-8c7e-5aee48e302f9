@@ -4,6 +4,12 @@ contains a search form, a list of service centers, and a placeholder service cen
 form allows users to search for service centers based on a keyword. The list of service centers is
 dynamically rendered based on the data provided. Each service center card displays information such
 as the service center name, address, and operating hours. */
+/* The above code is a React component that renders a user interface for a service center search
+application. It includes a top bar, a side bar, and a main content area. The main content area
+contains a search form, a list of service centers, and a placeholder service center card. The search
+form allows users to search for service centers based on a keyword. The list of service centers is
+dynamically rendered based on the data provided. Each service center card displays information such
+as the service center name, address, and operating hours. */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Form, Button, Row, Col, Container } from 'react-bootstrap';

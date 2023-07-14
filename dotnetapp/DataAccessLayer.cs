@@ -95,7 +95,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return msg;
         }
@@ -203,7 +203,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -232,7 +232,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return m;
@@ -562,7 +562,7 @@ namespace dotnetapp
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return user;
         }
@@ -699,21 +699,24 @@ namespace dotnetapp
             try
             {
                 SqlDataReader dr;
-                cmd = new SqlCommand("getAdminByEmail", conn);
+                cmd = new SqlCommand("showAvailableSlots", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@serviceCenterId", serviceCenterId);
+                cmd.Parameters.AddWithValue("@Appointmentdate", Date);
                 conn.Open();
                 dr = cmd.ExecuteReader();
                 while (dr.Read() == true)
                 {
-                    m.UserName = dr["UserName"].ToString();
-                    m.UserRole = dr["UserRole"].ToString();
-                    m.UserId =int.Parse(dr["UserId"].ToString());
+                    AppointmentModel m1 = new AppointmentModel();
+                    List<string> availableSlots1 = dr["availableSlots"].ToString().Split(',').ToList();
+                    m1.availableSlots = availableSlots1;
+                    list1.Add(m1);
+
                 }
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             return list1;
 
@@ -853,7 +856,7 @@ internal string saveAppointment(ProductModel data)
             try
             {
                 SqlDataReader dr;
-                cmd = new SqlCommand("getUserByEmail", conn);
+                cmd = new SqlCommand("getAppointmentDetails", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@userEmail", email);
                 conn.Open();
@@ -894,14 +897,23 @@ internal string saveAppointment(ProductModel data)
                 dr = cmd.ExecuteReader();
                 while (dr.Read() == true)
                 {
-                    m.UserName = dr["UserName"].ToString();
-                    m.UserRole = dr["UserRole"].ToString();
-                    m.UserId = int.Parse(dr["UserId"].ToString());
+                    model.email = dr["email"].ToString();
+                    model.productName = dr["productName"].ToString();
+                    model.productModelNo = dr["productModelNo"].ToString();
+                    model.dateofPurchase = DateTime.Parse(dr["dateofPurchase"].ToString());
+                    model.contactNumber = dr["contactNumber"].ToString();
+                    model.problemDescription = dr["problemDescription"].ToString();
+                    model.bookedSlots = dr["bookedSlots"].ToString();
+                    model.dateOfAppointment = DateTime.Parse(dr["dateOfAppointment"].ToString());
+                    model.serviceCenterId = dr["serviceCenterId"].ToString();
+                    model.serviceCenterName = dr["serviceCenterName"].ToString();
+                    model.dateOfAppointmentBooking = DateTime.Parse(dr["dateOfAppointmentBooking"].ToString());
+                    model.serviceCost = (dr["serviceCost"].ToString());
                 }
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;
@@ -926,7 +938,6 @@ internal string saveAppointment(ProductModel data)
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
             return emailAddress;
@@ -1168,7 +1179,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             conn.Close();
             return model;

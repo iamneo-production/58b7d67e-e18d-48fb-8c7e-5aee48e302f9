@@ -1182,7 +1182,7 @@ List<ServiceCenterModel> getAllServiceCenterDetails = new List<ServiceCenterMode
                 Console.WriteLine(e.Message);
             }
             conn.Close();
-            return list;
+            return model;
         }
 
 
